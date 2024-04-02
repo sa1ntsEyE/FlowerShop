@@ -1,0 +1,124 @@
+
+
+.Sidebar--Main {
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
+  width: 310px;
+  height: 1244px;
+  background: rgb(251, 251, 251);
+
+  .Sidebar--Main--Categories {
+    padding: 14px 24px 14px 18px;
+    .Categories--title {
+      color: rgb(61, 61, 61);
+      font-family: "Oswald", sans-serif;
+      font-size: 18px;
+      font-weight: 700;
+      line-height: 16px;
+      text-align: left;
+      margin: 0 0 10px 0;
+    }
+    .Categories-choice {
+      padding: 0 0 0 10px;
+      .form-check-label {
+        display: flex;
+        justify-content: space-between;
+        font-family: "Oswald", sans-serif;
+        font-size: 15px;
+        font-weight: 400;
+        text-align: left;
+      }
+
+      .form-check-input:checked {
+        background-color: green;
+        border-color: green;
+      }
+    }
+  }
+
+  .Sidebar--Main--Size {
+    padding: 14px 24px 14px 18px;
+    margin: 0 0 20px 0;
+    .Size--title {
+      color: rgb(61, 61, 61);
+      font-family: "Oswald", sans-serif;
+      font-size: 18px;
+      font-weight: 700;
+      line-height: 16px;
+      text-align: left;
+      margin: 0 0 10px 0;
+    }
+    .Size-choice {
+      padding: 0 0 0 10px;
+      .form-check-label {
+        display: flex;
+        justify-content: space-between;
+        font-family: "Oswald", sans-serif;
+        font-size: 15px;
+        font-weight: 400;
+        text-align: left;
+      }
+
+      .form-check-input:checked {
+        background-color: green;
+        border-color: green;
+      }
+    }
+  }
+
+  .Sidebar--Main--Price-Range {
+    padding: 14px 24px 14px 18px;
+    margin: 0 0 20px 0;
+    .Price-Range-title {
+      color: rgb(61, 61, 61);
+      font-family: "Oswald", sans-serif;
+      font-size: 18px;
+      font-weight: 700;
+      line-height: 16px;
+      letter-spacing: 0%;
+      text-align: left;
+    }
+
+    .Price-Range--range {
+      display: flex;
+      align-items: center;
+    }
+
+    .Price-Range--range div:first-child {
+      font-family: "Oswald", sans-serif;
+      font-size: 15px;
+      font-weight: 700;
+      line-height: 16px;
+      letter-spacing: 0%;
+      text-align: left;
+      margin: 0 5px 0 0;
+    }
+
+    .Price-Range--range div:last-child {
+      color: green;
+      font-family: "Oswald", sans-serif;
+      font-size: 15px;
+      font-weight: 700;
+      line-height: 16px;
+      letter-spacing: 0%;
+      text-align: left;
+    }
+  }
+}
+
+
+
+
+mat-slider {
+  width: 200px;
+}
+
+::ng-deep .mat-mdc-slider .mdc-slider__thumb-knob {
+  background-color: green !important;
+  border-color: green !important;
+}
+
+::ng-deep .mat-mdc-slider .mdc-slider__track--active_fill {
+  border-color: green !important;
+}

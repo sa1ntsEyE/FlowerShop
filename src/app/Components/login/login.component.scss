@@ -1,0 +1,228 @@
+.show {
+  display: block;
+}
+
+.hide {
+  display: none;
+}
+
+.Login {
+  font-family: "Oswald", sans-serif;
+  width: 500px;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 100;
+
+  .choiceLogin p.selected {
+    color: green;
+  }
+
+  .choiceRegister p.selected {
+    color: red;
+  }
+  .login--main{
+    position: relative;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    width: 100vh; /* Желаемая ширина модального окна */
+    max-width: 500px; /* Максимальная ширина модального окна */
+    background-color: #fff; /* Цвет фона модального окна */
+    padding: 20px; /* Отступы внутри модального окна */
+    border-radius: 10px;
+    border: 1px solid rgb(234, 234, 234);
+    .close {
+      position: absolute; /* Используем абсолютное позиционирование */
+      top: 10px; /* Выберите желаемое значение отступа сверху */
+      right: 10px; /* Располагаем элемент справа с отступом */
+      width: 18px;
+      height: 18px;
+      background-color: #ffffff;
+      text-align: right;
+      cursor: pointer;
+
+      &::before,
+      &::after {
+        content: '';
+        position: absolute;
+        width: 2px;
+        height: 100%;
+        background-color: rgb(70, 163, 88);
+        top: 0;
+        left: calc(50% - 1px);
+        transition: transform 0.3s ease-in-out, background-color 0.3s ease-in-out;
+      }
+
+      &::before {
+        transform: rotate(45deg);
+      }
+
+      &::after {
+        transform: rotate(-45deg);
+      }
+
+      &:hover::before {
+        transform: rotate(90deg);
+      }
+
+      &:hover::after {
+        transform: rotate(-90deg);
+      }
+
+      &:hover::before,
+      &:hover::after {
+        background-color: rgb(70, 163, 88);
+      }
+    }
+
+
+    .choicelogOrReg {
+      width: 150px;
+      display: flex;
+      justify-content: space-evenly;
+      font-size: 20px;
+      font-weight: 500;
+      line-height: 16px;
+      letter-spacing: 0%;
+      text-align: left;
+      margin: 0 0 53px 0;
+      button {
+        border: none;
+        background: #ffffff;
+        color: rgb(61, 61, 61);
+        font-size: 20px;
+        font-weight: 500;
+        line-height: 16px;
+        letter-spacing: 0%;
+        text-align: left;
+        cursor: pointer;
+      }
+    }
+
+    .PersonData {
+      height: 341px;
+      display: flex;
+      align-items: center;
+      flex-direction: column;
+      justify-content: space-between;
+      input{
+        width: 300px;
+        height: 40px;
+        box-sizing: border-box;
+        border: 1px solid rgb(234, 234, 234);
+        border-radius: 5px;
+        padding: 0 14px 0 14px;
+
+      }
+      .PersonData--Title {
+        color: rgb(61, 61, 61);
+        font-size: 13px;
+        font-weight: 400;
+        line-height: 16px;
+        letter-spacing: 0%;
+        text-align: left;
+
+      }
+
+      .PersonData--Email {
+        input{
+          width: 300px;
+          height: 40px;
+          box-sizing: border-box;
+          border: 1px solid rgb(234, 234, 234);
+          border-radius: 5px;
+          padding: 0 14px 0 14px;
+        }
+
+      }
+
+     .PersonData--Password {
+       input{
+         width: 300px;
+         height: 40px;
+         box-sizing: border-box;
+         border: 1px solid rgb(234, 234, 234);
+         border-radius: 5px;
+
+       }
+
+     }
+      .PersonData--Forgot {
+        color: rgb(70, 163, 88);
+        font-size: 14px;
+        font-weight: 400;
+        line-height: 16px;
+        letter-spacing: 0%;
+        text-align: right;
+        margin: 0 0 14px 0;
+        a {
+          color: rgb(70, 163, 88);
+        }
+      }
+
+      .PersonData--Login-btn {
+        button {
+          width: 300px;
+          height: 45px;
+          border-radius: 5px;
+          background: rgb(70, 163, 88);
+          color: rgb(255, 255, 255);
+          font-size: 16px;
+          font-weight: 700;
+          line-height: 16px;
+          letter-spacing: 0%;
+          border: none;
+          text-align: center;
+          cursor: pointer;
+        }
+
+      }
+    }
+
+    .AlternativeEntrance {
+      .AlternativeEntrance--title {
+        color: rgb(61, 61, 61);
+        font-size: 13px;
+        font-weight: 400;
+        line-height: 16px;
+        letter-spacing: 0%;
+        text-align: center;
+        margin : 0 0 27px 0;
+      }
+      .AlternativeEntrance--Google-btn {
+        button {
+          width: 300px;
+          height: 40px;
+          box-sizing: border-box;
+          background: rgb(255, 255, 255);
+          border: 1px solid rgb(234, 234, 234);
+          border-radius: 5px;
+          cursor: pointer;
+        }
+        margin : 0 0 15px 0;
+      }
+      .AlternativeEntrance--Facebook-btn {
+        button {
+          width: 300px;
+          height: 40px;
+          box-sizing: border-box;
+          background: rgb(255, 255, 255);
+          border: 1px solid rgb(234, 234, 234);
+          border-radius: 5px;
+          cursor: pointer;
+        }
+      }
+    }
+
+  }
+}
+
+

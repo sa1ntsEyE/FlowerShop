@@ -1,0 +1,60 @@
+header {
+  margin: 26px 0 12px 0;
+}
+.Header--main {
+  display: flex;
+  height: 53px;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 0.3px solid rgba(70, 163, 88, 0.5);
+
+  .Header--logo {
+    cursor: pointer;
+  }
+
+  .Header--navigation {
+    width: 351px;
+
+    ul , li{
+      color: rgb(61, 61, 61);
+      font-family: "Oswald", sans-serif;
+      font-size: 16px;
+      font-weight: 400;
+      line-height: 20px;
+      letter-spacing: 0%;
+      text-align: left;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      list-style: none;
+      padding: 0;
+      margin:  0;
+    }
+
+    li {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      cursor: pointer;
+    }
+
+  }
+  .Header--info {
+    width: 200px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    button {
+      width: 100px;
+      height: 35px;
+      border-radius: 6px;
+      border: none;
+      font-family: "Oswald", sans-serif;
+      color: white;
+      background: rgb(70, 163, 88);
+      cursor: pointer;
+    }
+  }
+}
+

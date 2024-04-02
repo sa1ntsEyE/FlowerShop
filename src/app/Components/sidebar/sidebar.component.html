@@ -1,0 +1,56 @@
+<aside>
+  <div class="Sidebar--Main">
+    <div class="Sidebar--Main--Categories">
+      <div class="Categories--title">
+        Categories
+      </div>
+      <div class="Categories-choice" *ngFor="let categorie of categories; let i = index">
+        <div class="form-check">
+          <input class="form-check-input" type="checkbox" [(ngModel)]="isCheckedCategory[i]" (click)="activateCheckboxCategory($event, i); findCategory()">
+          <label class="form-check-label" (click)="activateCheckboxCategory($event, i)">
+            <p>{{ categorie.name }}</p>
+            <p>({{ categorie.counters }})</p>
+          </label>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="Sidebar--Main--Size">
+      <div class="Size--title">
+        Size
+      </div>
+      <div class="Size-choice" *ngFor="let size of sizes; let i = index">
+        <div class="form-check">
+          <input class="form-check-input" type="checkbox" [(ngModel)]=" isCheckedSize[i]" (click)="activateCheckboxSize($event, i); findCategory()">
+          <label class="form-check-label" (click)="activateCheckboxSize($event, i)">
+            <p>{{ size.name }}</p>
+            <p>({{ size.counters }})</p>
+          </label>
+        </div>
+      </div>
+    </div>
+
+    <div class="Sidebar--Main--Price-Range">
+      <div class="Price-Range-title">
+        Price Range
+      </div>
+      <mat-slider min="0" max="1000">
+        <input value="0" matSliderStartThumb [(ngModel)]="startVal">
+        <input value="1000" matSliderEndThumb [(ngModel)]="endVal">
+      </mat-slider>
+      <div class="Price-Range--range">
+        <div>
+          Price:
+        </div>
+        <div>
+          ${{startVal}} - ${{endVal}}
+        </div>
+      </div>
+    </div>
+
+    <div class="Sidebar--Main--banner">
+      <img src="/assets/Icons/flower.jpg" alt="" width="310" height="472">
+    </div>
+  </div>
+</aside>

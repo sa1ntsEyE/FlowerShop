@@ -1,0 +1,20 @@
+<div class="BodyProduct--wrapper">
+  <div class="BodyProduct--main">
+    <div class="BodyProduct--item" *ngFor="let product of this.products">
+      <div class="Products--body">
+        <img [src]=product.img alt="" width="258" height="250">
+      </div>
+      <div class="Products--Info">
+        <div class="Products--Name">
+          {{product.name}}
+        </div>
+        <div class="Products--Price">
+          ${{product.price}}
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="BodyProduct--pagination">
+
+  </div>
+</div>

@@ -1,0 +1,37 @@
+.BodyProduct--main {
+  display: flex;
+  flex-wrap: wrap;
+  gap:33px;
+  align-items: center;
+  width: 840px;
+
+  .BodyProduct--item {
+    width: 258px;
+    height: 350px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    background: rgb(251, 251, 251);
+  }
+
+  .Products--Info {
+    text-align: left;
+    width: 90%;
+    .Products--Name {
+      color: rgb(61, 61, 61);
+      font-family: "Oswald", sans-serif;
+      font-size: 16px;
+      font-weight: 400;
+      text-align: left;
+    }
+
+    .Products--Price {
+      color: rgb(70, 163, 88);
+      font-family: "Oswald", sans-serif;
+      font-size: 18px;
+      font-weight: 700;
+      text-align: left;
+    }
+  }
+}
