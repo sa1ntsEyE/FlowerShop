@@ -1,7 +1,7 @@
-import {Component, OnInit} from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { ProductsService } from "../../service/Products/products.service";
-import {Products, ProductsAll} from "../../../models/products";
-import {CheckboxstateService} from "../../service/checkboxState/checkboxstate.service";
+import { Products, ProductsAll } from "../../../models/products";
+import { CheckboxstateService } from "../../service/checkboxState/checkboxstate.service";
 
 @Component({
   selector: 'app-sidebar',
@@ -22,20 +22,26 @@ export class SidebarComponent implements OnInit {
     this.sizes = this.ProductsService.sizes;
     this.products = this.ProductsService.products;
 
-    // Initialize isCheckedCategory and isCheckedSize arrays
-    this.isCheckedCategory = new Array(this.categories.length).fill(false);
-    this.isCheckedSize = new Array(this.sizes.length).fill(false);
+    // Initialize isCheckedCategory and isCheckedSize arrays to true, so all checkboxes are checked by default
+    this.isCheckedCategory = new Array(this.categories.length).fill(true);
+    this.isCheckedSize = new Array(this.sizes.length).fill(true);
 
     this.checkboxStateService.updateCategoriesArray(this.categories);
     this.checkboxStateService.updateSizesArray(this.sizes);
 
+    // Subscribe to categories and sizes array changes
     this.checkboxStateService.categoriesArray$.subscribe(categories => {
       this.categories = categories;
+      this.findCategory();  // Re-run filtering when categories are updated
     });
 
     this.checkboxStateService.sizesArray$.subscribe(sizes => {
       this.sizes = sizes;
+      this.findCategory();  // Re-run filtering when sizes are updated
     });
+
+    // Run findCategory to apply initial filtering on load
+    this.findCategory();
   }
 
   startVal = 0;
@@ -45,42 +51,47 @@ export class SidebarComponent implements OnInit {
     this.isCheckedCategory[index] = !this.isCheckedCategory[index];
     this.categories[index].state = this.isCheckedCategory[index];
     this.checkboxStateService.updateCategoriesArray(this.categories);
+    this.findCategory(); // Re-filter products immediately after category change
   }
 
   activateCheckboxSize(event: any, index: number) {
     this.isCheckedSize[index] = !this.isCheckedSize[index];
     this.sizes[index].state = this.isCheckedSize[index];
     this.checkboxStateService.updateSizesArray(this.sizes);
+    this.findCategory(); // Re-filter products immediately after size change
   }
 
+
   findCategory() {
+    // Get the selected categories and sizes (where state is true)
     const selectedCategories = this.categories.filter(category => category.state).map(category => category.name);
     const selectedSizes = this.sizes.filter(size => size.state).map(size => size.name);
 
-    if (selectedCategories.length && selectedSizes.length) {
-      const sortedProducts = this.sortProducts(selectedCategories, selectedSizes);
-      this.checkboxStateService.updateFilteredProducts(sortedProducts);
-      console.log('Filtered and sorted Products:', sortedProducts);
-      return;
+    let filteredProducts: ProductsAll[] = [];
+
+    // If there are no selected categories or sizes, do not show any products
+    if (selectedCategories.length === 0 ) {
+      filteredProducts = []; // No products are displayed if no filters are applied
+    } else {
+      // Filter by category and size
+      if (selectedCategories.length && selectedSizes.length) {
+        filteredProducts = this.sortProducts(selectedCategories, selectedSizes);
+      } else if (selectedCategories.length) {
+        filteredProducts = this.ProductsService.findProductsByCategory(selectedCategories);
+      } else if (selectedSizes.length) {
+        filteredProducts = this.ProductsService.findProductsBySize(selectedSizes);
+      }
+
+      // Filter by price
+      filteredProducts = filteredProducts.filter(product =>
+          product.price >= this.startVal && product.price <= this.endVal
+      );
     }
 
-    if (selectedCategories.length && !selectedSizes.length) {
-      const productsByCategory = this.ProductsService.findProductsByCategory(selectedCategories);
-      this.checkboxStateService.updateFilteredProducts(productsByCategory);
-      console.log('Products by category:', productsByCategory);
-      return;
-    }
-
-    if (selectedSizes.length && !selectedCategories.length) {
-      const productsBySize = this.ProductsService.findProductsBySize(selectedSizes);
-      this.checkboxStateService.updateFilteredProducts(productsBySize);
-      console.log('Products by size:', productsBySize);
-      return;
-    }
-
-    console.log('Please select at least 1 category or 1 size.');
+    // Update the filtered products in the service
+    this.checkboxStateService.updateFilteredProducts(filteredProducts);
+    console.log('Filtered Products:', filteredProducts);
   }
-
 
 
   sortProducts(selectedCategories: string[], selectedSizes: string[]): ProductsAll[] {
@@ -91,10 +102,7 @@ export class SidebarComponent implements OnInit {
         filteredProducts.push(...products);
       });
     });
-    // Здесь вы можете добавить логику сортировки продуктов по вашему желанию
-    return filteredProducts.sort((a, b) => a.price - b.price); // Пример сортировки по цене
+    // Сортировка товаров по цене
+    return filteredProducts.sort((a, b) => a.price - b.price);
   }
-
 }
-
-

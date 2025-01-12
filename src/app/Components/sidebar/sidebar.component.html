@@ -35,11 +35,12 @@
       <div class="Price-Range-title">
         Price Range
       </div>
-      <mat-slider min="0" max="1000">
-        <input value="0" matSliderStartThumb [(ngModel)]="startVal">
-        <input value="1000" matSliderEndThumb [(ngModel)]="endVal">
-      </mat-slider>
-      <div class="Price-Range--range">
+        <mat-slider min="0" max="1000" (input)="findCategory()">
+            <input matSliderStartThumb [(ngModel)]="startVal">
+            <input matSliderEndThumb [(ngModel)]="endVal">
+        </mat-slider>
+
+        <div class="Price-Range--range">
         <div>
           Price:
         </div>

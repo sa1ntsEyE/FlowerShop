@@ -35,3 +35,42 @@
     }
   }
 }
+.BodyProduct--pagination-ul {
+  text-decoration: none;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin-top: 20px;
+
+
+}
+
+.BodyProduct--pagination-ul li {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 35px;
+  height: 35px;
+  border-radius: 4px;
+  box-sizing: border-box;
+  border: 1px solid rgb(229, 229, 229);
+  border-radius: 4px;
+
+
+}
+.BodyProduct--pagination-ul li:hover{
+  color: white;
+  background: rgb(70, 163, 88);
+}
+
+.BodyProduct--pagination-ul li.active {
+  color: white;
+  background: rgb(70, 163, 88);
+}
+
+span {
+  align-self: center;
+}
