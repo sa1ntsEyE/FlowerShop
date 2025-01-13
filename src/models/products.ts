@@ -14,5 +14,6 @@ export interface ProductsAll {
   name:string,
   price: number,
   grade: number,
+  description: string,
   img : string
 }

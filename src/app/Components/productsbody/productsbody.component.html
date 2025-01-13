@@ -1,40 +1,25 @@
 <div class="BodyProduct--wrapper">
     <div class="BodyProduct--main">
-        <!-- Отображение товаров -->
         <div class="BodyProduct--item" *ngFor="let product of products">
             <div class="Products--body">
-                <img [src]="product.img" alt="" width="258" height="250">
+                <img [src]="product.img" alt="" width="258" height="250" />
+            </div>
+            <div class="Product--action">
+                <button mat-flat-button (click)="goToProductDetails(product.id)">Details</button>
             </div>
             <div class="Products--Info">
-                <div class="Products--Name">
-                    {{ product.name }}
-                </div>
-                <div class="Products--Price">
-                    ${{ product.price }}
-                </div>
+                <div class="Products--Name">{{ product.name }}</div>
+                <div class="Products--Price">${{ product.price }}</div>
             </div>
         </div>
     </div>
-
-    <!-- Пагинация -->
     <div class="BodyProduct--pagination">
         <ul class="BodyProduct--pagination-ul">
-            <!-- Кнопка "предыдущая страница" -->
-            <li *ngIf="currentPage > 1" (click)="setPage(currentPage - 1)">
-                &lt;
-            </li>
-
-            <!-- Кнопки с номерами страниц -->
-            <li  *ngFor="let page of pageNumbers"
-                [class.active]="page === currentPage"
-                (click)="setPage(page)">
+            <li *ngIf="currentPage > 1" (click)="setPage(currentPage - 1)">&lt;</li>
+            <li *ngFor="let page of pageNumbers" [class.active]="page === currentPage" (click)="setPage(page)">
                 {{ page }}
             </li>
-
-            <!-- Кнопка "следующая страница" -->
-            <li *ngIf="currentPage < totalPages" (click)="setPage(currentPage + 1)">
-                &gt;
-            </li>
+            <li *ngIf="currentPage < totalPages" (click)="setPage(currentPage + 1)">&gt;</li>
         </ul>
     </div>
 </div>

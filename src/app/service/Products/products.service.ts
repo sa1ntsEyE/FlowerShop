@@ -1,5 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Products, ProductsAll } from "../../../models/products";
+import { HttpClient } from '@angular/common/http';
+import { Observable, of, throwError } from 'rxjs';
 
 interface ProductSize {
   name: string;
@@ -38,6 +40,7 @@ export class ProductsService {
       name: 'Barberton Daisy',
       price: 120.00,
       grade: 4,
+      description: 'lala',
       img: 'assets/IconsProduct/product1.png'
     },
     {
@@ -47,6 +50,7 @@ export class ProductsService {
       name: 'Angel Wing Begonia',
       price: 169.00,
       grade: 3,
+      description: 'lala',
       img: 'assets/IconsProduct/product2.png'
     },
     {
@@ -56,6 +60,7 @@ export class ProductsService {
       name: 'African Violet',
       price: 219.00,
       grade: 5,
+      description: 'lala',
       img: 'assets/IconsProduct/product3.png'
     },
     {
@@ -65,6 +70,7 @@ export class ProductsService {
       name: 'Beach Spider Lily',
       price: 129.00,
       grade: 5,
+      description: 'lala',
       img: 'assets/IconsProduct/product4.jpg'
     },
     {
@@ -74,6 +80,7 @@ export class ProductsService {
       name: 'Blushing Bromeliad',
       price: 139.00,
       grade: 5,
+      description: 'lala',
       img: 'assets/IconsProduct/product5.png'
     },
     {
@@ -83,6 +90,7 @@ export class ProductsService {
       name: 'Aluminum Plant',
       price: 179.00,
       grade: 3,
+      description: 'lala',
       img: 'assets/IconsProduct/product6.png'
     },
     {
@@ -92,6 +100,7 @@ export class ProductsService {
       name: 'Bird\'s Nest Fern',
       price: 99.00,
       grade: 4,
+      description: 'lala',
       img: 'assets/IconsProduct/product7.png'
     },
     {
@@ -101,6 +110,7 @@ export class ProductsService {
       name: 'Broadleaf Lady Palm',
       price: 60.00,
       grade: 5,
+      description: 'lala',
       img: 'assets/IconsProduct/product8.png'
     },
     {
@@ -110,6 +120,7 @@ export class ProductsService {
       name: 'Chinese Evergreen',
       price: 39.00,
       grade: 4,
+      description: 'lala',
       img: 'assets/IconsProduct/product9.png'
     },
     {
@@ -119,50 +130,59 @@ export class ProductsService {
       name: 'Chinese Evergreen',
       price: 39.00,
       grade: 4,
+      description: 'lala',
       img: 'assets/IconsProduct/product9.png'
     }
   ];
 
-  // Метод для обновления counters в категориях
-  updateCategoryCounters() {
-    this.categories.forEach(category => {
-      // Подсчитываем количество товаров для каждой категории
-      category.counters = this.products.filter(product => product.categories === category.name).length;
-    });
-  }
-
-  // Метод для обновления counters в размерах
-  updateSizeCounters() {
-    this.sizes.forEach(size => {
-      // Подсчитываем количество товаров для каждого размера
-      size.counters = this.products.filter(product => product.size.name === size.name && product.size.state).length;
-    });
-  }
-
-  // Вызываем методы обновления counters в конструкторе
-  constructor() {
+  constructor(private http: HttpClient) {
     this.updateCategoryCounters();
     this.updateSizeCounters();
   }
 
+  // Обновление счетчиков категорий
+  updateCategoryCounters(): void {
+    this.categories.forEach(category => {
+      category.counters = this.products.filter(product => product.categories === category.name).length;
+    });
+  }
+
+  // Обновление счетчиков размеров
+  updateSizeCounters(): void {
+    this.sizes.forEach(size => {
+      size.counters = this.products.filter(product => product.size.name === size.name && product.size.state).length;
+    });
+  }
+
+  // Поиск продуктов по категориям
   findProductsByCategory(categories: string[]): ProductsAll[] {
-    return this.products.filter(product =>
-        categories.includes(product.categories)
-    );
+    return this.products.filter(product => categories.includes(product.categories));
   }
 
+  // Поиск продуктов по размерам
   findProductsBySize(sizes: string[]): ProductsAll[] {
-    return this.products.filter(product =>
-        sizes.includes(product.size.name) &&
-        product.size.state
+    return this.products.filter(product => sizes.includes(product.size.name) && product.size.state);
+  }
+
+  // Поиск продуктов по категориям и размерам
+  findProductsByCategoryAndSize(categories: string[], sizes: string[]): ProductsAll[] {
+    return this.products.filter(
+        product =>
+            categories.includes(product.categories) &&
+            sizes.includes(product.size.name) &&
+            product.size.state
     );
   }
 
-  findProductsByCategoryAndSize(categories: string[], sizes: string[]): ProductsAll[] {
-    return this.products.filter(product =>
-        categories.includes(product.categories) &&
-        sizes.includes(product.size.name) &&
-        product.size.state
-    );
+  // Получение продукта по ID
+  getProductById(id: number): Observable<ProductsAll> {
+    console.log(`Fetching product with ID: ${id}`);
+    const product = this.products.find(p => p.id === id);
+    if (product) {
+      return of(product); // Возвращает продукт как Observable
+    } else {
+      console.error(`Product with ID ${id} not found`);
+      return throwError(() => new Error('Product not found'));
+    }
   }
 }

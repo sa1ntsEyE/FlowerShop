@@ -16,6 +16,11 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { SidebarComponent } from './Components/sidebar/sidebar.component';
 import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
 import { ProductsbodyComponent } from './Components/productsbody/productsbody.component';
+import { ProductDetailsComponent } from './Components/product-details/product-details.component';
+import { HttpClientModule } from '@angular/common/http';
+import { HomeComponent } from './Layouts/home/home.component';
+
+
 
 
 @NgModule({
@@ -26,6 +31,8 @@ import { ProductsbodyComponent } from './Components/productsbody/productsbody.co
     MainBannerComponent,
     SidebarComponent,
     ProductsbodyComponent,
+    ProductDetailsComponent,
+    HomeComponent,
 
   ],
   imports: [
@@ -37,7 +44,8 @@ import { ProductsbodyComponent } from './Components/productsbody/productsbody.co
     AngularFireModule.initializeApp(environment.firebaseConfig),
     FormsModule,
     NgbModule,
-    MatSliderModule
+    MatSliderModule,
+    HttpClientModule
   ],
   providers: [
     provideClientHydration(),
