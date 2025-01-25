@@ -16,7 +16,8 @@
 
     .Product--action {
       width: 90%;
-
+      display: flex;
+      justify-content: space-between;
       button {
         color: white;
         width: 90px;

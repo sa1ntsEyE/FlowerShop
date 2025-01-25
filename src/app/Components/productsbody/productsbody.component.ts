@@ -1,14 +1,20 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { ProductsService } from "../../service/Products/products.service";
 import { ProductsAll } from "../../../models/products";
 import { CheckboxstateService } from "../../service/checkboxState/checkboxstate.service";
 import { Router } from '@angular/router';
+import { CartService } from "../../service/cart/cart.service";
+
 @Component({
   selector: 'app-productsbody',
   templateUrl: './productsbody.component.html',
   styleUrls: ['./productsbody.component.scss']
 })
+
 export class ProductsbodyComponent implements OnInit {
+
+  @Input() productsBag: ProductsAll[] = [];
+
   products: Array<ProductsAll> = [];
   filteredProducts: Array<ProductsAll> = [];
   currentPage: number = 1;
@@ -16,11 +22,21 @@ export class ProductsbodyComponent implements OnInit {
   totalItems: number = 0;
   totalPages: number = 0;
   pageNumbers: number[] = [];
+
   constructor(
       private productsService: ProductsService,
       private checkboxService: CheckboxstateService,
-      private router: Router
+      private router: Router,
+      private cartService: CartService
   ) {}
+
+  addToCart(product: any) {
+    this.cartService.addToCart(product);
+    console.log(`${product.name} добавлен в корзину`);
+  }
+
+
+
   ngOnInit() {
     console.log('ProductsbodyComponent initialized');
     this.checkboxService.filteredProducts$.subscribe(products => {
@@ -28,7 +44,7 @@ export class ProductsbodyComponent implements OnInit {
       this.totalItems = products.length;
       this.calculateTotalPages();
       this.paginateProducts();
-      console.log('Filtered products updated:', products.length);
+      // console.log('Filtered products updated:', products.length);
     });
   }
   setPage(page: number) {

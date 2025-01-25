@@ -19,8 +19,7 @@ import { ProductsbodyComponent } from './Components/productsbody/productsbody.co
 import { ProductDetailsComponent } from './Components/product-details/product-details.component';
 import { HttpClientModule } from '@angular/common/http';
 import { HomeComponent } from './Layouts/home/home.component';
-
-
+import { CartfindmoreComponent } from './Components/cartfindmore/cartfindmore.component';
 
 
 @NgModule({
@@ -33,6 +32,7 @@ import { HomeComponent } from './Layouts/home/home.component';
     ProductsbodyComponent,
     ProductDetailsComponent,
     HomeComponent,
+    CartfindmoreComponent,
 
   ],
   imports: [

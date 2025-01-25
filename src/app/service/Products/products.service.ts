@@ -71,7 +71,7 @@ export class ProductsService {
       price: 129.00,
       grade: 5,
       description: 'lala',
-      img: 'assets/IconsProduct/product4.jpg'
+      img: 'assets/IconsProduct/product4.png'
     },
     {
       id: 5,

@@ -5,8 +5,10 @@
                 <img [src]="product.img" alt="" width="258" height="250" />
             </div>
             <div class="Product--action">
+                <button mat-flat-button (click)="addToCart(product)">Buy</button>
                 <button mat-flat-button (click)="goToProductDetails(product.id)">Details</button>
             </div>
+
             <div class="Products--Info">
                 <div class="Products--Name">{{ product.name }}</div>
                 <div class="Products--Price">${{ product.price }}</div>

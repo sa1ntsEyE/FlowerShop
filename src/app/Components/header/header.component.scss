@@ -40,10 +40,20 @@ header {
 
   }
   .Header--info {
-    width: 200px;
+    width: 400px;
     display: flex;
     align-items: center;
     justify-content: space-between;
+
+    .Header--search {
+      display: flex;
+      position: relative;
+      svg {
+        position: absolute;
+        top: 5px;
+        left: 150px;
+      }
+    }
 
     button {
       width: 100px;
@@ -57,4 +67,94 @@ header {
     }
   }
 }
+
+
+.cart-modal {
+  position: fixed;
+  top: 20%;
+  right: 5%;
+  width: 500px;
+  background: white;
+  border: 1px solid #ccc;
+  padding: 15px;
+  z-index: 1000;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.cart-items {
+  max-height: 300px;
+  overflow-y: auto;
+}
+
+.cart-item {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 10px;
+}
+
+.cart-search-modal {
+  position: fixed;
+  top: 10%;
+  right: 28%;
+  width: 400px;
+  background: white;
+  border: 1px solid #ccc;
+  padding: 15px;
+  z-index: 1000;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+
+  h3 {
+    color: rgb(61, 61, 61);
+    font-family: "Oswald", sans-serif;
+    text-align: left;
+  }
+}
+
+.cart-search-item {
+  border: 1px solid #ccc;
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 10px;
+}
+
+.quantity-controls {
+  display: flex;
+  align-items: center;
+}
+
+.close-cart {
+  margin-top: 10px;
+  width: 100%;
+}
+
+.Product--action {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: space-around;
+  button {
+    width: 75px !important;
+  }
+}
+
+.Products--Info {
+  width: 50%;
+}
+
+.Products--Name {
+  color: rgb(61, 61, 61);
+  font-family: "Oswald", sans-serif;
+  font-size: 16px;
+  font-weight: 400;
+  text-align: left;
+}
+
+.Products--Price {
+  color: rgb(70, 163, 88);
+  font-family: "Oswald", sans-serif;
+  font-size: 18px;
+  font-weight: 700;
+  text-align: left;
+}
+
 
