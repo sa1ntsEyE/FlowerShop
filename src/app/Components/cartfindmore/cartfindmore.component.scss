@@ -1,15 +1,31 @@
 .cart-item-main {
   display: flex;
   justify-content: space-between;
+  padding-bottom: 135px;
+
+
+  .cart--item:first-child .cart-item-img img {
+    padding-bottom: 40px;
+  }
+
   .cart--item {
     display: flex;
+    align-items: center;
     background: rgb(251, 251, 251);
     width: 36.625rem;
     height: 15.625rem;
-    .cart-item-img {
-
+    position: relative;
+    overflow: hidden;
+    .cart-item-img img:nth-child(2) {
+      position: absolute;
+      top: 170px;
+      left: -190px;
     }
+
+
     .cart-item-text-info {
+      padding-right: 30px;
+      height: 167px;
       display: flex;
       flex-direction: column;
       justify-content: space-evenly;

@@ -20,7 +20,9 @@ import { ProductDetailsComponent } from './Components/product-details/product-de
 import { HttpClientModule } from '@angular/common/http';
 import { HomeComponent } from './Layouts/home/home.component';
 import { CartfindmoreComponent } from './Components/cartfindmore/cartfindmore.component';
-
+import { OurBlogPostsComponent } from './Components/our-blog-posts/our-blog-posts.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { FooterComponent } from './Components/footer/footer.component';
 
 @NgModule({
   declarations: [
@@ -33,6 +35,8 @@ import { CartfindmoreComponent } from './Components/cartfindmore/cartfindmore.co
     ProductDetailsComponent,
     HomeComponent,
     CartfindmoreComponent,
+    OurBlogPostsComponent,
+    FooterComponent,
 
   ],
   imports: [
@@ -45,7 +49,8 @@ import { CartfindmoreComponent } from './Components/cartfindmore/cartfindmore.co
     FormsModule,
     NgbModule,
     MatSliderModule,
-    HttpClientModule
+    BrowserAnimationsModule,
+    HttpClientModule,
   ],
   providers: [
     provideClientHydration(),

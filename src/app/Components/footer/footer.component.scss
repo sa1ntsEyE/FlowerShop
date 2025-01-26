@@ -1,0 +1,255 @@
+.footer--main {
+  .footer--stage-1 {
+    min-height: 250px;
+    display: flex;
+    justify-content: space-between;
+    padding: 30px 25px ;
+    background: rgb(251, 251, 251);
+    .fs1-item--info {
+      max-width: 204px;
+      min-height: 196px;
+      .fs1-item--info--img {
+        img {
+          padding-bottom: 15px;
+        }
+      }
+      .fs1-item--info--title {
+        color: rgb(61, 61, 61);
+        font-family: "Oswald", sans-serif;
+        font-size: 17px;
+        font-weight: 700;
+        line-height: 16px;
+        text-align: left;
+        padding-bottom: 9px;
+      }
+      .fs1-item--info--subtitle {
+        color: rgb(114, 114, 114);
+        font-family: "Oswald", sans-serif;
+        font-size: 14px;
+        font-weight: 400;
+        line-height: 22px;
+        text-align: left;
+      }
+    }
+    .fs1-item-action {
+      max-width: 354px;
+      .fs1-item--info--title {
+        color: rgb(61, 61, 61);
+        font-family: "Oswald", sans-serif;
+        font-size: 18px;
+        font-weight: 700;
+        line-height: 16px;
+        text-align: left;
+        padding-bottom: 18px;
+
+      }
+      .fs1-item--info--action {
+        display: flex;
+        padding-bottom: 17px;
+        input {
+          color: rgb(172, 172, 172);
+          font-family: "Oswald", sans-serif;
+          font-size: 14px;
+          font-weight: 400;
+          width: 100%;
+          border: none;
+          outline: none;
+          padding-left: 11px;
+        }
+
+        input:focus {
+
+        }
+
+        button {
+          width: 85px;
+          min-height: 40px;
+          border-radius: 0px 6px 6px 0px;
+          background: rgb(70, 163, 88);
+          border: none;
+          color: #fff;
+          font-family: "Oswald", sans-serif;
+          font-size: 18px;
+          font-weight: 700;
+        }
+      }
+      .fs1-item--info--subtitle {
+        color: rgb(114, 114, 114);
+        font-family: "Oswald", sans-serif;
+        font-size: 13px;
+        font-weight: 400;
+        line-height: 22px;
+        text-align: left;
+      }
+    }
+  }
+
+  .footer--stage-2 {
+    min-height: 90px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 26px 230px 20px 23px;
+    background: #ECF6EE;
+    .fs2-item--logo {
+      display: flex;
+      justify-content: center;
+      svg {
+
+      }
+    }
+    .fs2-item--location {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+      img {
+        margin-right: 10px;
+      }
+
+    }
+    .fs2-item--contact {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+      img {
+        margin-right: 10px;
+      }
+
+    }
+    .fs2-item--phone {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+      img {
+        margin-right: 10px;
+      }
+    }
+  }
+
+  .footer--stage-3 {
+    min-height: 236px;
+    background: rgb(251, 251, 251);
+
+    border-bottom: 1px solid rgba(70, 163, 88, 0.2);;
+    .footer--stage-3--main {
+
+      display: flex;
+      justify-content: space-between;
+      padding: 33px 155px 27px 23px;
+      .fs3-item--info--account {
+        .fs3-item--info--account--title {
+          color: rgb(61, 61, 61);
+          font-family: "Oswald", sans-serif;
+          font-size: 18px;
+          font-weight: 700;
+          line-height: 16px;
+          letter-spacing: 0%;
+          text-align: left;
+          padding-bottom: 9px;
+        }
+        .fs3-item--info--account--list {
+          li {
+            padding-bottom: 8px;
+          }
+        }
+      }
+
+      .fs3-item--info--help {
+        .fs3-item--info--help--title {
+          color: rgb(61, 61, 61);
+          font-family: "Oswald", sans-serif;
+          font-size: 18px;
+          font-weight: 700;
+          line-height: 16px;
+          letter-spacing: 0%;
+          text-align: left;
+          padding-bottom: 9px;
+        }
+        .fs3-item--info--help--list {
+          li {
+            padding-bottom: 8px;
+          }
+        }
+      }
+
+      .fs3-item--info--categories {
+
+        .fs3-item--info--categories--title {
+          color: rgb(61, 61, 61);
+          font-family: "Oswald", sans-serif;
+          font-size: 18px;
+          font-weight: 700;
+          line-height: 16px;
+          letter-spacing: 0%;
+          text-align: left;
+          padding-bottom: 9px;
+        }
+        .fs3-item--info--categories--list {
+          li {
+            padding-bottom: 8px;
+          }
+        }
+      }
+
+      .fs3-item--info--social-and-accept {
+        .fs3-item--info--social-and-accept--Social {
+          padding-bottom: 33px;
+          .fs3-item--info--social-and-accept--Social--title {
+            color: rgb(61, 61, 61);
+            font-family: "Oswald", sans-serif;
+            font-size: 18px;
+            font-weight: 700;
+            line-height: 16px;
+            letter-spacing: 0%;
+            text-align: left;
+            padding-bottom: 20px;
+          }
+          .fs3-item--info--social-and-accept--Social--img {
+            img {
+              padding-right: 10px;
+              cursor: pointer;
+            }
+          }
+        }
+
+        .fs3-item--info--social-and-accept--Accept {
+          .fs3-item--info--social-and-accept--Accept--title {
+            color: rgb(61, 61, 61);
+            font-family: "Oswald", sans-serif;
+            font-size: 18px;
+            font-weight: 700;
+            line-height: 16px;
+            letter-spacing: 0%;
+            text-align: left;
+            padding-bottom: 13px;
+          }
+          .fs3-item--info--social-and-accept--Accept--img {
+
+            img {
+
+            }
+          }
+        }
+      }
+    }
+
+  }
+
+  .footer--stage-4 {
+    padding-top: 10px;
+    display: flex;
+    justify-content: center;
+    .fs4-reserved {
+      color: rgb(61, 61, 61);
+      font-family: "Oswald", sans-serif;
+      font-size: 14px;
+      font-weight: 400;
+      line-height: 30px;
+      letter-spacing: 0%;
+      text-align: left;
+    }
+  }
+}

@@ -1,90 +1,98 @@
-.BodyProduct--main {
+.BodyProduct--wrapper {
+  height: 100%;
   display: flex;
-  flex-wrap: wrap;
-  gap:33px;
-  align-items: center;
-  width: 840px;
-
-  .BodyProduct--item {
-    width: 258px;
-    height: 350px;
+  flex-direction: column;
+  justify-content: space-between;
+  .BodyProduct--main {
     display: flex;
-    flex-direction: column;
-    justify-content: space-between;
+    flex-wrap: wrap;
+    gap:33px;
     align-items: center;
-    background: rgb(251, 251, 251);
+    max-width: 840px;
 
-    .Product--action {
-      width: 90%;
+    .BodyProduct--item {
+      width: 258px;
+      height: 350px;
       display: flex;
+      flex-direction: column;
       justify-content: space-between;
-      button {
-        color: white;
-        width: 90px;
-        height: 35px;
-        border: none;
-        border-radius: 6px;
-        background: rgb(70, 163, 88);
+      align-items: center;
+      background: rgb(251, 251, 251);
+
+      .Product--action {
+        width: 90%;
+        display: flex;
+        justify-content: space-between;
+        button {
+          color: white;
+          width: 90px;
+          height: 35px;
+          border: none;
+          border-radius: 6px;
+          background: rgb(70, 163, 88);
+        }
+      }
+    }
+
+    .Products--Info {
+      text-align: left;
+      width: 90%;
+      .Products--Name {
+        color: rgb(61, 61, 61);
+        font-family: "Oswald", sans-serif;
+        font-size: 16px;
+        font-weight: 400;
+        text-align: left;
+      }
+
+      .Products--Price {
+        color: rgb(70, 163, 88);
+        font-family: "Oswald", sans-serif;
+        font-size: 18px;
+        font-weight: 700;
+        text-align: left;
       }
     }
   }
+  .BodyProduct--pagination-ul {
+    text-decoration: none;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-top: 20px;
 
-  .Products--Info {
-    text-align: left;
-    width: 90%;
-    .Products--Name {
-      color: rgb(61, 61, 61);
-      font-family: "Oswald", sans-serif;
-      font-size: 16px;
-      font-weight: 400;
-      text-align: left;
-    }
 
-    .Products--Price {
-      color: rgb(70, 163, 88);
-      font-family: "Oswald", sans-serif;
-      font-size: 18px;
-      font-weight: 700;
-      text-align: left;
-    }
   }
-}
-.BodyProduct--pagination-ul {
-  text-decoration: none;
-  list-style: none;
-  padding: 0;
-  margin: 0;
-  display: flex;
-  justify-content: center;
-  gap: 10px;
-  margin-top: 20px;
 
+  .BodyProduct--pagination-ul li {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 35px;
+    height: 35px;
+    border-radius: 4px;
+    box-sizing: border-box;
+    border: 1px solid rgb(229, 229, 229);
+    border-radius: 4px;
+    cursor: pointer;
 
-}
+  }
+  .BodyProduct--pagination-ul li:hover{
+    color: white;
+    background: rgb(70, 163, 88);
+  }
 
-.BodyProduct--pagination-ul li {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 35px;
-  height: 35px;
-  border-radius: 4px;
-  box-sizing: border-box;
-  border: 1px solid rgb(229, 229, 229);
-  border-radius: 4px;
+  .BodyProduct--pagination-ul li.active {
+    color: white;
+    background: rgb(70, 163, 88);
+  }
 
+  span {
+    align-self: center;
+  }
 
-}
-.BodyProduct--pagination-ul li:hover{
-  color: white;
-  background: rgb(70, 163, 88);
 }
 
-.BodyProduct--pagination-ul li.active {
-  color: white;
-  background: rgb(70, 163, 88);
-}
-
-span {
-  align-self: center;
-}

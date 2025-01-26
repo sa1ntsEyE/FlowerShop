@@ -8,17 +8,27 @@ a {
   color: black;
 }
 
-/* Importing Bootstrap SCSS file. */
-
-
 .container {
   max-width: 1200px;
   margin: 0 auto;
   padding: 0;
 }
 
+ul {
+  padding: 0;
+  margin: 0;
+}
 
+li {
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
 
+html, body { height: 100%; position: relative; z-index: 100 }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+

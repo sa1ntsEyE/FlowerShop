@@ -21,6 +21,7 @@
     }
     .Categories-choice {
       padding: 0 0 0 10px;
+
       .form-check-label {
         display: flex;
         justify-content: space-between;
@@ -28,6 +29,15 @@
         font-size: 15px;
         font-weight: 400;
         text-align: left;
+      }
+
+      .form-check{
+        input {
+          cursor: pointer;
+        }
+        .form-check-label {
+          cursor: pointer;
+        }
       }
 
       .form-check-input:checked {

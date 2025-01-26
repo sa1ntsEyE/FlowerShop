@@ -1,0 +1,91 @@
+.container {
+  .cart-blog-item-main {
+    padding-bottom: 100px;
+    .CBIM-Info {
+
+      .CBIM-title {
+        color: rgb(61, 61, 61);
+        font-family: "Oswald", sans-serif;
+        font-size: 30px;
+        font-weight: 700;
+        line-height: 16px;
+        text-align: center;
+        padding-bottom: 15px;
+      }
+      .CBIM-subtitle {
+        color: rgb(114, 114, 114);
+        font-family: "Oswald", sans-serif;
+        font-size: 14px;
+        font-weight: 400;
+        line-height: 24px;
+        text-align: center;
+        padding-bottom: 35px;
+      }
+    }
+    .CBIM-cart--main {
+      display: flex;
+      justify-content: space-between;
+      .CBIM-C-item {
+        background: rgb(251, 251, 251);
+        width: 24%;
+        .CBIM-C-item-img {
+          width: 100%;
+          padding-bottom: 4px;
+        }
+
+        .CBIM-C-I-main {
+          padding: 9px 13px 12px 13px;
+          height: 167px;
+          display: flex;
+          flex-direction: column;
+          justify-content: space-around;
+          .CBIM-C-item-date {
+            color: rgb(70, 163, 88);
+            font-family: "Oswald", sans-serif;
+            font-size: 14px;
+            font-weight: 500;
+            line-height: 16px;
+            text-align: left;
+            padding-bottom: 4px;
+          }
+          .CBIM-C-item-title {
+            color: rgb(61, 61, 61);
+            font-family: "Oswald", sans-serif;
+            font-size: 20px;
+            font-weight: 700;
+            line-height: 26px;
+            text-align: left;
+            padding-bottom: 4px;
+          }
+          .CBIM-C-item-subtitle {
+            color: rgb(114, 114, 114);
+            font-family: "Oswald", sans-serif;
+            font-size: 14px;
+            font-weight: 400;
+            line-height: 22px;
+            text-align: left;
+            padding-bottom: 9px;
+          }
+          .CBIM-C-item-action {
+            color: rgb(61, 61, 61);
+            font-family: "Oswald", sans-serif;
+            font-size: 14px;
+            font-weight: 500;
+            line-height: 16px;
+            text-align: left;
+            cursor: pointer;
+          }
+          .CBIM-C-item-action:hover {
+            color: rgb(70, 163, 88);
+            svg:hover {
+              filter: green
+            }
+
+          }
+
+        }
+
+      }
+    }
+  }
+}

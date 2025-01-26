@@ -48,10 +48,44 @@ header {
     .Header--search {
       display: flex;
       position: relative;
+
+      input {
+        padding-left: 9px;
+        border-radius: 6px;
+        border: none;
+        max-height: 40px;
+        box-shadow: 0px 0px 20px 0px rgba(0, 0, 0, 0.06);
+        background: rgb(255, 255, 255);
+        border: 1px solid rgb(70, 163, 88);
+      }
+
+      input:focus {
+        outline: none;
+        border: 2px solid rgb(70, 163, 88);
+      }
+
       svg {
         position: absolute;
-        top: 5px;
+        top: 3px;
         left: 150px;
+      }
+    }
+
+    .Header--shop {
+      position: relative;
+      span {
+        width: 17px;
+        height: 17px;
+        font-family: "Oswald", sans-serif;
+        position: absolute;
+        font-size: 10px;
+        top: 0px;
+        left: 12px;
+        border-radius: 50%;
+        border: 2px solid rgb(255, 255, 255);
+        background: rgb(70, 163, 88);
+        text-align: center;
+        color: white;
       }
     }
 
