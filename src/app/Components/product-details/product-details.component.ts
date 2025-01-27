@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { ProductsService } from "../../service/Products/products.service";
 import { ProductsAll } from "../../../models/products";
+import {NgbRatingConfig, NgbRatingModule} from "@ng-bootstrap/ng-bootstrap";
 
 @Component({
   selector: 'app-product-details',
@@ -11,11 +12,14 @@ import { ProductsAll } from "../../../models/products";
 export class ProductDetailsComponent implements OnInit {
   productId!: number;
   product: ProductsAll | null = null;
+  selectedChoice: 'description' | 'reviews' = 'description';
+  rating = 5;
 
   constructor(
       private route: ActivatedRoute,
-      private productsService: ProductsService
-  ) {}
+      private productsService: ProductsService,
+      config: NgbRatingConfig
+  ) {	config.max = 5;}
 
   ngOnInit() {
     console.log('ProductDetailsComponent initialized');

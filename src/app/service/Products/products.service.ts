@@ -40,7 +40,21 @@ export class ProductsService {
       name: 'Barberton Daisy',
       price: 120.00,
       grade: 4,
-      description: 'lala',
+      description: 'The ceramic cylinder planters come with a wooden stand to help elevate your plants off the ground. ' +
+          'The ceramic cylinder planters come with a wooden stand to help elevate your plants off the ground. ',
+      productDescription: 'A modern decorative plant in a minimalist metal design. The black metal frame creates a ' +
+          'stylish geometric accent, and inside there is a bowl with thick artificial green leaves, creating a ' +
+          'natural effect. This accessory is suitable for adding freshness and brightness to the interior ' +
+          'without the need for care.',
+      livingRoom: 'In the living room, this decor can be placed on a shelf, coffee table or cabinet. Its modern and ' +
+          'laconic design will perfectly complement the loft, minimalist or modern style, creating a contrast between ' +
+          'the greenery and the strict lines of the metal frame.',
+      diningRoom: 'On the dining table or sideboard, this plant will add a stylish accent and freshness. The compact' +
+          ' size allows you to use it as a central element of decor or part of the composition, creating a cozy ' +
+          'atmosphere.',
+      office: 'In the office, this accessory will fit perfectly on a desk, shelf or windowsill, adding greenery and ' +
+          'modernity to the space. Its strict design combines with a professional environment, while creating visual ' +
+          'comfort and a sense of natural harmony.',
       img: 'assets/IconsProduct/product1.png'
     },
     {
@@ -50,7 +64,21 @@ export class ProductsService {
       name: 'Angel Wing Begonia',
       price: 169.00,
       grade: 3,
-      description: 'lala',
+      description: 'The ceramic cylinder planters come with a wooden stand to help elevate your plants off the ground. ' +
+          'The ceramic cylinder planters come with a wooden stand to help elevate your plants off the ground. ',
+      productDescription: 'This stylish plant pot features a minimalist design, combining a matte white top with a ' +
+          'textured grey concrete base. It houses an artificial plant with large green leaves, imitating a monstera. ' +
+          'The pot is perfect for decorating your interior and creating a fresh, modern accent without the need for ' +
+          'maintenance.',
+      livingRoom: 'In the living room, this pot will add a bright green accent on a coffee table, shelf or in the corner' +
+          ' of the room. Its modern design fits perfectly with minimalist, Scandinavian or eco-themes, giving the space' +
+          ' a cozy and lively feel.',
+      diningRoom: 'In the dining area, this pot can become an elegant decorative element on a sideboard, windowsill or ' +
+          'even in the center of the dining table. Greenery and simple design create a relaxing atmosphere that is well ' +
+          'suited for family and friendly gatherings.',
+      office: 'For the office, this plant will become a source of visual calm and help create a comfortable workspace.' +
+          ' The pot can be placed on a desk, shelf or in the corner of the office to add greenery and modern style ' +
+          'to the interior.',
       img: 'assets/IconsProduct/product2.png'
     },
     {
@@ -60,7 +88,19 @@ export class ProductsService {
       name: 'African Violet',
       price: 219.00,
       grade: 5,
-      description: 'lala',
+      description: 'The ceramic cylinder planters come with a wooden stand to help elevate your plants off the ground. ' +
+          'The ceramic cylinder planters come with a wooden stand to help elevate your plants off the ground. ',
+      productDescription: 'A modern decorative plant in a minimalist metal design. The black metal frame creates a stylish ' +
+          'geometric accent, and inside there is a bowl with thick artificial green leaves, creating a natural effect. ' +
+          'This accessory is suitable for adding freshness and brightness to the interior without the need for care.',
+      livingRoom: 'In the living room, this decor can be placed on a shelf, coffee table or cabinet. Its modern and ' +
+          'laconic design will perfectly complement the loft, minimalist or modern style, creating a contrast between ' +
+          'the greenery and the strict lines of the metal frame.',
+      diningRoom: 'On the dining table or sideboard, this plant will add a stylish accent and freshness. The compact ' +
+          'size allows you to use it as a central element of decor or part of the composition, creating a cozy atmosphere.',
+      office: 'In the office, this accessory will fit perfectly on a desk, shelf or windowsill, adding greenery ' +
+          'and modernity to the space. Its strict design combines with a professional environment, while creating ' +
+          'visual comfort and a sense of natural harmony.',
       img: 'assets/IconsProduct/product3.png'
     },
     {
@@ -70,7 +110,21 @@ export class ProductsService {
       name: 'Beach Spider Lily',
       price: 129.00,
       grade: 5,
-      description: 'lala',
+      description: 'The ceramic cylinder planters come with a wooden stand to help elevate your plants off the ground. ' +
+          'The ceramic cylinder planters come with a wooden stand to help elevate your plants off the ground. ',
+      productDescription: 'This stylish plant pot features a minimalist design, combining a matte white top with a ' +
+          'textured grey concrete base. It houses an artificial plant with large green leaves, imitating a monstera. ' +
+          'The pot is perfect for decorating your interior and creating a fresh, modern accent without the need for ' +
+          'maintenance.',
+      livingRoom: 'In the living room, this pot will add a bright green accent on a coffee table, shelf or in the corner' +
+          ' of the room. Its modern design fits perfectly with minimalist, Scandinavian or eco-themes, giving the space' +
+          ' a cozy and lively feel.',
+      diningRoom: 'In the dining area, this pot can become an elegant decorative element on a sideboard, windowsill or ' +
+          'even in the center of the dining table. Greenery and simple design create a relaxing atmosphere that is well ' +
+          'suited for family and friendly gatherings.',
+      office: 'For the office, this plant will become a source of visual calm and help create a comfortable workspace.' +
+          ' The pot can be placed on a desk, shelf or in the corner of the office to add greenery and modern style ' +
+          'to the interior.',
       img: 'assets/IconsProduct/product4.png'
     },
     {
@@ -80,7 +134,21 @@ export class ProductsService {
       name: 'Blushing Bromeliad',
       price: 139.00,
       grade: 5,
-      description: 'lala',
+      description: 'The ceramic cylinder planters come with a wooden stand to help elevate your plants off the ground. ' +
+          'The ceramic cylinder planters come with a wooden stand to help elevate your plants off the ground. ',
+      productDescription: 'This stylish plant pot features a minimalist design, combining a matte white top with a ' +
+          'textured grey concrete base. It houses an artificial plant with large green leaves, imitating a monstera. ' +
+          'The pot is perfect for decorating your interior and creating a fresh, modern accent without the need for ' +
+          'maintenance.',
+      livingRoom: 'In the living room, this pot will add a bright green accent on a coffee table, shelf or in the corner' +
+          ' of the room. Its modern design fits perfectly with minimalist, Scandinavian or eco-themes, giving the space' +
+          ' a cozy and lively feel.',
+      diningRoom: 'In the dining area, this pot can become an elegant decorative element on a sideboard, windowsill or ' +
+          'even in the center of the dining table. Greenery and simple design create a relaxing atmosphere that is well ' +
+          'suited for family and friendly gatherings.',
+      office: 'For the office, this plant will become a source of visual calm and help create a comfortable workspace.' +
+          ' The pot can be placed on a desk, shelf or in the corner of the office to add greenery and modern style ' +
+          'to the interior.',
       img: 'assets/IconsProduct/product5.png'
     },
     {
@@ -90,7 +158,21 @@ export class ProductsService {
       name: 'Aluminum Plant',
       price: 179.00,
       grade: 3,
-      description: 'lala',
+      description: 'The ceramic cylinder planters come with a wooden stand to help elevate your plants off the ground. ' +
+          'The ceramic cylinder planters come with a wooden stand to help elevate your plants off the ground. ',
+      productDescription: 'This stylish plant pot features a minimalist design, combining a matte white top with a ' +
+          'textured grey concrete base. It houses an artificial plant with large green leaves, imitating a monstera. ' +
+          'The pot is perfect for decorating your interior and creating a fresh, modern accent without the need for ' +
+          'maintenance.',
+      livingRoom: 'In the living room, this pot will add a bright green accent on a coffee table, shelf or in the corner' +
+          ' of the room. Its modern design fits perfectly with minimalist, Scandinavian or eco-themes, giving the space' +
+          ' a cozy and lively feel.',
+      diningRoom: 'In the dining area, this pot can become an elegant decorative element on a sideboard, windowsill or ' +
+          'even in the center of the dining table. Greenery and simple design create a relaxing atmosphere that is well ' +
+          'suited for family and friendly gatherings.',
+      office: 'For the office, this plant will become a source of visual calm and help create a comfortable workspace.' +
+          ' The pot can be placed on a desk, shelf or in the corner of the office to add greenery and modern style ' +
+          'to the interior.',
       img: 'assets/IconsProduct/product6.png'
     },
     {
@@ -100,7 +182,19 @@ export class ProductsService {
       name: 'Bird\'s Nest Fern',
       price: 99.00,
       grade: 4,
-      description: 'lala',
+      description: 'The ceramic cylinder planters come with a wooden stand to help elevate your plants off the ground. ' +
+          'The ceramic cylinder planters come with a wooden stand to help elevate your plants off the ground. ',
+      productDescription: 'A modern decorative plant in a minimalist metal design. The black metal frame creates a stylish ' +
+          'geometric accent, and inside there is a bowl with thick artificial green leaves, creating a natural effect. ' +
+          'This accessory is suitable for adding freshness and brightness to the interior without the need for care.',
+      livingRoom: 'In the living room, this decor can be placed on a shelf, coffee table or cabinet. Its modern and ' +
+          'laconic design will perfectly complement the loft, minimalist or modern style, creating a contrast between ' +
+          'the greenery and the strict lines of the metal frame.',
+      diningRoom: 'On the dining table or sideboard, this plant will add a stylish accent and freshness. The compact ' +
+          'size allows you to use it as a central element of decor or part of the composition, creating a cozy atmosphere.',
+      office: 'In the office, this accessory will fit perfectly on a desk, shelf or windowsill, adding greenery ' +
+          'and modernity to the space. Its strict design combines with a professional environment, while creating ' +
+          'visual comfort and a sense of natural harmony.',
       img: 'assets/IconsProduct/product7.png'
     },
     {
@@ -110,7 +204,21 @@ export class ProductsService {
       name: 'Broadleaf Lady Palm',
       price: 60.00,
       grade: 5,
-      description: 'lala',
+      description: 'The ceramic cylinder planters come with a wooden stand to help elevate your plants off the ground. ' +
+          'The ceramic cylinder planters come with a wooden stand to help elevate your plants off the ground. ',
+      productDescription: 'A modern decorative plant in a minimalist metal design. The black metal frame creates a ' +
+          'stylish geometric accent, and inside there is a bowl with thick artificial green leaves, creating a ' +
+          'natural effect. This accessory is suitable for adding freshness and brightness to the interior ' +
+          'without the need for care.',
+      livingRoom: 'In the living room, this decor can be placed on a shelf, coffee table or cabinet. Its modern and ' +
+          'laconic design will perfectly complement the loft, minimalist or modern style, creating a contrast between ' +
+          'the greenery and the strict lines of the metal frame.',
+      diningRoom: 'On the dining table or sideboard, this plant will add a stylish accent and freshness. The compact' +
+          ' size allows you to use it as a central element of decor or part of the composition, creating a cozy ' +
+          'atmosphere.',
+      office: 'In the office, this accessory will fit perfectly on a desk, shelf or windowsill, adding greenery and ' +
+          'modernity to the space. Its strict design combines with a professional environment, while creating visual ' +
+          'comfort and a sense of natural harmony.',
       img: 'assets/IconsProduct/product8.png'
     },
     {
@@ -120,7 +228,21 @@ export class ProductsService {
       name: 'Chinese Evergreen',
       price: 39.00,
       grade: 4,
-      description: 'lala',
+      description: 'The ceramic cylinder planters come with a wooden stand to help elevate your plants off the ground. ' +
+          'The ceramic cylinder planters come with a wooden stand to help elevate your plants off the ground. ',
+      productDescription: 'A modern decorative plant in a minimalist metal design. The black metal frame creates a ' +
+          'stylish geometric accent, and inside there is a bowl with thick artificial green leaves, creating a ' +
+          'natural effect. This accessory is suitable for adding freshness and brightness to the interior ' +
+          'without the need for care.',
+      livingRoom: 'In the living room, this decor can be placed on a shelf, coffee table or cabinet. Its modern and ' +
+          'laconic design will perfectly complement the loft, minimalist or modern style, creating a contrast between ' +
+          'the greenery and the strict lines of the metal frame.',
+      diningRoom: 'On the dining table or sideboard, this plant will add a stylish accent and freshness. The compact' +
+          ' size allows you to use it as a central element of decor or part of the composition, creating a cozy ' +
+          'atmosphere.',
+      office: 'In the office, this accessory will fit perfectly on a desk, shelf or windowsill, adding greenery and ' +
+          'modernity to the space. Its strict design combines with a professional environment, while creating visual ' +
+          'comfort and a sense of natural harmony.',
       img: 'assets/IconsProduct/product9.png'
     },
     {
@@ -130,7 +252,21 @@ export class ProductsService {
       name: 'Chinese Evergreen',
       price: 39.00,
       grade: 4,
-      description: 'lala',
+      description: 'The ceramic cylinder planters come with a wooden stand to help elevate your plants off the ground. ' +
+          'The ceramic cylinder planters come with a wooden stand to help elevate your plants off the ground. ',
+      productDescription: 'A modern decorative plant in a minimalist metal design. The black metal frame creates a ' +
+          'stylish geometric accent, and inside there is a bowl with thick artificial green leaves, creating a ' +
+          'natural effect. This accessory is suitable for adding freshness and brightness to the interior ' +
+          'without the need for care.',
+      livingRoom: 'In the living room, this decor can be placed on a shelf, coffee table or cabinet. Its modern and ' +
+          'laconic design will perfectly complement the loft, minimalist or modern style, creating a contrast between ' +
+          'the greenery and the strict lines of the metal frame.',
+      diningRoom: 'On the dining table or sideboard, this plant will add a stylish accent and freshness. The compact' +
+          ' size allows you to use it as a central element of decor or part of the composition, creating a cozy ' +
+          'atmosphere.',
+      office: 'In the office, this accessory will fit perfectly on a desk, shelf or windowsill, adding greenery and ' +
+          'modernity to the space. Its strict design combines with a professional environment, while creating visual ' +
+          'comfort and a sense of natural harmony.',
       img: 'assets/IconsProduct/product9.png'
     }
   ];
@@ -179,7 +315,7 @@ export class ProductsService {
     console.log(`Fetching product with ID: ${id}`);
     const product = this.products.find(p => p.id === id);
     if (product) {
-      return of(product); // Возвращает продукт как Observable
+      return of(product);
     } else {
       console.error(`Product with ID ${id} not found`);
       return throwError(() => new Error('Product not found'));

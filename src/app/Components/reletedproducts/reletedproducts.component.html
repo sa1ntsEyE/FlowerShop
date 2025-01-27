@@ -1,0 +1,53 @@
+<div class="container">
+    <div class="reletedProducts--main">
+        <div class="reletedProducts--main--title">
+            Related Products
+        </div>
+
+        <!-- Slider -->
+        <div class="reletedProducts--slider">
+            <div
+                    class="reletedProducts--slider--page"
+                    *ngFor="let page of paginatedProducts; let pageIndex = index"
+                    [style.transform]="'translateX(-' + currentPage * 100 + '%)'"
+            >
+                <div class="reletedProducts--main--block">
+                    <div
+                            class="reletedProducts--main--block--item"
+                            *ngFor="let product of page"
+                    >
+                        <div class="reletedProducts--body">
+                            <img
+                                    [src]="product.img"
+                                    alt="{{ product.name }}"
+                                    width="258"
+                                    height="250"
+                            />
+                        </div>
+                        <div class="reletedProducts--Info">
+                            <div class="reletedProducts--Name">{{ product.name }}</div>
+                            <div class="reletedProducts--Price">
+                                ${{ product.price }}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+            <button class="arrow prev" (click)="prevPage()"><svg xmlns='http://www.w3.org/2000/svg' width="32" viewBox='0 0 16 16' fill='#000'><path d='M11.354 1.646a.5.5 0 0 1 0 .708L5.707 8l5.647 5.646a.5.5 0 0 1-.708.708l-6-6a.5.5 0 0 1 0-.708l6-6a.5.5 0 0 1 .708 0z'/></svg></button>
+            <button class="arrow next" (click)="nextPage()"><svg xmlns='http://www.w3.org/2000/svg' width="32" viewBox='0 0 16 16' fill='#000'><path d='M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708z'/></svg></button>
+        </div>
+
+        <!-- Arrow Navigation -->
+
+
+        <!-- Dot Navigation -->
+        <div class="slider-navigation-dots">
+            <button
+                    *ngFor="let page of paginatedProducts; let i = index"
+                    [class.active]="i === currentPage"
+                    (click)="setPage(i)"
+            ></button>
+        </div>
+    </div>
+</div>

@@ -15,5 +15,9 @@ export interface ProductsAll {
   price: number,
   grade: number,
   description: string,
+  productDescription: string,
+  livingRoom: string,
+  diningRoom: string,
+  office: string,
   img : string
 }

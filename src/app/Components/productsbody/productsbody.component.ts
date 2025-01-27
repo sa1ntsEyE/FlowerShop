@@ -12,9 +12,6 @@ import { CartService } from "../../service/cart/cart.service";
 })
 
 export class ProductsbodyComponent implements OnInit {
-
-  @Input() productsBag: ProductsAll[] = [];
-
   products: Array<ProductsAll> = [];
   filteredProducts: Array<ProductsAll> = [];
   currentPage: number = 1;
@@ -35,8 +32,6 @@ export class ProductsbodyComponent implements OnInit {
     console.log(`${product.name} добавлен в корзину`);
   }
 
-
-
   ngOnInit() {
     console.log('ProductsbodyComponent initialized');
     this.checkboxService.filteredProducts$.subscribe(products => {
@@ -47,21 +42,25 @@ export class ProductsbodyComponent implements OnInit {
       // console.log('Filtered products updated:', products.length);
     });
   }
+
   setPage(page: number) {
     if (page < 1 || page > this.totalPages) return;
     this.currentPage = page;
     this.paginateProducts();
   }
+
   paginateProducts() {
     const startIndex = (this.currentPage - 1) * this.itemsPerPage;
     const endIndex = startIndex + this.itemsPerPage;
     this.products = this.filteredProducts.slice(startIndex, endIndex);
     console.log('Products paginated:', this.products.length);
   }
+
   calculateTotalPages() {
     this.totalPages = Math.ceil(this.totalItems / this.itemsPerPage);
     this.pageNumbers = Array.from({ length: this.totalPages }, (_, i) => i + 1);
   }
+
   goToProductDetails(productId: number) {
     console.log('Attempting to navigate to product:', productId);
     this.router.navigate(['/product', productId]).then(

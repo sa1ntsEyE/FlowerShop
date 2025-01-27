@@ -23,6 +23,7 @@ import { CartfindmoreComponent } from './Components/cartfindmore/cartfindmore.co
 import { OurBlogPostsComponent } from './Components/our-blog-posts/our-blog-posts.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FooterComponent } from './Components/footer/footer.component';
+import { ReletedproductsComponent } from './Components/reletedproducts/reletedproducts.component';
 
 @NgModule({
   declarations: [
@@ -37,6 +38,7 @@ import { FooterComponent } from './Components/footer/footer.component';
     CartfindmoreComponent,
     OurBlogPostsComponent,
     FooterComponent,
+    ReletedproductsComponent,
 
   ],
   imports: [

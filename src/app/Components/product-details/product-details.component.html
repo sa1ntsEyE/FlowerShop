@@ -1,9 +1,175 @@
 <app-header></app-header>
+
 <div class="container">
-    <div *ngIf="product">
-        <h1>{{ product.name }}</h1>
-        <img [src]="product.img" alt="{{ product.name }}" width="300" height="300" />
-        <p>{{ product.description }}</p>
-        <p>Price: ${{ product.price }}</p>
+    <div *ngIf="product" class="productDetails--main">
+        <div  class="productDetails--photo--main">
+            <div class="productDetails--photo-small">
+                <div class="productDetails--photo-small--item">
+                    <img [src]="product.img" alt="{{ product.name }}" width="100" height="100" />
+                </div>
+                <div class="productDetails--photo-small--item">
+                    <img [src]="product.img" alt="{{ product.name }}" width="100" height="100" />
+                </div>
+                <div class="productDetails--photo-small--item">
+                    <img [src]="product.img" alt="{{ product.name }}" width="100" height="100" />
+                </div>
+                <div class="productDetails--photo-small--item">
+                    <img [src]="product.img" alt="{{ product.name }}" width="100" height="100" />
+                </div>
+            </div>
+            <div class="productDetails--photo--big">
+                <img [src]="product.img" alt="{{ product.name }}" width="404" height="404" />
+            </div>
+        </div>
+        <div class="productDetails--info--main">
+            <div class="productDetails--info--titles-main">
+                <div class="productDetails--info--titles-main-title">
+                    {{ product.name }}
+                </div>
+                <div class="productDetails--info--titles-main--costAndRating">
+                    <div class="productDetails--info--titles-main--costAndRating--COST">
+                        ${{ product.price }}
+                    </div>
+                    <div class="productDetails--info--titles-main--costAndRating--RATING">
+                        <ngb-rating [(rate)]="rating" />
+                         19 Customer Review
+                    </div>
+                </div>
+                <div class="productDetails--info--Description">
+                    <div class="productDetails--info--Description--title">
+                        Short Description:
+                    </div>
+                    <div class="productDetails--info--Description--subtitle">
+                        {{ product.description }}
+                    </div>
+                </div>
+                <div class="productDetails--info--Size">
+                    <div class="productDetails--info--Size--title">
+                        Size:
+                    </div>
+                    <div class="productDetails--info--Size--choice">
+                        {{ product.size.name[0] || '—' }}
+                    </div>
+                </div>
+                <div class="productDetails--info--action">
+                    <div class="productDetails--info--quantity--action">
+                        <button>-</button>
+                        1
+                        <button>+</button>
+                    </div>
+                    <div class="productDetails--info--buyAndAdd--action">
+                        <button>BUY NOW</button>
+                        <button>ADD TO CART</button>
+                        <button><3</button>
+                    </div>
+                </div>
+                <div class="productDetails--info--SCT">
+                    <div class="productDetails--info--SCT-S">
+                        <div class="productDetails--info--SCT-S-title">
+                            SKU:
+                        </div>
+                        <div class="productDetails--info--SCT-S-subtitle">
+                            1995751877966
+                        </div>
+                    </div>
+                    <div class="productDetails--info--SCT-C">
+                        <div class="productDetails--info--SCT-C-title">
+                            Categories:
+                        </div>
+                        <div class="productDetails--info--SCT-C-subtitle">
+                            Potter Plants
+                        </div>
+                    </div>
+                    <div class="productDetails--info--SCT-T">
+                        <div class="productDetails--info--SCT-T-title">
+                            Tags:
+                        </div>
+                        <div class="productDetails--info--SCT-T-subtitle">
+                            Home, Garden, Plants
+                        </div>
+                    </div>
+                </div>
+                <div class="productDetails--info--ShareProducts">
+                    <div class="productDetails--info--ShareProducts--title">
+                        Share this products:
+                    </div>
+                    <div class="productDetails--info--ShareProducts--image">
+                        <img src="assets/Icons/face.png" width="7.5" height="15" alt="f">
+                        <img src="assets/Icons/twitt.png" width="15" height="12" alt="t">
+                        <img src="assets/Icons/linkk.png"  width="15" height="15"alt="in">
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
+    <div *ngIf="product" class="productDetails--info--main--description--reviews--main">
+        <div class="productDetails--info--main--description--reviews--choice--main">
+            <div
+                    class="productDetails--info--main--description--choice"
+                    [class.active]="selectedChoice === 'description'"
+                    (click)="selectedChoice = 'description'"
+            >
+                Product Description
+            </div>
+            <div
+                    class="productDetails--info--main--reviews--choice"
+                    [class.active]="selectedChoice === 'reviews'"
+                    (click)="selectedChoice = 'reviews'"
+            >
+                Reviews (19)
+            </div>
+
+            <div
+                    class="underline"
+                    [style.left]="selectedChoice === 'description' ? '0px' : (selectedChoice !== 'reviews' ? '148.02px' : '197px')"
+
+                    [style.width]="selectedChoice === 'description' ? '148.02px' : '91px'"
+            ></div>
+        </div>
+
+        <div *ngIf="selectedChoice === 'description'" class="productDetails--info--main--description--reviews--main--block">
+            <div class="productDetails--info--main--description--ProductDescription">
+                {{product.productDescription}}
+            </div>
+            <div class="productDetails--info--main--description--LivingRoom">
+                <div class="productDetails--info--main--description--LivingRoom--title">
+                    Living Room:
+                </div>
+                <div class="productDetails--info--main--description--LivingRoom--subtitle">
+                    {{product.livingRoom}}
+                </div>
+            </div>
+            <div class="productDetails--info--main--description--DiningsRoom">
+                <div class="productDetails--info--main--description--DiningsRoom--title">
+                    Dining Room
+                </div>
+                <div class="productDetails--info--main--description--DiningsRoom--subtitle">
+                    {{product.diningRoom}}
+                </div>
+            </div>
+            <div class="productDetails--info--main--description--Office">
+                <div class="productDetails--info--main--description--Office--title">
+                    Office:
+                </div>
+                <div class="productDetails--info--main--description--Office--subtitle">
+                    {{product.office}}
+                </div>
+            </div>
+        </div>
+
+        <div *ngIf="selectedChoice === 'reviews'" class="productDetails--info--main--description--reviews--main">
+            PEOPLE'S COMMENTS
+        </div>
+    </div>
+    <app-reletedproducts></app-reletedproducts>
 </div>
+<app-footer></app-footer>
+
+<!--<div class="container">-->
+<!--    <div *ngIf="product">-->
+<!--        <h1>{{ product.name }}</h1>-->
+<!--        <img [src]="product.img" alt="{{ product.name }}" width="300" height="300" />-->
+<!--        <p>{{ product.description }}</p>-->
+<!--        <p>Price: ${{ product.price }}</p>-->
+<!--    </div>-->
+<!--</div>-->
