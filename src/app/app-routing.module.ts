@@ -4,9 +4,12 @@ import { ProductDetailsComponent } from "./Components/product-details/product-de
 import { ProductsbodyComponent } from "./Components/productsbody/productsbody.component";
 import {HomeComponent} from "./Layouts/home/home.component";
 import {AppComponent} from "./app.component";
+import { ShopComponent } from "./Layouts/shop/shop.component";
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
+  { path: 'shop', component: ShopComponent },
+  { path: 'shop/shopping-cart', component: ShopComponent },
   { path: 'products', component: ProductsbodyComponent },
   { path: 'products', component: ProductsbodyComponent },
   { path: 'product/:id', component: ProductDetailsComponent }

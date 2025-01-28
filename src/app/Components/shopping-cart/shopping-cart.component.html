@@ -1,0 +1,131 @@
+<div class="container">
+    <div class="shoppingCart--main--block">
+        <div class="shoppingCart--products--main--block">
+            <div class="shoppingCart--products--title">
+                <div>Products</div>
+                <div>Price</div>
+                <div>Quantity</div>
+                <div>Total</div>
+            </div>
+            <div class="shoppingCart--products--item--main">
+                <div *ngFor="let item of cartItems" class="shoppingCart--products--item">
+                    <div class="shoppingCart--products--item--imgAndTitle">
+                        <div class="shoppingCart--products--item--img">
+                            <img [src]="item.img" alt="{{ item.name }}" width="50" height="50" />
+                        </div>
+                        <div class="shoppingCart--products--item--title">
+                            <div class="shoppingCart--products--item--name">
+                                {{ item.name }}
+                            </div>
+                            <div class="shoppingCart--products--item--sku">
+                                SKU: 1995751877966
+                            </div>
+                        </div>
+                    </div>
+                    <div class="shoppingCart--products--item--price">
+                        {{ item.price | currency }}
+                    </div>
+                    <div class="shoppingCart--products--item--quantity">
+                        <button (click)="decrementQuantity(item.id)">-</button>
+                        <span>{{ item.quantity }}</span>
+                        <button (click)="incrementQuantity(item.id)">+</button>
+                    </div>
+                    <div class="shoppingCart--products--item--total">
+                        {{ getItemTotal(item.id) | currency }}
+                    </div>
+                    <div class="shoppingCart--products--item--deleteItem">
+                        <button class="remove-item" (click)="removeFromCart(item.id)"><img src="assets/Icons/Delete.png" alt=""></button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div  class="shoppingCart--cartTotals--main--block">
+            <div class="shoppingCart--cartTotals--main--title">
+                Cart Totals
+            </div>
+            <div class="shoppingCart--cartTotals--main--coupon">
+                <div class="shoppingCart--cartTotals--main--coupon--title">
+                    Coupon Apply
+                </div>
+                <div class="shoppingCart--cartTotals--main--coupon--action">
+                    <input type="text" placeholder="Enter coupon code here...">
+                    <button>Apply</button>
+                </div>
+                <div class="shoppingCart--cartTotals--main--info-priceshop">
+                    <div class="shoppingCart--cartTotals--main--info-priceshop--item">
+                        <div class="shoppingCart--cartTotals--main--info-priceshop--item-title">
+                            Subtotal
+                        </div>
+                        <div class="shoppingCart--cartTotals--main--info-priceshop--item--title-price">
+                            ${{cartTotal}}
+                        </div>
+                    </div>
+                    <div class="shoppingCart--cartTotals--main--info-priceshop--item">
+                        <div class="shoppingCart--cartTotals--main--info-priceshop--item-title">
+                            Coupon Discount
+                        </div>
+                        <div class="shoppingCart--cartTotals--main--info-priceshop--item--title-price">
+                            (-) 00.00
+                        </div>
+                    </div>
+                    <div class="shoppingCart--cartTotals--main--info-priceshop--item">
+                        <div class="shoppingCart--cartTotals--main--info-priceshop--item-title">
+                            Shiping
+                        </div>
+                        <div class="shoppingCart--cartTotals--main--info-priceshop--item--title-price">
+                            $00.00
+                        </div>
+                    </div>
+                    <div class="shoppingCart--cartTotals--main--info-priceshop--item">
+                        <div class="shoppingCart--cartTotals--main--info-priceshop--item-title">
+                            Subtotal
+                        </div>
+                        <div class="shoppingCart--cartTotals--main--info-priceshop--item--title-price">
+                            ${{cartTotal}}
+                        </div>
+                    </div>
+                </div>
+                <div class="shoppingCart--cartTotals--main--checkout-action">
+                    <button>Proceed To Checkout</button>
+                    <p>Continue Shopping</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!--    <div class="cart-modal" >-->
+<!--        <div class="cart-items">-->
+<!--            <div *ngFor="let item of cartItems" class="cart-item">-->
+<!--                <img [src]="item.img" alt="{{ item.name }}" width="50" height="50" />-->
+<!--                <div class="cart-details">-->
+<!--                    <p>{{ item.name }}</p>-->
+<!--                    <p>{{ item.price | currency }}</p>-->
+<!--                    <div class="quantity-controls">-->
+<!--                        <button (click)="decrementQuantity(item.id)">-</button>-->
+<!--                        <button (click)="incrementQuantity(item.id)">+</button>-->
+<!--                    </div>-->
+<!--                </div>-->
+<!--                <button class="remove-item" (click)="removeFromCart(item.id)">Удалить</button>-->
+<!--            </div>-->
+<!--        </div>-->
+<!--        <div class="cart-total">-->
+<!--            <p>Сумма: {{ cartTotal | currency }}</p>-->
+<!--        </div>-->
+<!--    </div>-->
+</div>

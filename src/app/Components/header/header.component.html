@@ -20,8 +20,8 @@
     </div>
     <div class="Header--navigation">
       <ul>
-        <li>Home</li>
-        <li>Shop</li>
+        <li [routerLink]="''">Home</li>
+        <li [routerLink]="'shop'">Shop</li>
         <li>Plant Care</li>
         <li>Blogs</li>
       </ul>
@@ -54,33 +54,33 @@
           </svg>
         </div>
         <div class="Header--shop">
-            <svg (click)="toggleCartModal()" width="24.000000" height="24.000000" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+            <svg [routerLink]="'shop/shopping-cart'" (click)="toggleCartModal()" width="24.000000" height="24.000000" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
                 <defs/>
                 <path id="Vector" d="M16.15 20.25L8.89 20.25C5.79 20.25 3.26 17.72 3.26 14.62L3.26 8.85C3.26 5.97 1.82 3.3 -0.58 1.72C-1.01 1.43 -1.13 0.85 -0.85 0.42C-0.56 -0.02 0.02 -0.14 0.45 0.15C1.82 1.06 2.94 2.25 3.74 3.63C3.91 3.82 5.3 5.29 7.57 5.29L18.37 5.29C21.32 5.24 23.62 8.19 22.85 11.04L21.61 15.99C20.98 18.49 18.74 20.25 16.15 20.25ZM4.9 6.64C5.06 7.36 5.14 8.1 5.14 8.85L5.14 14.62C5.14 16.69 6.82 18.37 8.89 18.37L16.15 18.37C17.87 18.37 19.37 17.2 19.79 15.53L21.03 10.58C21.49 8.89 20.12 7.13 18.37 7.17L7.57 7.17C6.54 7.17 5.65 6.94 4.9 6.64ZM8.42 22.82C8.42 22.18 7.89 21.65 7.25 21.65C5.69 21.71 5.69 23.93 7.25 24C7.89 24 8.42 23.47 8.42 22.82ZM17.75 22.82C17.75 22.18 17.22 21.65 16.57 21.65C15.02 21.71 15.02 23.93 16.57 24C17.22 24 17.75 23.47 17.75 22.82ZM19.31 9.98C19.31 9.46 18.89 9.04 18.37 9.04L7.95 9.04C6.71 9.09 6.71 10.87 7.95 10.92L18.37 10.92C18.89 10.92 19.31 10.5 19.31 9.98Z" fill="#3D3D3D" fill-opacity="1.000000" fill-rule="nonzero"/>
             </svg>
             <span *ngIf="cartItemsCount > 0" class="cart-count">{{ cartItemsCount }}</span>
 
-            <div class="cart-modal" *ngIf="showCartModal">
-                <h3>Корзина</h3>
-                <div class="cart-items">
-                    <div *ngFor="let item of cartItems" class="cart-item">
-                        <img [src]="item.img" alt="{{ item.name }}" width="50" height="50" />
-                        <div class="cart-details">
-                            <p>{{ item.name }}</p>
-                            <p>{{ item.price | currency }}</p>
-                            <div class="quantity-controls">
-                                <button (click)="decrementQuantity(item.id)">-</button>
-                                <button (click)="incrementQuantity(item.id)">+</button>
-                            </div>
-                        </div>
-                        <button class="remove-item" (click)="removeFromCart(item.id)">Удалить</button>
-                    </div>
-                </div>
-                <div class="cart-total">
-                    <p>Сумма: {{ cartTotal | currency }}</p>
-                </div>
-                <button class="close-cart" (click)="toggleCartModal()">Закрыть</button>
-            </div>
+<!--            <div class="cart-modal" *ngIf="showCartModal">-->
+<!--                <h3>Корзина</h3>-->
+<!--                <div class="cart-items">-->
+<!--                    <div *ngFor="let item of cartItems" class="cart-item">-->
+<!--                        <img [src]="item.img" alt="{{ item.name }}" width="50" height="50" />-->
+<!--                        <div class="cart-details">-->
+<!--                            <p>{{ item.name }}</p>-->
+<!--                            <p>{{ item.price | currency }}</p>-->
+<!--                            <div class="quantity-controls">-->
+<!--                                <button (click)="decrementQuantity(item.id)">-</button>-->
+<!--                                <button (click)="incrementQuantity(item.id)">+</button>-->
+<!--                            </div>-->
+<!--                        </div>-->
+<!--                        <button class="remove-item" (click)="removeFromCart(item.id)">Удалить</button>-->
+<!--                    </div>-->
+<!--                </div>-->
+<!--                <div class="cart-total">-->
+<!--                    <p>Сумма: {{ cartTotal | currency }}</p>-->
+<!--                </div>-->
+<!--                <button class="close-cart" (click)="toggleCartModal()">Закрыть</button>-->
+<!--            </div>-->
         </div>
       <div class="Header--login">
         <button (click)="toggleLoginComponent()">

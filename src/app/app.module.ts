@@ -24,6 +24,9 @@ import { OurBlogPostsComponent } from './Components/our-blog-posts/our-blog-post
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FooterComponent } from './Components/footer/footer.component';
 import { ReletedproductsComponent } from './Components/reletedproducts/reletedproducts.component';
+import { ShopComponent } from './Layouts/shop/shop.component';
+import { ShoppingCartComponent } from './Components/shopping-cart/shopping-cart.component';
+
 
 @NgModule({
   declarations: [
@@ -39,6 +42,8 @@ import { ReletedproductsComponent } from './Components/reletedproducts/reletedpr
     OurBlogPostsComponent,
     FooterComponent,
     ReletedproductsComponent,
+    ShopComponent,
+    ShoppingCartComponent,
 
   ],
   imports: [
