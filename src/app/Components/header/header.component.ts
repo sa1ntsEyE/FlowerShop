@@ -26,10 +26,12 @@ export class HeaderComponent {
 
   goToProductDetails(productId: number) {
     console.log('Attempting to navigate to product:', productId);
-    this.router.navigate(['/product', productId]).then(
+    this.router.navigate(['/shop/product', productId]).then(
         success => console.log('Navigation success:', success),
         error => console.error('Navigation error:', error)
     );
+    this.searchText = '';
+    this.toggleSearchCartModal()
   }
 
   infoProductServiceFindSearch(event: Event) {

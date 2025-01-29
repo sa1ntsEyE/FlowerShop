@@ -1,5 +1,6 @@
 import { Component, OnInit, Renderer2, ElementRef } from '@angular/core';
 import { ProductsService } from '../../service/Products/products.service';
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-reletedproducts',
@@ -17,12 +18,21 @@ export class ReletedproductsComponent implements OnInit {
   constructor(
       private productsService: ProductsService,
       private renderer: Renderer2,
-      private el: ElementRef
+      private el: ElementRef,
+      private router: Router
   ) {}
 
   ngOnInit() {
     this.paginateProducts();
     this.addSwipeListeners();
+  }
+
+  goToProductDetails(productId: number) {
+    console.log('Attempting to navigate to product:', productId);
+    this.router.navigate(['/shop/product', productId]).then(
+        success => console.log('Navigation success:', success),
+        error => console.error('Navigation error:', error)
+    );
   }
 
   paginateProducts() {

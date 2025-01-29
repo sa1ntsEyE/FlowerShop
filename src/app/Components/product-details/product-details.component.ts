@@ -3,6 +3,8 @@ import { ActivatedRoute } from '@angular/router';
 import { ProductsService } from "../../service/Products/products.service";
 import { ProductsAll } from "../../../models/products";
 import {NgbRatingConfig, NgbRatingModule} from "@ng-bootstrap/ng-bootstrap";
+import {ShoppingCartComponent} from "../shopping-cart/shopping-cart.component";
+import {CartService} from "../../service/cart/cart.service";
 
 @Component({
   selector: 'app-product-details',
@@ -15,12 +17,19 @@ export class ProductDetailsComponent implements OnInit {
   selectedChoice: 'description' | 'reviews' = 'description';
   rating = 5;
 
+
   constructor(
       private route: ActivatedRoute,
       private productsService: ProductsService,
+      private cartService: CartService,
       config: NgbRatingConfig
   ) {	config.max = 5;}
 
+
+  addToCart(product: any) {
+    this.cartService.addToCart(product);
+    console.log(`${product.name} добавлен в корзину`);
+  }
   ngOnInit() {
     console.log('ProductDetailsComponent initialized');
     this.route.paramMap.subscribe(params => {
@@ -45,4 +54,6 @@ export class ProductDetailsComponent implements OnInit {
         }
     );
   }
+
+
 }

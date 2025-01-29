@@ -1,28 +1,47 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { CartService } from "../../service/cart/cart.service";
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-shopping-cart',
   templateUrl: './shopping-cart.component.html',
-  styleUrl: './shopping-cart.component.scss'
+  styleUrls: ['./shopping-cart.component.scss']
 })
-export class ShoppingCartComponent {
-  constructor(private cartService: CartService) {}
-  addtoCart = this.cartService.addToCart;
+export class ShoppingCartComponent implements OnInit {
+  couponCode: string = '';
+  discount: number = 0;
+  shiping = 10;
+  validCoupons: { [key: string]: number } = {
+    "DISCOUNT100": 100,
+    "SAVE100": 100
+  };
 
+  constructor(private cartService: CartService, private router: Router) {}
+
+  ngOnInit() {}
 
   get cartItems() {
     return this.cartService.getCartItems();
   }
 
   get cartTotal() {
-    return this.cartService.getTotalAmount();
+    const total = this.cartService.getTotalAmount();
+    return total - this.discount;
   }
 
   getItemTotal(productId: number) {
     return this.cartService.getTotalItem(productId);
   }
 
+  proceedToCheckout() {
+    this.router.navigate(['/shop/check-out'], {
+      state: {
+        cartItems: this.cartItems,
+        discount: this.discount,
+        couponCode: this.couponCode
+      }
+    });
+  }
 
 
   incrementQuantity(productId: number) {
@@ -41,5 +60,13 @@ export class ShoppingCartComponent {
 
   removeFromCart(productId: number) {
     this.cartService.removeFromCart(productId);
+  }
+
+  applyCoupon() {
+    if (this.validCoupons[this.couponCode]) {
+      this.discount = this.validCoupons[this.couponCode];
+    } else {
+      alert('Invalid coupon code');
+    }
   }
 }

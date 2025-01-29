@@ -2,10 +2,10 @@
     <div class="BodyProduct--main">
         <div class="BodyProduct--item" *ngFor="let product of products">
             <div class="Products--body">
-                <img [src]="product.img" alt="" width="258" height="250" />
+                <img (click)="goToProductDetails(product.id)" [src]="product.img" alt="" width="258" height="250" />
             </div>
             <div class="Product--action">
-                <button mat-flat-button (click)="addToCart(product)">Buy</button>
+                <button mat-flat-button [routerLink]="'/shop'" (click)="addToCart(product)">Buy</button>
                 <button mat-flat-button (click)="goToProductDetails(product.id)">Details</button>
             </div>
 

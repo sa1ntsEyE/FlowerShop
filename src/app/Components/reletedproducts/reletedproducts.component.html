@@ -18,6 +18,7 @@
                     >
                         <div class="reletedProducts--body">
                             <img
+                                    (click)="goToProductDetails(product.id)"
                                     [src]="product.img"
                                     alt="{{ product.name }}"
                                     width="258"

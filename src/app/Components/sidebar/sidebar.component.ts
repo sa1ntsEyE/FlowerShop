@@ -90,7 +90,7 @@ export class SidebarComponent implements OnInit {
 
     // Update the filtered products in the service
     this.checkboxStateService.updateFilteredProducts(filteredProducts);
-    console.log('Filtered Products:', filteredProducts);
+    // console.log('Filtered Products:', filteredProducts);
   }
 
 

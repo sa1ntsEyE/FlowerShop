@@ -108,6 +108,70 @@ header {
 }
 
 
+.cart-items {
+  max-height: 300px;
+  overflow-y: auto;
+}
+.cart-item {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 10px;
+}
+.cart-search-modal {
+  position: fixed;
+  top: 11%;
+  right: 10.5%;
+  width: 400px;
+  background: white;
+  border: 1px solid #ccc;
+  padding: 15px;
+  z-index: 1000;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  h3 {
+    color: rgb(61, 61, 61);
+    font-family: "Oswald", sans-serif;
+    text-align: left;
+  }
+}
+.cart-search-item {
+  border: 1px solid #ccc;
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 10px;
+}
+.quantity-controls {
+  display: flex;
+  align-items: center;
+}
+.close-cart {
+  margin-top: 10px;
+  width: 100%;
+}
+.Product--action {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: space-around;
+  button {
+    width: 75px !important;
+  }
+}
 
+.Products--Info {
+  width: 50%;
+}
 
-
+.Products--Name {
+  color: rgb(61, 61, 61);
+  font-family: "Oswald", sans-serif;
+  font-size: 16px;
+  font-weight: 400;
+  text-align: left;
+}
+.Products--Price {
+  color: rgb(70, 163, 88);
+  font-family: "Oswald", sans-serif;
+  font-size: 18px;
+  font-weight: 700;
+  text-align: left;
+}

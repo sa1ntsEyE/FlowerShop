@@ -19,6 +19,10 @@
       align-items: center;
       background: rgb(251, 251, 251);
 
+      .Products--body img {
+        cursor: pointer;
+      }
+
       .Product--action {
         width: 90%;
         display: flex;

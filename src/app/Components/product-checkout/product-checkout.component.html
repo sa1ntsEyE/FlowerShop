@@ -1,0 +1,86 @@
+<div class="container">
+    <div class="checkout-container">
+        <div class="shoppingCart--cartTotals--main--block">
+            <div class="shoppingCart--cartTotals--main--title">
+                Your Order
+            </div>
+            <div class="shoppingCart--cartTotals--main--subtitles">
+                <div class="shoppingCart--cartTotals--main--subtitle">
+                    Products
+                </div>
+                <div class="shoppingCart--cartTotals--main--subtitle">
+                    Subtotal
+                </div>
+            </div>
+            <div class="shoppingCart--cartTotals--main--coupon">
+                <div class="shoppingCart--cartTotals--main--info-priceshop">
+                    <div *ngFor="let item of cartItems; let last = last" class="shoppingCart--products--item" [ngClass]="{'last-item': last}">
+                        <div class="shoppingCart--products--item--imgAndTitle">
+                            <div class="shoppingCart--products--item--img">
+                                <img [src]="item.img" alt="{{ item.name }}" width="70" height="70" />
+                            </div>
+                            <div class="shoppingCart--products--item--title">
+                                <div class="shoppingCart--products--item--name">
+                                    {{ item.name }}
+                                </div>
+                                <div class="shoppingCart--products--item--sku">
+                                    SKU: 1995751877966
+                                </div>
+                            </div>
+                        </div>
+                        <div class="shoppingCart--products--item--quantity">
+                            (x {{ item.quantity }})
+                        </div>
+                        <div class="shoppingCart--products--item--total">
+                            {{ item.price * item.quantity | currency }}
+                        </div>
+                    </div>
+                    <div class="shoppingCart--cartTotals--main--info-priceshop--item">
+                        <div class="shoppingCart--cartTotals--main--info-priceshop--item-title">
+                            Subtotal
+                        </div>
+                        <div class="shoppingCart--cartTotals--main--info-priceshop--item--title-price">
+                            {{ getSubtotal() | currency }}
+                        </div>
+                    </div>
+                    <div class="shoppingCart--cartTotals--main--info-priceshop--item">
+                        <div class="shoppingCart--cartTotals--main--info-priceshop--item-title">
+                            Coupon Discount
+                        </div>
+                        <div class="shoppingCart--cartTotals--main--info-priceshop--item--title-price">
+                            <span>Coupon ({{ couponCode }}):</span>
+                        </div>
+                    </div>
+                    <div class="shoppingCart--cartTotals--main--info-priceshop--item">
+                        <div class="shoppingCart--cartTotals--main--info-priceshop--item-title">
+                            Shipping:
+                        </div>
+                        <div class="shoppingCart--cartTotals--main--info-priceshop--item--title-price">
+                            <span>{{ shiping | currency }}</span>
+                        </div>
+                    </div>
+                    <div class="shoppingCart--cartTotals--main--info-priceshop--item">
+                        <div class="shoppingCart--cartTotals--main--info-priceshop--item-title">
+                            Total
+                        </div>
+                        <div class="shoppingCart--cartTotals--main--info-priceshop--item--title-price">
+                            {{ getTotal() | currency }}
+                        </div>
+                    </div>
+                </div>
+                <div class="shoppingCart--cartTotals--main--checkout-action">
+                    <button>Proceed to Payment</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<!--                        <div class="checkout-product-details">-->
+<!--                            <img [src]="item.img" alt="{{ item.name }}" width="50" height="50" />-->
+<!--                            <div class="product-name">{{ item.name }}</div>-->
+<!--                        </div>-->
+<!--                        <div class="checkout-product-price">{{ item.price | currency }}</div>-->
+<!--                        <div class="checkout-product-quantity">{{ item.quantity }}</div>-->
+<!--                        <div class="checkout-product-total">{{ item.price * item.quantity | currency }}</div>-->

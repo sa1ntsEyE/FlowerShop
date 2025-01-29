@@ -26,6 +26,7 @@ import { FooterComponent } from './Components/footer/footer.component';
 import { ReletedproductsComponent } from './Components/reletedproducts/reletedproducts.component';
 import { ShopComponent } from './Layouts/shop/shop.component';
 import { ShoppingCartComponent } from './Components/shopping-cart/shopping-cart.component';
+import { ProductCheckoutComponent } from './Components/product-checkout/product-checkout.component';
 
 
 @NgModule({
@@ -44,6 +45,7 @@ import { ShoppingCartComponent } from './Components/shopping-cart/shopping-cart.
     ReletedproductsComponent,
     ShopComponent,
     ShoppingCartComponent,
+    ProductCheckoutComponent,
 
   ],
   imports: [
