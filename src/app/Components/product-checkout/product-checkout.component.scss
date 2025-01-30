@@ -1,167 +1,244 @@
-.shoppingCart--cartTotals--main--block {
-  width: 328px;
-
-  .shoppingCart--cartTotals--main--title {
-    padding: 12px 12px 12px 0;
-    color: rgb(61, 61, 61);
-    font-family: "Oswald", sans-serif;
-    font-size: 18px;
-    font-weight: 700;
-    line-height: 16px;
-    text-align: left;
-    margin-bottom: 10px;
-  }
-
-  .shoppingCart--cartTotals--main--subtitles {
+.container {
+  .checkout-container {
     display: flex;
     justify-content: space-between;
-    border-bottom: 0.3px solid rgba(70, 163, 88, 0.5);
-    padding-bottom: 10px;
-    margin-bottom: 20px;
-    .shoppingCart--cartTotals--main--subtitle {
-      color: rgb(61, 61, 61);
-      font-family: "Oswald", sans-serif;
-      font-size: 16px;
-      font-weight: 500;
-      line-height: 16px;
-
+    h2 {
+      font-size: 24px;
+      font-weight: bold;
+      width: 100%;
     }
 
-    .shoppingCart--cartTotals--main--subtitle:last-child {
-      margin-right: 20px;
-    }
-  }
-
-  .shoppingCart--cartTotals--main--coupon {
-    .shoppingCart--cartTotals--main--info-priceshop {
+    form {
       display: flex;
-      flex-direction: column;
-      margin-bottom: 30px;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      max-width: 722px;
+      min-width: 722px;
 
-      .shoppingCart--products--item {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-
-        font-size: 14px;
-        color: #555;
-        padding-bottom: 10px;
-        background: rgb(251, 251, 251);
-
-        &.last-item {
-          margin-bottom: 40px !important;
-        }
-
-        .shoppingCart--products--item--imgAndTitle {
-          display: flex;
-          gap: 10px;
-          align-items: center;
-          flex: 2;
-
-          .shoppingCart--products--item--img {
-            img {
-              width: 70px;
-              height: 70px;
-              border-radius: 8px;
-              border: 1px solid #ddd;
-            }
-          }
-
-          .shoppingCart--products--item--title {
-            display: flex;
-            flex-direction: column;
-            gap: 3px;
-
-            .shoppingCart--products--item--name {
-              color: rgb(61, 61, 61);
-              font-family: "Oswald", sans-serif;
-              font-size: 16px;
-              font-weight: 500;
-            }
-
-            .shoppingCart--products--item--sku {
-              font-family: "Oswald", sans-serif;
-              font-size: 14px;
-              font-weight: 400;
-            }
-          }
-        }
-
-        .shoppingCart--products--item--quantity {
-          display: flex;
-          align-items: center;
-          gap: 8px;
-          justify-content: center;
-
-          span {
-            font-size: 16px;
-            font-weight: bold;
-            color: #333;
-          }
-        }
-
-        .shoppingCart--products--item--total {
-          flex: 1;
-          text-align: center;
-          font-size: 16px;
-          font-weight: bold;
-          color: #388e3c;
-        }
-      }
-
-      // Применяем отступ 50px к последнему элементу в родительском блоке
-      .shoppingCart--cartTotals--main--info-priceshop .shoppingCart--products--item:last-child {
-        margin-bottom: 50px !important;
-      }
-
-      .shoppingCart--cartTotals--main--info-priceshop--item {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        padding-bottom: 15px;
-
-        .shoppingCart--cartTotals--main--info-priceshop--item-title {
-          color: rgb(61, 61, 61);
-          font-family: "Oswald", sans-serif;
-          font-size: 15px;
-          font-weight: 400;
-          line-height: 16px;
-        }
-
-        .shoppingCart--cartTotals--main--info-priceshop--item--title-price {
-          color: rgb(61, 61, 61);
-          font-family: "Oswald", sans-serif;
-          font-size: 18px;
-          font-weight: 500;
-          line-height: 16px;
-          text-align: right;
-        }
-      }
-    }
-
-    .shoppingCart--cartTotals--main--checkout-action {
-      button {
-        width: 100%;
-        height: 40px;
-        border-radius: 3px;
-        border: none;
-        background: rgb(70, 163, 88);
-        color: rgb(255, 255, 255);
-        font-family: "Oswald", sans-serif;
-        font-size: 15px;
-        font-weight: 700;
-        line-height: 16px;
+      div {
         margin-bottom: 15px;
       }
 
-      p {
-        color: rgb(70, 163, 88);
-        font-family: "Oswald", sans-serif;
-        font-size: 15px;
-        font-weight: 400;
-        line-height: 16px;
-        text-align: center;
+      label {
+        display: block;
+        font-weight: bold;
+      }
+
+      .streetAdrees {
+        display: flex;
+        justify-content: space-between;
+        flex-direction: column;
+        width: 100%;
+
+        .streetAdressInput {
+          display: flex;
+          justify-content: space-between;
+        }
+        .streetAdressLabel {
+          width: 100%;
+        }
+      }
+
+      input, select, textarea {
+        width: 100%;
+        padding: 8px;
+        margin-top: 5px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+      }
+
+      select {
+        height: 41.6px;
+        width: 350px;
+      }
+
+      input {
+        width: 350px;
+      }
+
+      textarea  {
+        width: 350px;
+      }
+
+
+      button {
+        background-color: #28a745;
+        color: white;
+        padding: 10px;
+        border: none;
         cursor: pointer;
+        width: 100%;
+
+        &:disabled {
+          background-color: #ccc;
+        }
+      }
+    }
+
+    .shoppingCart--cartTotals--main--block {
+      width: 328px;
+
+      .shoppingCart--cartTotals--main--title {
+        padding: 12px 12px 12px 0;
+        color: rgb(61, 61, 61);
+        font-family: "Oswald", sans-serif;
+        font-size: 18px;
+        font-weight: 700;
+        line-height: 16px;
+        text-align: left;
+        margin-bottom: 10px;
+      }
+
+      .shoppingCart--cartTotals--main--subtitles {
+        display: flex;
+        justify-content: space-between;
+        border-bottom: 0.3px solid rgba(70, 163, 88, 0.5);
+        padding-bottom: 10px;
+        margin-bottom: 20px;
+
+        .shoppingCart--cartTotals--main--subtitle {
+          color: rgb(61, 61, 61);
+          font-family: "Oswald", sans-serif;
+          font-size: 16px;
+          font-weight: 500;
+          line-height: 16px;
+        }
+
+        .shoppingCart--cartTotals--main--subtitle:last-child {
+          margin-right: 20px;
+        }
+      }
+
+      .shoppingCart--cartTotals--main--coupon {
+        .shoppingCart--cartTotals--main--info-priceshop {
+          display: flex;
+          flex-direction: column;
+          margin-bottom: 30px;
+
+          .shoppingCart--products--item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 14px;
+            color: #555;
+            padding-bottom: 10px;
+            background: rgb(251, 251, 251);
+
+            &.last-item {
+              margin-bottom: 40px !important;
+            }
+
+            .shoppingCart--products--item--imgAndTitle {
+              display: flex;
+              gap: 10px;
+              align-items: center;
+              flex: 2;
+
+              .shoppingCart--products--item--img {
+                img {
+                  width: 70px;
+                  height: 70px;
+                  border-radius: 8px;
+                  border: 1px solid #ddd;
+                }
+              }
+
+              .shoppingCart--products--item--title {
+                display: flex;
+                flex-direction: column;
+                gap: 3px;
+
+                .shoppingCart--products--item--name {
+                  color: rgb(61, 61, 61);
+                  font-family: "Oswald", sans-serif;
+                  font-size: 16px;
+                  font-weight: 500;
+                }
+
+                .shoppingCart--products--item--sku {
+                  font-family: "Oswald", sans-serif;
+                  font-size: 14px;
+                  font-weight: 400;
+                }
+              }
+            }
+
+            .shoppingCart--products--item--quantity {
+              display: flex;
+              align-items: center;
+              gap: 8px;
+              justify-content: center;
+
+              span {
+                font-size: 16px;
+                font-weight: bold;
+                color: #333;
+              }
+            }
+
+            .shoppingCart--products--item--total {
+              flex: 1;
+              text-align: center;
+              font-size: 16px;
+              font-weight: bold;
+              color: #388e3c;
+            }
+          }
+
+          .shoppingCart--cartTotals--main--info-priceshop .shoppingCart--products--item:last-child {
+            margin-bottom: 50px !important;
+          }
+
+          .shoppingCart--cartTotals--main--info-priceshop--item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding-bottom: 15px;
+
+            .shoppingCart--cartTotals--main--info-priceshop--item-title {
+              color: rgb(61, 61, 61);
+              font-family: "Oswald", sans-serif;
+              font-size: 15px;
+              font-weight: 400;
+              line-height: 16px;
+            }
+
+            .shoppingCart--cartTotals--main--info-priceshop--item--title-price {
+              color: rgb(61, 61, 61);
+              font-family: "Oswald", sans-serif;
+              font-size: 18px;
+              font-weight: 500;
+              line-height: 16px;
+              text-align: right;
+            }
+          }
+        }
+
+        .shoppingCart--cartTotals--main--checkout-action {
+          button {
+            width: 100%;
+            height: 40px;
+            border-radius: 3px;
+            border: none;
+            background: rgb(70, 163, 88);
+            color: rgb(255, 255, 255);
+            font-family: "Oswald", sans-serif;
+            font-size: 15px;
+            font-weight: 700;
+            line-height: 16px;
+            margin-bottom: 15px;
+          }
+
+          p {
+            color: rgb(70, 163, 88);
+            font-family: "Oswald", sans-serif;
+            font-size: 15px;
+            font-weight: 400;
+            line-height: 16px;
+            text-align: center;
+            cursor: pointer;
+          }
+        }
       }
     }
   }

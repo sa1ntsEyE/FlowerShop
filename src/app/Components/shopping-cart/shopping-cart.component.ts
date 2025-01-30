@@ -10,7 +10,7 @@ import { Router } from '@angular/router';
 export class ShoppingCartComponent implements OnInit {
   couponCode: string = '';
   discount: number = 0;
-  shiping = 10;
+  shipping = 10;
   validCoupons: { [key: string]: number } = {
     "DISCOUNT100": 100,
     "SAVE100": 100
@@ -36,13 +36,12 @@ export class ShoppingCartComponent implements OnInit {
   proceedToCheckout() {
     this.router.navigate(['/shop/check-out'], {
       state: {
-        cartItems: this.cartItems,
-        discount: this.discount,
-        couponCode: this.couponCode
+        cartItems: this.cartItems,   // Передаем товары из корзины
+        discount: this.discount,      // Передаем скидку
+        couponCode: this.couponCode  // Передаем код купона
       }
     });
   }
-
 
   incrementQuantity(productId: number) {
     const item = this.cartItems.find(item => item.id === productId);

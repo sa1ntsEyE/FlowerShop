@@ -27,6 +27,7 @@ import { ReletedproductsComponent } from './Components/reletedproducts/reletedpr
 import { ShopComponent } from './Layouts/shop/shop.component';
 import { ShoppingCartComponent } from './Components/shopping-cart/shopping-cart.component';
 import { ProductCheckoutComponent } from './Components/product-checkout/product-checkout.component';
+import { ReactiveFormsModule } from "@angular/forms";
 
 
 @NgModule({
@@ -60,6 +61,7 @@ import { ProductCheckoutComponent } from './Components/product-checkout/product-
     MatSliderModule,
     BrowserAnimationsModule,
     HttpClientModule,
+    ReactiveFormsModule
   ],
   providers: [
     provideClientHydration(),
