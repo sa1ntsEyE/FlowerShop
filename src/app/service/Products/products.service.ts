@@ -312,7 +312,7 @@ export class ProductsService {
 
   // Получение продукта по ID
   getProductById(id: number): Observable<ProductsAll> {
-    console.log(`Fetching product with ID: ${id}`);
+    // console.log(`Fetching product with ID: ${id}`);
     const product = this.products.find(p => p.id === id);
     if (product) {
       return of(product);

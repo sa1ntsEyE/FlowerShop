@@ -60,7 +60,7 @@
       </div>
     </div>
 
-    <!-- Alternative entrance options -->
+
     <div class="AlternativeEntrance">
       <div class="AlternativeEntrance--title" *ngIf="showLoginOrRegister">
         <p>Or login with</p>
@@ -69,7 +69,7 @@
         <p>Or register with</p>
       </div>
       <div class="AlternativeEntrance--Google-btn">
-        <button>Google</button>
+        <button (click)="signInWithGoogle()" >Google</button>
       </div>
       <div class="AlternativeEntrance--Facebook-btn">
         <button>Facebook</button>

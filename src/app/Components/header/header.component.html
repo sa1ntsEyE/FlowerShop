@@ -82,11 +82,17 @@
 <!--                <button class="close-cart" (click)="toggleCartModal()">Закрыть</button>-->
 <!--            </div>-->
         </div>
-      <div class="Header--login">
-        <button (click)="toggleLoginComponent()">
-         Login
-        </button>
-      </div>
+        <div class="Header--login">
+            <ng-container *ngIf="user$ | async as user; else notLoggedIn">
+                <p>Привет, {{ user.displayName || 'Пользователь' }}!</p>
+                <button (click)="logOut()">Logout</button>
+            </ng-container>
+
+            <ng-template #notLoggedIn>
+                <button (click)="toggleLoginComponent()">Login</button>
+            </ng-template>
+        </div>
+
     </div>
   </div>
 </header>

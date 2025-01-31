@@ -131,6 +131,57 @@
         }
       }
       .productDetails--info--buyAndAdd--action {
+
+        .tooltip-container {
+          position: relative;
+          display: inline-block;
+
+          button {
+            color: rgb(70, 163, 88);
+            font-family: "Oswald", sans-serif;
+            font-size: 14px;
+            font-weight: 700;
+            line-height: 20px;
+            text-transform: uppercase;
+
+            width: 40px;
+            height: 40px;
+            box-sizing: border-box;
+            border: 1px solid rgb(70, 163, 88);
+            border-radius: 6px;
+            background: white;
+
+
+            &:disabled {
+              background-color: #ccc;
+            }
+
+            &:disabled:hover {
+              cursor: not-allowed;
+            }
+          }
+        }
+
+        .tooltip-text {
+          visibility: hidden;
+          background-color: green;
+          color: white;
+          text-align: center;
+          padding: 5px 10px;
+          border-radius: 5px;
+          position: absolute;
+          bottom: 100%;
+          left: 50%;
+          transform: translateX(-50%);
+          opacity: 0;
+          transition: opacity 0.3s;
+          white-space: nowrap;
+        }
+
+        .tooltip-container:hover .tooltip-text {
+          visibility: visible;
+          opacity: 1;
+        }
         button{
           margin-right: 10px;
         }
@@ -151,23 +202,6 @@
           line-height: 20px;
           text-transform: uppercase;
 
-          width: 130px;
-          height: 40px;
-          box-sizing: border-box;
-          border: 1px solid rgb(70, 163, 88);
-          border-radius: 6px;
-          background: white;
-
-        }
-
-        button:nth-child(3) {
-          color: rgb(70, 163, 88);
-          font-family: "Oswald", sans-serif;
-          font-size: 14px;
-          font-weight: 700;
-          line-height: 20px;
-          text-transform: uppercase;
-
           width: 40px;
           height: 40px;
           box-sizing: border-box;
@@ -175,7 +209,16 @@
           border-radius: 6px;
           background: white;
 
+
+          &:disabled {
+            background-color: #ccc;
+          }
+
+          &:disabled:hover {
+            cursor: not-allowed;
+          }
         }
+
       }
     }
     .productDetails--info--SCT {

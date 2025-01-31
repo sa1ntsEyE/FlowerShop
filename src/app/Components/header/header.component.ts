@@ -3,6 +3,7 @@ import {LoginService} from "../../service/Login/login.service";
 import { CartService } from "../../service/cart/cart.service";
 import { ProductsService } from "../../service/Products/products.service";
 import { Router } from '@angular/router';
+import { AuthService } from "../../service/auth.service";
 
 @Component({
   selector: 'app-header',
@@ -20,8 +21,10 @@ export class HeaderComponent {
       private cartService: CartService,
       private productService: ProductsService,
       private router: Router,
+      private authService: AuthService
   ) {}
 
+  user$ = this.authService.user$;
   addtoCart = this.cartService.addToCart;
 
   goToProductDetails(productId: number) {
@@ -88,6 +91,10 @@ export class HeaderComponent {
     if (item) {
       this.cartService.updateQuantity(productId, item.quantity - 1);
     }
+  }
+
+  logOut () {
+    this.authService.logout();
   }
 
   removeFromCart(productId: number) {

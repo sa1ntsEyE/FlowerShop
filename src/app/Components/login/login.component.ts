@@ -13,7 +13,6 @@ export class LoginComponent {
   constructor(private auth: AuthService, private loginService : LoginService) {
   }
 
-
   email:string = '';
   password: string = '';
   username: string = '';
@@ -76,5 +75,10 @@ export class LoginComponent {
 
   toggleLoginComponent() {
     this.loginService.toggleLoginComponent()
+  }
+
+  signInWithGoogle() {
+    this.auth.signInWithGoogle();
+    this.toggleLoginComponent();
   }
 }

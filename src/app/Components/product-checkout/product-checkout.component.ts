@@ -29,8 +29,11 @@ export class ProductCheckoutComponent implements OnInit {
       email: new FormControl('', [Validators.required, Validators.email]),
       phoneNumber: new FormControl('', Validators.required),
       differentAddress: new FormControl(false),
-      orderNotes: new FormControl('')
+      orderNotes: new FormControl(''),
+      paymentMethod: new FormControl('', Validators.required)  // Добавили метод оплаты с валидатором
     });
+
+
   }
 
   ngOnInit() {
@@ -58,9 +61,11 @@ export class ProductCheckoutComponent implements OnInit {
   onSubmit() {
     if (this.checkoutForm.valid) {
       console.log('Форма отправлена:', this.checkoutForm.value);
+      console.log('Выбранный способ оплаты:', this.checkoutForm.value.paymentMethod);
       console.log('Корзина товаров:', this.cartItems);
     } else {
-      console.log('Форма содержит ошибки!');
+      console.log('Форма содержит ошибки! Выберите способ оплаты.');
     }
   }
+
 }

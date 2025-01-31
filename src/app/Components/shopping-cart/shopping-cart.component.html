@@ -49,9 +49,25 @@
                 <div class="shoppingCart--cartTotals--main--coupon--title">
                     Coupon Apply
                 </div>
-                <div class="shoppingCart--cartTotals--main--coupon--action">
-                    <input type="text" [(ngModel)]="couponCode" placeholder="Enter coupon code here..." />
-                    <button (click)="applyCoupon()">Apply</button>
+                <div  class="shoppingCart--cartTotals--main--coupon--action">
+                    <ng-container>
+                        <input type="text" [(ngModel)]="couponCode" placeholder="Enter coupon code here..." />
+                        <button *ngIf="user$ | async as user; else notLoggedIn" (click)="applyCoupon()">Apply</button>
+                    </ng-container>
+
+                    <ng-template #notLoggedIn>
+                        <div class="tooltip-container">
+                            <button
+                                    [disabled]="true"
+                                    class="disabled"
+                                    (click)="applyCoupon()">
+                                Apply
+                            </button>
+                            <span class="tooltip-text">Войдите, чтобы использовать купон</span>
+                        </div>
+                    </ng-template>
+
+
                 </div>
                 <div class="shoppingCart--cartTotals--main--info-priceshop">
                     <div class="shoppingCart--cartTotals--main--info-priceshop--item">

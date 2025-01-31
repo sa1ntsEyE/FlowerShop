@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { CartService } from "../../service/cart/cart.service";
 import { Router } from '@angular/router';
+import {AuthService} from "../../service/auth.service";
 
 @Component({
   selector: 'app-shopping-cart',
@@ -16,7 +17,9 @@ export class ShoppingCartComponent implements OnInit {
     "SAVE100": 100
   };
 
-  constructor(private cartService: CartService, private router: Router) {}
+  constructor(private cartService: CartService, private router: Router, private authService: AuthService) {}
+  user$ = this.authService.user$;
+
 
   ngOnInit() {}
 

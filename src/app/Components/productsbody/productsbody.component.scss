@@ -38,6 +38,11 @@
       }
     }
 
+    .BodyProduct--item:hover {
+      scale: 1.1;
+      transition: 0.3s;
+    }
+
     .Products--Info {
       text-align: left;
       width: 90%;

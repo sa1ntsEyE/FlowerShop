@@ -1,10 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { ProductsService } from "../../service/Products/products.service";
+import { CommentsServiceService } from "../../service/CommentsService/comments-service.service";
+import { AuthService } from "../../service/auth.service";
 import { ProductsAll } from "../../../models/products";
-import {NgbRatingConfig, NgbRatingModule} from "@ng-bootstrap/ng-bootstrap";
-import {ShoppingCartComponent} from "../shopping-cart/shopping-cart.component";
-import {CartService} from "../../service/cart/cart.service";
 
 @Component({
   selector: 'app-product-details',
@@ -14,31 +13,27 @@ import {CartService} from "../../service/cart/cart.service";
 export class ProductDetailsComponent implements OnInit {
   productId!: number;
   product: ProductsAll | null = null;
-  selectedChoice: 'description' | 'reviews' = 'description';
-  rating = 5;
+  comments: any[] = [];  // Массив для комментариев
+  newComment: string = '';  // Новый комментарий
+  user$ = this.authService.user$;
+  selectedChoice: string = 'description'; // Добавлено для выбора между description и reviews
+  rating: number = 0;  // Добавлено для рейтинга
 
 
   constructor(
       private route: ActivatedRoute,
       private productsService: ProductsService,
-      private cartService: CartService,
-      config: NgbRatingConfig
-  ) {	config.max = 5;}
+      private commentsService: CommentsServiceService,
+      private authService: AuthService
+  ) {}
 
-
-  addToCart(product: any) {
-    this.cartService.addToCart(product);
-    console.log(`${product.name} добавлен в корзину`);
-  }
   ngOnInit() {
-    console.log('ProductDetailsComponent initialized');
     this.route.paramMap.subscribe(params => {
       const productIdFromUrl = params.get('id');
       if (productIdFromUrl) {
         this.productId = +productIdFromUrl;
         this.loadProductDetails();
-      } else {
-        console.error('Product ID not found in URL');
+        this.loadComments();
       }
     });
   }
@@ -47,7 +42,6 @@ export class ProductDetailsComponent implements OnInit {
     this.productsService.getProductById(this.productId).subscribe(
         (product: ProductsAll) => {
           this.product = product;
-          console.log('Product loaded:', this.product);
         },
         (error) => {
           console.error('Error loading product:', error);
@@ -55,5 +49,42 @@ export class ProductDetailsComponent implements OnInit {
     );
   }
 
+  loadComments() {
+    this.commentsService.getComments(this.productId).subscribe(
+        (comments: any[]) => {
+          // Преобразуем timestamp в Date
+          this.comments = comments.map(comment => ({
+            ...comment,
+            timestamp: comment.timestamp.toDate()  // Преобразуем Timestamp в Date
+          }));
+        },
+        (error: any) => {
+          console.error('Error loading comments:', error);
+        }
+    );
+  }
 
+
+
+
+  addComment(newComment: string): void {
+    if (newComment.trim()) {
+      this.user$.subscribe(user => {
+        if (user && user.displayName) {  // Проверка наличия displayName
+          this.commentsService.addComment(this.productId, newComment, user.displayName).then(() => {
+            this.newComment = '';  // Очистить поле после отправки
+            this.loadComments();  // Перезагрузить комментарии
+          }).catch(error => console.error('Error adding comment:', error));
+        } else {
+          console.log('User not logged in or user has no displayName');
+        }
+      });
+    }
+  }
+
+
+  addToCart(product: ProductsAll): void {
+    // Здесь будет логика добавления товара в корзину
+    console.log('Added to cart', product);
+  }
 }

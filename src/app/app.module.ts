@@ -7,6 +7,7 @@ import { initializeApp, provideFirebaseApp } from '@angular/fire/app';
 import { getAuth, provideAuth } from '@angular/fire/auth';
 import { getFirestore, provideFirestore } from '@angular/fire/firestore';
 import {AngularFireModule} from "@angular/fire/compat";
+import { AngularFireAuthModule } from '@angular/fire/compat/auth';
 import {environment} from "../../environment/environment";
 import { LoginComponent } from './Components/login/login.component';
 import {FormsModule} from "@angular/forms";
@@ -28,7 +29,7 @@ import { ShopComponent } from './Layouts/shop/shop.component';
 import { ShoppingCartComponent } from './Components/shopping-cart/shopping-cart.component';
 import { ProductCheckoutComponent } from './Components/product-checkout/product-checkout.component';
 import { ReactiveFormsModule } from "@angular/forms";
-
+import { AngularFireDatabaseModule} from "@angular/fire/compat/database";
 
 @NgModule({
   declarations: [
@@ -56,16 +57,18 @@ import { ReactiveFormsModule } from "@angular/forms";
     provideAuth(() => getAuth()),
     provideFirestore(() => getFirestore()),
     AngularFireModule.initializeApp(environment.firebaseConfig),
+    AngularFireAuthModule,
     FormsModule,
     NgbModule,
     MatSliderModule,
     BrowserAnimationsModule,
     HttpClientModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+
   ],
   providers: [
     provideClientHydration(),
-    provideAnimationsAsync()
+    provideAnimationsAsync(),
   ],
   bootstrap: [AppComponent]
 })

@@ -52,9 +52,19 @@
                 <div class="productDetails--info--action">
                     <div class="productDetails--info--buyAndAdd--action">
                         <button [routerLink]="'/shop'" (click)="addToCart(product)">BUY NOW</button>
-                        <button>ADD TO CART</button>
-                        <button><3</button>
+                        <ng-container>
+                            <button  *ngIf="user$ | async as user; else notLoggedOut"><3</button>
+                        </ng-container>
+                        <ng-template #notLoggedOut>
+                           <div class="tooltip-container">
+                               <button [disabled]="true" class="disabled"><3</button>
+                               <span class="tooltip-text">Войдите, чтобы добавить в желаемое</span>
+                           </div>
+                        </ng-template>
                     </div>
+
+
+
                 </div>
                 <div class="productDetails--info--SCT">
                     <div class="productDetails--info--SCT-S">
@@ -150,9 +160,21 @@
             </div>
         </div>
 
-        <div *ngIf="selectedChoice === 'reviews'" class="productDetails--info--main--description--reviews--main">
-            PEOPLE'S COMMENTS
+        <div class="productDetails--info--main--description--reviews--main">
+            <div *ngIf="selectedChoice === 'reviews'" class="productDetails--info--main--description--reviews--list">
+                <div *ngFor="let comment of comments" class="comment">
+                    <div>{{ comment.userName }}: {{ comment.comment }}</div>
+                    <div>{{ comment.timestamp | date:'short' }}</div>
+                </div>
+            </div>
+
+            <div *ngIf="selectedChoice === 'reviews'" class="productDetails--info--main--description--reviews--form">
+                <textarea [(ngModel)]="newComment" placeholder="Add your comment..."></textarea>
+                <button (click)="addComment(newComment)">Post Comment</button>
+            </div>
         </div>
+
+
     </div>
 
 </div>
