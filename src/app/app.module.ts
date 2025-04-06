@@ -1,35 +1,42 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule, provideClientHydration } from '@angular/platform-browser';
-import {MatSliderModule} from "@angular/material/slider";
-import { AppRoutingModule } from './app-routing.module';
-import { AppComponent } from './app.component';
 import { initializeApp, provideFirebaseApp } from '@angular/fire/app';
+import {MatSliderModule} from "@angular/material/slider";
 import { getAuth, provideAuth } from '@angular/fire/auth';
 import { getFirestore, provideFirestore } from '@angular/fire/firestore';
 import {AngularFireModule} from "@angular/fire/compat";
 import { AngularFireAuthModule } from '@angular/fire/compat/auth';
-import {environment} from "../../environment/environment";
-import { LoginComponent } from './Components/login/login.component';
 import {FormsModule} from "@angular/forms";
-import { HeaderComponent } from './Components/header/header.component';
-import { MainBannerComponent } from './Components/main-banner/main-banner.component';
-import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
-import { SidebarComponent } from './Components/sidebar/sidebar.component';
 import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
-import { ProductsbodyComponent } from './Components/productsbody/productsbody.component';
-import { ProductDetailsComponent } from './Components/product-details/product-details.component';
 import { HttpClientModule } from '@angular/common/http';
-import { HomeComponent } from './Layouts/home/home.component';
-import { CartfindmoreComponent } from './Components/cartfindmore/cartfindmore.component';
-import { OurBlogPostsComponent } from './Components/our-blog-posts/our-blog-posts.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { FooterComponent } from './Components/footer/footer.component';
-import { ReletedproductsComponent } from './Components/reletedproducts/reletedproducts.component';
-import { ShopComponent } from './Layouts/shop/shop.component';
-import { ShoppingCartComponent } from './Components/shopping-cart/shopping-cart.component';
-import { ProductCheckoutComponent } from './Components/product-checkout/product-checkout.component';
 import { ReactiveFormsModule } from "@angular/forms";
-import { AngularFireDatabaseModule} from "@angular/fire/compat/database";
+import { DatePipe } from '@angular/common';
+
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import {environment} from "../../environment/environment";
+
+import { AppRoutingModule } from './app-routing.module';
+import { AppComponent } from './app.component';
+
+import { HomeComponent } from './Layouts/home/home.component';
+import { ShopComponent } from './Layouts/shop/shop.component';
+
+import { LoginComponent } from './components/login/login.component';
+import { HeaderComponent } from './components/header/header.component';
+import { MainBannerComponent } from './components/main-banner/main-banner.component';
+import { SidebarComponent } from './components/sidebar/sidebar.component';
+import { ProductsbodyComponent } from './components/productsbody/productsbody.component';
+import { ProductDetailsComponent } from './components/product-details/product-details.component';
+import { CartfindmoreComponent } from './components/cartfindmore/cartfindmore.component';
+import { OurBlogPostsComponent } from './components/our-blog-posts/our-blog-posts.component';
+import { FooterComponent } from './components/footer/footer.component';
+import { ReletedproductsComponent } from './components/reletedproducts/reletedproducts.component';
+import { ShoppingCartComponent } from './components/shopping-cart/shopping-cart.component';
+import { ProductCheckoutComponent } from './components/product-checkout/product-checkout.component';
+import { UserOrderListComponent } from './components/product-checkout/user-order-list/user-order-list.component';
+
+
 
 @NgModule({
   declarations: [
@@ -48,12 +55,19 @@ import { AngularFireDatabaseModule} from "@angular/fire/compat/database";
     ShopComponent,
     ShoppingCartComponent,
     ProductCheckoutComponent,
+    UserOrderListComponent,
 
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    provideFirebaseApp(() => initializeApp({"projectId":"flowershop-15faa","appId":"1:541465629622:web:dd3219fdfd714a830c6717","storageBucket":"flowershop-15faa.appspot.com","apiKey":"AIzaSyDwZ18TS6Am9awxZIKh6clCSxUJXDAQVfg","authDomain":"flowershop-15faa.firebaseapp.com","messagingSenderId":"541465629622"})),
+    provideFirebaseApp(() => initializeApp({
+      "projectId":"flowershop-15faa",
+      "appId":"1:541465629622:web:dd3219fdfd714a830c6717",
+      "storageBucket":"flowershop-15faa.appspot.com",
+      "apiKey":"AIzaSyDwZ18TS6Am9awxZIKh6clCSxUJXDAQVfg",
+      "authDomain":"flowershop-15faa.firebaseapp.com",
+      "messagingSenderId":"541465629622"})),
     provideAuth(() => getAuth()),
     provideFirestore(() => getFirestore()),
     AngularFireModule.initializeApp(environment.firebaseConfig),
@@ -69,6 +83,7 @@ import { AngularFireDatabaseModule} from "@angular/fire/compat/database";
   providers: [
     provideClientHydration(),
     provideAnimationsAsync(),
+    DatePipe
   ],
   bootstrap: [AppComponent]
 })

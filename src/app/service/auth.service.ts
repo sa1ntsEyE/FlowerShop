@@ -1,9 +1,10 @@
 import { Injectable } from '@angular/core';
 import { AngularFireAuth} from "@angular/fire/compat/auth";
 import {Router} from "@angular/router";
-import { GoogleAuthProvider } from "firebase/auth";
+
 import { Observable } from 'rxjs';
-import { User } from 'firebase/auth';
+
+import { GoogleAuthProvider } from "firebase/auth";
 import firebase from 'firebase/compat/app';
 
 const providerGoogle = new GoogleAuthProvider();

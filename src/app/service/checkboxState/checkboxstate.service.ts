@@ -1,18 +1,17 @@
 import { Injectable } from '@angular/core';
 import { BehaviorSubject } from 'rxjs';
-import { Products , ProductsAll} from "../../../models/products";
+import { Products , ProductsAll} from '../../../models/products';
 
 @Injectable({
   providedIn: 'root'
 })
 export class CheckboxstateService {
   private categoriesArray = new BehaviorSubject<Array<Products>>([]);
-  categoriesArray$ = this.categoriesArray.asObservable();
-
   private sizesArray = new BehaviorSubject<Array<Products>>([]);
-  sizesArray$ = this.sizesArray.asObservable();
-
   private filteredProductsSubject = new BehaviorSubject<ProductsAll[]>([]);
+
+  categoriesArray$ = this.categoriesArray.asObservable();
+  sizesArray$ = this.sizesArray.asObservable();
   filteredProducts$ = this.filteredProductsSubject.asObservable();
 
   constructor() { }

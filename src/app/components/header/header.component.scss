@@ -1,0 +1,235 @@
+header {
+  margin: 26px 0 12px 0;
+  position: sticky;
+  left: 0;
+  top: 0;
+  z-index: 1000;
+
+}
+.Header--main {
+  display: flex;
+  height: 53px;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 0.3px solid rgba(70, 163, 88, 0.5);
+  background: rgb(251, 251, 251);
+  .Header--logo {
+    cursor: pointer;
+  }
+
+  .Header--navigation {
+    max-width: 100%;
+    width: auto;
+    display: flex;
+    justify-content: center;
+
+    ul , li{
+      color: rgb(61, 61, 61);
+      font-family: "Oswald", sans-serif;
+      font-size: 16px;
+      font-weight: 400;
+      line-height: 20px;
+      letter-spacing: 0%;
+      text-align: left;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      list-style: none;
+      padding: 0;
+      margin:  0;
+    }
+
+    ul {
+      display: flex;
+      gap: 50px;
+    }
+
+    li {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      cursor: pointer;
+    }
+
+  }
+  .Header--info {
+    width: 400px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    .Header--search {
+      display: flex;
+      position: relative;
+
+      input {
+        padding-left: 9px;
+        border-radius: 6px;
+        border: none;
+        max-height: 40px;
+        box-shadow: 0px 0px 20px 0px rgba(0, 0, 0, 0.06);
+        background: rgb(255, 255, 255);
+        border: 1px solid rgb(70, 163, 88);
+      }
+
+      input:focus {
+        outline: none;
+        border: 2px solid rgb(70, 163, 88);
+      }
+
+      svg {
+        position: absolute;
+        top: 3px;
+        left: 150px;
+      }
+    }
+
+    .Header--shop {
+      position: relative;
+
+
+      span {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 17px;
+        height: 17px;
+        font-family: "Oswald", sans-serif;
+        position: absolute;
+        font-size: 10px;
+        top: 0px;
+        left: 12px;
+        border-radius: 50%;
+        border: 2px solid rgb(255, 255, 255);
+        background: rgb(70, 163, 88);
+        text-align: center;
+        color: white;
+      }
+    }
+
+    .Header--login {
+      button {
+        scale: 0.6;
+        padding: 0 52px;
+        width: 160px;
+        height: 64px;
+        background: rgb(70, 163, 88);
+        color: white;
+        border: none;
+        border-radius: 32px;
+        font-size: 24px;
+        font-weight: bold;
+        font-family: "Oswald", sans-serif;
+        cursor: pointer;
+        position: relative;
+        z-index: 1;
+        overflow: hidden;
+      }
+
+      button:hover {
+        color: black;
+        border:none;
+      }
+
+      button:after {
+        content: "";
+        background: white;
+        position: absolute;
+        z-index: -1;
+        left: -20%;
+        right: -20%;
+        top: 0;
+        bottom: 0;
+        transform: skewX(-45deg) scale(0, 1);
+        transition: all 0.5s;
+      }
+
+      button:hover:after {
+        transform: skewX(-45deg) scale(1, 1);
+        -webkit-transition: all 0.5s;
+        transition: all 0.5s;
+      }
+    }
+
+    button{
+      width: 100px;
+      height: 35px;
+      border-radius: 6px;
+      border: none;
+      font-family: "Oswald", sans-serif;
+      color: white;
+      background: rgb(70, 163, 88);
+      cursor: pointer;
+      transition: all 0.7s;
+    }
+  }
+}
+
+
+.cart-items {
+  max-height: 300px;
+  overflow-y: auto;
+}
+.cart-item {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 10px;
+}
+.cart-search-modal {
+  position: fixed;
+  top: 11%;
+  right: 10.5%;
+  width: 400px;
+  background: white;
+  border: 1px solid #ccc;
+  padding: 15px;
+  z-index: 1000;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  h3 {
+    color: rgb(61, 61, 61);
+    font-family: "Oswald", sans-serif;
+    text-align: left;
+  }
+}
+.cart-search-item {
+  border: 1px solid #ccc;
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 10px;
+}
+.quantity-controls {
+  display: flex;
+  align-items: center;
+}
+.close-cart {
+  margin-top: 10px;
+  width: 100%;
+}
+.Product--action {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: space-around;
+  button {
+    width: 75px !important;
+  }
+}
+
+.Products--Info {
+  width: 50%;
+}
+
+.Products--Name {
+  color: rgb(61, 61, 61);
+  font-family: "Oswald", sans-serif;
+  font-size: 16px;
+  font-weight: 400;
+  text-align: left;
+}
+.Products--Price {
+  color: rgb(70, 163, 88);
+  font-family: "Oswald", sans-serif;
+  font-size: 18px;
+  font-weight: 700;
+  text-align: left;
+}

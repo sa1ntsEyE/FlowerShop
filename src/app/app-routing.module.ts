@@ -1,12 +1,12 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { ProductDetailsComponent } from "./Components/product-details/product-details.component";
-import { ProductsbodyComponent } from "./Components/productsbody/productsbody.component";
+import { ProductDetailsComponent } from "./components/product-details/product-details.component";
+import { ProductsbodyComponent } from "./components/productsbody/productsbody.component";
 import {HomeComponent} from "./Layouts/home/home.component";
 import {AppComponent} from "./app.component";
 import { ShopComponent } from "./Layouts/shop/shop.component";
-import { ShoppingCartComponent} from "./Components/shopping-cart/shopping-cart.component";
-import {ProductCheckoutComponent} from "./Components/product-checkout/product-checkout.component";
+import { ShoppingCartComponent} from "./components/shopping-cart/shopping-cart.component";
+import {ProductCheckoutComponent} from "./components/product-checkout/product-checkout.component";
 
 const routes: Routes = [
   { path: '', component: HomeComponent },

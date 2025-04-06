@@ -1,0 +1,124 @@
+.reletedProducts--slider {
+  display: flex;
+  overflow: hidden;
+  width: 100%;
+  position: relative;
+}
+
+.reletedProducts--main--title {
+  color: rgb(70, 163, 88);
+  font-family: "Oswald", sans-serif;
+  font-size: 17px;
+  font-weight: 700;
+  line-height: 16px;
+  padding-bottom: 11px;
+  margin-bottom: 44px;
+  border-bottom: 0.3px solid rgba(70, 163, 88, 0.5);
+}
+
+.reletedProducts--slider--page {
+  width: 100%;
+  display: flex;
+  transition: transform 0.5s ease;
+}
+
+.reletedProducts--main {
+  padding-bottom: 128px;
+}
+
+.reletedProducts--main--block {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 25px;
+  width: 100%;
+}
+
+.reletedProducts--main--block--item {
+  width: 220px;
+  height: 300px;
+  text-align: center;
+}
+
+.reletedProducts--body {
+  background: rgb(251, 251, 251);
+}
+
+.reletedProducts--body img {
+  cursor: pointer;
+}
+
+.reletedProducts--body img {
+  width: 212px;
+  height: 212px;
+  border-radius: 10px;
+}
+
+.reletedProducts--Info {
+  margin-top: 10px;
+  color: rgb(61, 61, 61);
+  font-family: "Oswald", sans-serif;
+  font-size: 15px;
+  font-weight: 400;
+  line-height: 16px;
+
+  .reletedProducts--Name {
+    color: rgb(61, 61, 61);
+    font-family: "Oswald", sans-serif;
+    font-size: 15px;
+    font-weight: 400;
+    line-height: 16px;
+    margin-bottom: 5px;
+  }
+
+  .reletedProducts--Price {
+    color: rgb(70, 163, 88);
+    font-family: "Oswald", sans-serif;
+    font-size: 16px;
+    font-weight: 700;
+    line-height: 16px;
+  }
+}
+
+.slider-navigation-dots {
+  text-align: center;
+  margin-top: 20px;
+
+  button {
+    width: 12px;
+    height: 12px;
+    border: none;
+    background-color: #ccc;
+    border-radius: 50%;
+    margin: 0 5px;
+    cursor: pointer;
+    outline: none;
+
+    &.active {
+      background-color: green;
+    }
+
+    &:hover {
+      background-color: darkgreen;
+    }
+  }
+}
+
+/* Arrows styling */
+.arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+
+  color: white;
+  border: none;
+  font-size: 24px;
+  padding: 10px;
+  cursor: pointer;
+  z-index: 10;
+  background-color: transparent;
+  height: 100%;
+}
+
+.arrow.next {
+  right: 10px;
+}

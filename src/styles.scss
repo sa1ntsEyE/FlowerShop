@@ -2,7 +2,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Oswald:wght@200..700&display=swap');
 @import 'bootstrap/scss/bootstrap';
 
-
 a {
   text-decoration: none;
   color: black;
@@ -25,10 +24,14 @@ li {
   list-style: none;
 }
 
-html, body { height: 100%; position: relative; z-index: 100 }
+* {
+  //outline: 1px solid red;
+}
+
+html, body {  position: relative; z-index: 100 ; font-family: "Oswald", sans-serif;  }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 
-html, body { height: 100%; }
+html, body {  }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 
 

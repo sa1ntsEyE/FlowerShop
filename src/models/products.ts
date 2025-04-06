@@ -1,4 +1,5 @@
 export interface Products {
+  id: string,
   name: string,
   counters : number,
   state: boolean

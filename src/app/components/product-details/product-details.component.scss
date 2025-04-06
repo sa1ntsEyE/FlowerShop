@@ -1,0 +1,509 @@
+.productDetails--main {
+  display: flex;
+  justify-content: space-between;
+  padding-bottom: 100px;
+  .productDetails--photo--main {
+    display: flex;
+    width: 574px;
+    height: 458px;
+    justify-content: space-between;
+    .productDetails--photo-small {
+      border-radius: 6px;
+      justify-content: space-between;
+      display: flex;
+      flex-direction: column;
+      .productDetails--photo-small--item {
+        background: rgb(251, 251, 251);
+      }
+    }
+    .productDetails--photo--big {
+      display: flex;
+      align-items: center;
+      border-radius: 6px;
+      background: rgb(251, 251, 251);
+    }
+  }
+
+  .productDetails--info--main {
+    width: 574px;
+    height: 458px;
+    .productDetails--info--titles-main {
+      .productDetails--info--titles-main-title {
+        color: rgb(61, 61, 61);
+        font-family: "Oswald", sans-serif;
+        font-size: 28px;
+        font-weight: 700;
+        text-align: left;
+
+      }
+      .productDetails--info--titles-main--costAndRating {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        border-bottom: 0.3px solid rgba(70, 163, 88, 0.5);
+        margin-bottom: 15px;
+        .productDetails--info--titles-main--costAndRating--COST {
+          color: rgb(70, 163, 88);
+          font-family: "Oswald", sans-serif;
+          font-size: 22px;
+          font-weight: 700;
+          text-align: left;
+        }
+        .productDetails--info--titles-main--costAndRating--RATING {
+          color: rgb(61, 61, 61);
+          font-family: "Oswald", sans-serif;
+          font-size: 15px;
+          font-weight: 400;
+          line-height: 16px;
+          letter-spacing: 0%;
+          text-align: left;
+        }
+      }
+    }
+    .productDetails--info--Description {
+      .productDetails--info--Description--title {
+        color: rgb(61, 61, 61);
+        font-family: "Oswald", sans-serif;
+        font-size: 15px;
+        font-weight: 500;
+        text-align: left;
+        padding-bottom: 10px;
+      }
+      .productDetails--info--Description--subtitle {
+        color: rgb(114, 114, 114);
+        font-family: "Oswald", sans-serif;
+        font-size: 14px;
+        font-weight: 400;
+        line-height: 24px;
+        letter-spacing: 0%;
+        text-align: left;
+        padding-bottom: 24px;
+      }
+    }
+    .productDetails--info--Size {
+      padding-bottom: 23px;
+      .productDetails--info--Size--title {
+        color: rgb(61, 61, 61);
+        font-family: "Oswald", sans-serif;
+        font-size: 15px;
+        font-weight: 500;
+        line-height: 16px;
+        text-align: left;
+        padding-bottom: 10px;
+      }
+      .productDetails--info--Size--choice {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 24px;
+        height: 24px;
+        box-sizing: border-box;
+        border: 1px solid rgb(70, 163, 88);
+        color: rgb(70, 163, 88);
+        border-radius: 50%;
+        font-family: "Oswald", sans-serif;
+        font-size: 18px;
+        font-weight: 700;
+        line-height: 16px;
+        letter-spacing: 0%;
+        text-align: left;
+      }
+    }
+    .productDetails--info--action {
+      display: flex;
+      align-items: center;
+      padding-bottom: 26px;
+      .productDetails--info--quantity--action {
+        padding-right: 20px;
+        button {
+          width: 33px;
+          height: 33px;
+          border-radius: 29px;
+          background: linear-gradient(180.00deg, rgb(70, 163, 88),rgba(70, 163, 88, 0.8) 100%);
+          color: white;
+          border: none;
+        }
+        button:nth-child(1) {
+          margin-right: 15px;
+        }
+        button:nth-child(2) {
+          margin-left: 15px;
+        }
+      }
+      .productDetails--info--buyAndAdd--action {
+
+        .tooltip-container {
+          position: relative;
+          display: inline-block;
+
+          button {
+            color: rgb(70, 163, 88);
+            font-family: "Oswald", sans-serif;
+            font-size: 14px;
+            font-weight: 700;
+            line-height: 20px;
+            text-transform: uppercase;
+
+            width: 40px;
+            height: 40px;
+            box-sizing: border-box;
+            border: 1px solid rgb(70, 163, 88);
+            border-radius: 6px;
+            background: white;
+
+
+            &:disabled {
+              background-color: #ccc;
+            }
+
+            &:disabled:hover {
+              cursor: not-allowed;
+            }
+          }
+        }
+
+        .tooltip-text {
+          visibility: hidden;
+          background-color: green;
+          color: white;
+          text-align: center;
+          padding: 5px 10px;
+          border-radius: 5px;
+          position: absolute;
+          bottom: 100%;
+          left: 50%;
+          transform: translateX(-50%);
+          opacity: 0;
+          transition: opacity 0.3s;
+          white-space: nowrap;
+        }
+
+        .tooltip-container:hover .tooltip-text {
+          visibility: visible;
+          opacity: 1;
+        }
+        button{
+          margin-right: 10px;
+        }
+
+        button:nth-child(1) {
+          width: 130px;
+          height: 40px;
+          background: linear-gradient(180.00deg, rgb(70, 163, 88),rgba(70, 163, 88, 0.8) 100%);
+          color: white;
+          border: none;
+        }
+
+        button:nth-child(2) {
+          color: rgb(70, 163, 88);
+          font-family: "Oswald", sans-serif;
+          font-size: 14px;
+          font-weight: 700;
+          line-height: 20px;
+          text-transform: uppercase;
+
+          width: 40px;
+          height: 40px;
+          box-sizing: border-box;
+          border: 1px solid rgb(70, 163, 88);
+          border-radius: 6px;
+          background: white;
+
+
+          &:disabled {
+            background-color: #ccc;
+          }
+
+          &:disabled:hover {
+            cursor: not-allowed;
+          }
+        }
+
+      }
+    }
+    .productDetails--info--SCT {
+      display: flex;
+      flex-direction: column;
+      .productDetails--info--SCT-S {
+        display: flex;
+        padding-bottom: 10px;
+        .productDetails--info--SCT-S-title {
+          color: #ACACAC;
+          font-family: "Oswald", sans-serif;
+          font-size: 15px;
+          font-weight: 400;
+          text-align: left;
+          padding-right: 7px;
+        }
+        .productDetails--info--SCT-S-subtitle {
+          color: #727272;
+          font-family: "Oswald", sans-serif;
+          font-size: 15px;
+          font-weight: 400;
+          text-align: left;
+        }
+      }
+      .productDetails--info--SCT-C {
+        display: flex;
+        padding-bottom: 10px;
+        .productDetails--info--SCT-C-title {
+          color: #ACACAC;
+          font-family: "Oswald", sans-serif;
+          font-size: 15px;
+          font-weight: 400;
+          text-align: left;
+          padding-right: 7px;
+        }
+        .productDetails--info--SCT-C-subtitle {
+          color: #727272;
+          font-family: "Oswald", sans-serif;
+          font-size: 15px;
+          font-weight: 400;
+          text-align: left;
+        }
+      }
+      .productDetails--info--SCT-T {
+        display: flex;
+        padding-bottom: 10px;
+        .productDetails--info--SCT-T-title {
+          color: #ACACAC;
+          font-family: "Oswald", sans-serif;
+          font-size: 15px;
+          font-weight: 400;
+          text-align: left;
+          padding-right: 7px;
+        }
+        .productDetails--info--SCT-T-subtitle {
+          color: #727272;
+          font-family: "Oswald", sans-serif;
+          font-size: 15px;
+          font-weight: 400;
+          text-align: left;
+        }
+      }
+    }
+    .productDetails--info--ShareProducts {
+      display: flex;
+
+      .productDetails--info--ShareProducts--title {
+        color: rgb(61, 61, 61);
+        font-family: "Oswald", sans-serif;
+        font-size: 15px;
+        font-weight: 500;
+        text-align: left;
+        padding-right: 7px;
+      }
+      .productDetails--info--ShareProducts--image {
+        img {
+          margin-right: 10px;
+        }
+      }
+    }
+  }
+}
+
+.productDetails--info--main--description--reviews--main {
+  padding-bottom: 128px;
+  .productDetails--info--main--description--reviews--choice--main {
+    max-width: 288px;
+    min-width: 288px;
+    display: flex;
+    justify-content: space-between;
+    position: relative;
+    padding-bottom: 10.5px;
+
+    div {
+      cursor: pointer;
+      transition: color 0.3s;
+
+      &.active {
+        color: green;
+      }
+    }
+
+    .underline {
+      position: absolute;
+      bottom: 0;
+      height: 3px;
+      background-color: green;
+      width: 50%; // Ширина линии
+      transition: all 0.3s ease;
+
+    }
+
+    .productDetails--info--main--description--choice {
+      color: rgb(61, 61, 61);
+      font-family: "Oswald", sans-serif;
+      font-size: 18px;
+      font-weight: 700;
+      line-height: 16px;
+      text-align: left;
+
+    }
+
+    .productDetails--info--main--reviews--choice {
+      font-family: "Oswald", sans-serif;
+      font-size: 18px;
+      font-weight: 700;
+      line-height: 16px;
+      text-align: left;
+    }
+
+  }
+
+  .productDetails--info--main--description--reviews--main--block {
+    .productDetails--info--main--description--ProductDescription {
+      color: rgb(114, 114, 114);
+      font-family: "Oswald", sans-serif;
+      font-size: 16px;
+      font-weight: 400;
+      line-height: 24px;
+      letter-spacing: 0%;
+      text-align: left;
+      padding-top: 20px;
+      padding-bottom: 18px;
+    }
+
+    .productDetails--info--main--description--LivingRoom {
+      padding-bottom: 18px;
+      .productDetails--info--main--description--LivingRoom--title {
+        color: rgb(61, 61, 61);
+        font-family: "Oswald", sans-serif;
+        font-size: 16px;
+        font-weight: 700;
+        line-height: 24px;
+        text-align: left;
+      }
+
+      .productDetails--info--main--description--LivingRoom--subtitle {
+        color: rgb(114, 114, 114);
+        font-family: "Oswald", sans-serif;
+        font-size: 16px;
+        font-weight: 400;
+        line-height: 24px;
+        text-align: left;
+      }
+    }
+
+    .productDetails--info--main--description--DiningsRoom {
+      padding-bottom: 18px;
+      .productDetails--info--main--description--DiningsRoom--title {
+        color: rgb(61, 61, 61);
+        font-family: "Oswald", sans-serif;
+        font-size: 16px;
+        font-weight: 700;
+        line-height: 24px;
+        text-align: left;
+      }
+
+      .productDetails--info--main--description--DiningsRoom--subtitle {
+        color: rgb(114, 114, 114);
+        font-family: "Oswald", sans-serif;
+        font-size: 16px;
+        font-weight: 400;
+        line-height: 24px;
+        letter-spacing: 0%;
+        text-align: left;
+      }
+    }
+
+    .productDetails--info--main--description--Office {
+      .productDetails--info--main--description--Office--title {
+        color: rgb(61, 61, 61);
+        font-family: "Oswald", sans-serif;
+        font-size: 16px;
+        font-weight: 700;
+        line-height: 24px;
+        text-align: left;
+      }
+
+      .productDetails--info--main--description--Office--subtitle {
+        color: rgb(114, 114, 114);
+        font-family: "Oswald", sans-serif;
+        font-size: 16px;
+        font-weight: 400;
+        line-height: 24px;
+        letter-spacing: 0%;
+        text-align: left;
+      }
+    }
+  }
+
+  .productDetails--info--main--description--reviewsComment--main {
+    display: flex;
+    flex-direction: column;
+
+    .productDetails--info--main--description--reviews--list {
+
+      .comment {
+        width: 600px;
+        border-top: 1px solid #e3e3e3;
+        padding: 20px 0 28px;
+        .comment-title {
+          display: flex;
+          justify-content: space-between;
+
+          padding-bottom: 15px;
+          .comment-user-title {
+            color: black;
+            font-family: "Oswald", sans-serif;
+            font-size: 18px;
+            font-weight: 700;
+            line-height: 24px;
+            text-align: left;
+          }
+          .comment-user-date {
+            color: black;
+            font-family: "Oswald", sans-serif;
+            font-size: 18px;
+            font-weight: 600;
+            line-height: 24px;
+            text-align: left;
+          }
+        }
+        .comment-user-comment {
+          color: black;
+          font-family: "Oswald", sans-serif;
+          font-size: 16px;
+          font-weight: 300;
+          line-height: 24px;
+          text-align: left;
+        }
+      }
+    }
+
+    .productDetails--info--main--description--reviews--form {
+      width: 600px;
+      display: flex;
+      justify-content: space-between;
+      .productDetails--info--main--description--reviews--form--addComment {
+        display: flex;
+        flex-direction: column;
+
+        textarea {
+          width: 350px;
+          height: 150px;
+        }
+      }
+
+      .productDetails--info--main--description--reviews--form--addComment--action {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+
+        button {
+          color: white;
+          width: 200px;
+          height: 35px;
+          border: none;
+          border-radius: 6px;
+          background: rgb(70, 163, 88);
+        }
+      }
+    }
+  }
+}
+
+ngb-rating  {
+ color: rgb(255, 172, 12) !important;
+}

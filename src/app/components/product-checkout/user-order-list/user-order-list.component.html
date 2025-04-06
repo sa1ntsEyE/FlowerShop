@@ -1,0 +1,134 @@
+<div class="container">
+<!--    <div *ngFor="let order of orderData; let i = index">-->
+<!--        <h3>Заказ #{{ i + 1 }}</h3>-->
+
+<!--        <div *ngIf="order.firstName">-->
+<!--            <p><strong>Имя:</strong> {{ order.firstName }} {{ order.lastName }}</p>-->
+<!--            <p><strong>Страна:</strong> {{ order.country }}</p>-->
+<!--            <p><strong>Город:</strong> {{ order.city }}</p>-->
+<!--            <p><strong>Адрес:</strong> {{ order.streetAddress }}, {{ order.apartment }}</p>-->
+<!--            <p><strong>Штат:</strong> {{ order.state }}</p>-->
+<!--            <p><strong>Email:</strong> {{ order.email }}</p>-->
+<!--            <p><strong>Телефон:</strong> {{ order.phoneNumber }}</p>-->
+<!--            <p><strong>Комментарий:</strong> {{ order.orderNotes }}</p>-->
+<!--            <p><strong>Способ оплаты:</strong> {{ order.paymentMethod }}</p>-->
+<!--        </div>-->
+
+<!--        <div *ngIf="order.cartItems">-->
+<!--            <h4>Товары:</h4>-->
+<!--            <div *ngFor="let item of order.cartItems">-->
+<!--                <p><strong>Название:</strong> {{ item.name }}</p>-->
+<!--                <p><strong>Категория:</strong> {{ item.categories }}</p>-->
+<!--                <p><strong>Размер:</strong> {{ item.size.name }}</p>-->
+<!--                <p><strong>Цена:</strong> {{ item.price }}$</p>-->
+<!--                <p><strong>Количество:</strong> {{ item.quantity }}</p>-->
+<!--                <img [src]="item.img" alt="{{ item.name }}" width="100">-->
+<!--            </div>-->
+
+<!--        </div>-->
+<!--        <hr>-->
+<!--    </div>-->
+
+    <div class="user-order-list--main">
+        <div class="user-order-list--main--title">
+            <div class="user-order-list--main--title--action--close">
+                <img src="./assets/Icons/close.svg" alt="">
+            </div>
+            <div class="user-order-list--main--title--img">
+                <img src="./assets/Icons/thank-you.png" alt="">
+            </div>
+            <div class="user-order-list--main--title-subtitle">
+                Your order has been received
+            </div>
+        </div>
+        <div  class="user-order-list--main--infoOrder">
+            <div class="user-order-list--main--infoOrder--orderNumber">
+                <div class="user-order-list--main--infoOrder--orderNumber--title">
+                    Order Number
+                </div>
+                <div class="user-order-list--main--infoOrder--orderNumber--subtitle">
+
+                </div>
+            </div>
+            <div class="user-order-list--main--infoOrder--date">
+                <div class="user-order-list--main--infoOrder--date--title">
+                    Date
+                </div>
+                <div class="user-order-list--main--infoOrder--date--subtitle">
+
+                </div>
+            </div>
+            <div class="user-order-list--main--infoOrder--Total">
+                <div class="user-order-list--main--infoOrder--Total--title">
+                    Total
+                </div>
+                <div class="user-order-list--main--infoOrder--Total--subtitle">
+
+                </div>
+            </div>
+            <div class="user-order-list--main--infoOrder--PaymentMethod">
+                <div class="user-order-list--main--infoOrder--PaymentMethod--title">
+                    Payment Method
+                </div>
+                <div class="user-order-list--main--infoOrder--PaymentMethod--subtitle">
+
+                </div>
+            </div>
+        </div>
+        <div   class="user-order-list--main--infoProducts">
+            <div class="user-order-list--main--infoProducts--title">
+                Order Details
+            </div>
+            <div   class="user-order-list--main--infoProducts--info">
+                <ul>
+                    <li>Products</li>
+                    <li>Qty</li>
+                    <li>Subtotal</li>
+                </ul>
+                <div *ngFor="let carditems of orderData[2]"  class="user-order-list--main--infoProducts--item">
+                    <div class="user-order-list--main--infoProducts--item--img">
+                        <img [src]="carditems.img" alt="Product Image">
+                    </div>
+                    <div class="user-order-list--main--infoProducts--item--infoname">
+                        <div class="user-order-list--main--infoProducts--item--infoname--title">
+                            {{carditems.name}}
+                        </div>
+                        <div class="user-order-list--main--infoProducts--item--infoname--subtitle">
+                            SKU: 1995751877966
+                        </div>
+                    </div>
+                    <div class="user-order-list--main--infoProducts--item--qty">
+                        {{carditems.quantity}}
+                    </div>
+                    <div class="user-order-list--main--infoProducts--item--totalPrice">
+                        {{carditems.price}}
+                    </div>
+                </div>
+                <div class="user-order-list--main--infoProducts--info-PriceOrder">
+                    <div class="user-order-list--main--infoProducts--info-PriceOrder--shiping">
+                        <div class="user-order-list--main--infoProducts--info-PriceOrder--shiping--title">
+                            Shipping
+                        </div>
+                        <div class="user-order-list--main--infoProducts--info-PriceOrder--shiping--number">
+                            {{shipping}}
+                        </div>
+                    </div>
+                    <div class="user-order-list--main--infoProducts--info-PriceOrder--total">
+                        <div class="user-order-list--main--infoProducts--info-PriceOrder--total--title">
+                            Total
+                        </div>
+                        <div class="user-order-list--main--infoProducts--info-PriceOrder--total--number">
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="user-order-list--main-processed-title">
+            Your order is currently being processed. You will receive an order confirmation email shortly with the expected delivery date for your items.
+        </div>
+        <div class="user-order-list--main--action">
+            <button>Track your order</button>
+        </div>
+    </div>
+</div>

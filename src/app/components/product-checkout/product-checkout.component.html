@@ -1,0 +1,151 @@
+<div class="container">
+    <app-user-order-list [orderData]="orderData"></app-user-order-list>
+    <div class="checkout-container">
+        <form [formGroup]="checkoutForm" (ngSubmit)="onSubmit()">
+            <div class="form--main">
+                <h2>Billing Address</h2>
+                <div>
+                    <label>First Name *</label>
+                    <input type="text" formControlName="firstName">
+                </div>
+
+                <div>
+                    <label>Last Name *</label>
+                    <input type="text" formControlName="lastName">
+                </div>
+
+                <div>
+                    <label>Country / Region *</label>
+                    <select formControlName="country">
+                        <option value="">Select a country / region</option>
+                        <option value="USA">USA</option>
+                        <option value="UK">UK</option>
+                    </select>
+                </div>
+
+                <div>
+                    <label>Town / City *</label>
+                    <input type="text" formControlName="city">
+                </div>
+
+                <div class="streetAdrees">
+                    <div class="streetAdressLabel">
+                        <label>Street Address *</label>
+                    </div>
+                    <div class="streetAdressInput">
+                        <input type="text" formControlName="streetAddress" placeholder="House number and street name">
+                        <input type="text" formControlName="apartment" placeholder="Apartment, suite, unit, etc. (optional)">
+                    </div>
+                    <div class="streetAdressInput">
+
+                    </div>
+                </div>
+
+                <div>
+                    <label>State *</label>
+                    <select formControlName="state">
+                        <option value="">Select a state</option>
+                        <option value="CA">California</option>
+                        <option value="NY">New York</option>
+                    </select>
+                </div>
+
+                <div>
+                    <label>Email Address *</label>
+                    <input type="email" formControlName="email">
+                </div>
+
+                <div>
+                    <label>Phone Number *</label>
+                    <input type="text" formControlName="phoneNumber">
+                </div>
+
+                <div>
+                    <label>Order notes (optional)</label>
+                    <textarea formControlName="orderNotes"></textarea>
+                </div>
+            </div>
+            <div class="shoppingCart--cartTotals--main--block">
+                <div class="shoppingCart--cartTotals--main--title">Your Order</div>
+                <div class="shoppingCart--cartTotals--main--subtitles">
+                    <div class="shoppingCart--cartTotals--main--subtitle">Products</div>
+                    <div class="shoppingCart--cartTotals--main--subtitle">Subtotal</div>
+                </div>
+
+                <div class="shoppingCart--cartTotals--main--coupon">
+                    <div class="shoppingCart--cartTotals--main--info-priceshop">
+                        <!-- Проверка данных корзины -->
+                        <div *ngIf="cartItems.length > 0; else noItems">
+                            <div *ngFor="let item of cartItems; let last = last" class="shoppingCart--products--item" [ngClass]="{'last-item': last}">
+                                <div class="shoppingCart--products--item--imgAndTitle">
+                                    <div class="shoppingCart--products--item--img">
+                                        <img [src]="item.img" alt="{{ item.name }}" width="70" height="70" />
+                                    </div>
+                                    <div class="shoppingCart--products--item--title">
+                                        <div class="shoppingCart--products--item--name">{{ item.name }}</div>
+                                        <div class="shoppingCart--products--item--sku">SKU: 1995751877966</div>
+                                    </div>
+                                </div>
+                                <div class="shoppingCart--products--item--quantity">(x {{ item.quantity }})</div>
+                                <div class="shoppingCart--products--item--total">{{ item.price * item.quantity | currency }}</div>
+                            </div>
+                        </div>
+                        <ng-template #noItems>
+                            <div>No items in the cart</div>
+                        </ng-template>
+
+                        <div class="shoppingCart--cartTotals--main--info-priceshop--item">
+                            <div class="shoppingCart--cartTotals--main--info-priceshop--item-title">Subtotal</div>
+                            <div class="shoppingCart--cartTotals--main--info-priceshop--item--title-price">{{ getSubtotal() | currency }}</div>
+                        </div>
+
+                        <div class="shoppingCart--cartTotals--main--info-priceshop--item">
+                            <div class="shoppingCart--cartTotals--main--info-priceshop--item-title">Coupon Discount</div>
+                            <div class="shoppingCart--cartTotals--main--info-priceshop--item--title-price">
+                                <span>Coupon ({{ couponCode }}):</span>
+                            </div>
+                        </div>
+
+                        <div class="shoppingCart--cartTotals--main--info-priceshop--item">
+                            <div class="shoppingCart--cartTotals--main--info-priceshop--item-title">Shipping:</div>
+                            <div class="shoppingCart--cartTotals--main--info-priceshop--item--title-price">{{ shipping | currency }}</div>
+                        </div>
+
+                        <div class="shoppingCart--cartTotals--main--info-priceshop--item">
+                            <div class="shoppingCart--cartTotals--main--info-priceshop--item-title">Total</div>
+                            <div class="shoppingCart--cartTotals--main--info-priceshop--item--title-price">{{ getTotal() | currency }}</div>
+                        </div>
+
+                        <div class="shoppingCart--cartTotals--main--info-payment--item">
+                            <div class="shoppingCart--cartTotals--main--info-payment--item-title">Payment Method</div>
+                            <div class="shoppingCart--cartTotals--main--info-payment--item--title-price">
+                                <div class="shoppingCart--cartTotals--main--info-payment--item--title-price--item">
+                                    <input type="radio" formControlName="paymentMethod" value="card" name="paymentMethod">
+                                    <label><img src="assets/Icons/payment.png" alt="Card Payment"></label>
+                                </div>
+                                <div class="shoppingCart--cartTotals--main--info-payment--item--title-price--item">
+                                    <input type="radio" formControlName="paymentMethod" value="bank" name="paymentMethod">
+                                    <label>Direct bank transfer</label>
+                                </div>
+                                <div class="shoppingCart--cartTotals--main--info-payment--item--title-price--item">
+                                    <input type="radio" formControlName="paymentMethod" value="cod" name="paymentMethod">
+                                    <label>Cash on delivery</label>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <div class="shoppingCart--cartTotals--main--checkout-action">
+                        <button
+                                (click)="onSubmit()"
+
+                        >
+                            Place Order
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>

@@ -1,11 +1,16 @@
 {
-  "hosting": [
-    {
-      "target": "flowershop",
-      "source": ".",
-      "frameworksBackend": {
-        "region": "europe-west1"
+  "hosting": {
+    "public": "dist/flowershop/browser",
+    "ignore": [
+      "firebase.json",
+      "**/.*",
+      "**/node_modules/**"
+    ],
+    "rewrites": [
+      {
+        "source": "**",
+        "destination": "/index.html"
       }
-    }
-  ]
+    ]
+  }
 }

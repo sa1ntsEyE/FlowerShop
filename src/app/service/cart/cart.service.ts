@@ -6,10 +6,8 @@ import {Injectable} from '@angular/core';
 export class CartService {
   private cartItems: any[] = [];
 
-
   getCartItems() {
     return this.cartItems;
-
   }
 
   addToCart(product: any) {
@@ -40,6 +38,4 @@ export class CartService {
     const item = this.cartItems.find((item) => item.id === itemId);
     return item ? item.price * item.quantity : 0;
   }
-
-
 }
