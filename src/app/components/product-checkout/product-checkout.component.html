@@ -1,5 +1,15 @@
+<!-- Модальное окно -->
+<div class="modal-overlay" *ngIf="showModal" (click)="closeModal()">
+    <div class="modal-content" (click)="$event.stopPropagation()">
+        <button class="close-btn" (click)="closeModal()">×</button>
+        <app-user-order-list [orderData]="orderData"></app-user-order-list>
+    </div>
+</div>
+
+
 <div class="container">
-    <app-user-order-list [orderData]="orderData"></app-user-order-list>
+
+
     <div class="checkout-container">
         <form [formGroup]="checkoutForm" (ngSubmit)="onSubmit()">
             <div class="form--main">

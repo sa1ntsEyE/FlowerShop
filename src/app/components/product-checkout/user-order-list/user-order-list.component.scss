@@ -1,246 +1,267 @@
-.user-order-list--main {
-  width: 36.125rem;
-  min-height: 53.125rem;
-  padding: 17px 40px 58px 40px;
-  border-bottom: 0.3125rem solid rgb(70, 163, 88);
-  margin: 0 auto;
-  &--title {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-around;
-    justify-items: center;
-    position: relative;
-    height: 9.75rem;
-    background: rgba(70, 163, 88, 0.06);
-    &--action--close {
-      position: absolute;
-      top: 1.0625rem;
-      right: 0.875rem;
-    }
-    &--img {
-      display: flex;
-      justify-content: center;
-    }
-    &-subtitle {
-      color: rgb(114, 114, 114);
-      font-size: 1rem;
-      font-weight: 400;
-      line-height: 1rem;
-      text-align: center;
-    }
-  }
+.user-order-list--main--wrapper {
+  .user-order-list--MP {
+    //width: 36.125rem;
 
-  &--infoOrder {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    &--orderNumber {
-      display: flex;
-      flex-direction: column;
-      align-items: flex-start;
-      &--title {
-        font-size: 0.875rem;
-        font-weight: 400;
-        line-height: 1rem;
-        text-align: left;
-      }
-      &--subtitle {
-        font-size: 0.9375rem;
-        font-weight: 700;
-        line-height: 1rem;
-        text-align: left;
-      }
-    }
-    &--date {
-      display: flex;
-      flex-direction: column;
-      align-items: flex-start;
-      &--title {
-        font-size: 0.875rem;
-        font-weight: 400;
-        line-height: 1rem;
-        text-align: left;
-      }
-      &--subtitle {
-        font-size: 0.9375rem;
-        font-weight: 700;
-        line-height: 1rem;
-        text-align: left;
-      }
-    }
-    &--Total {
-      display: flex;
-      flex-direction: column;
-      align-items: flex-start;
-      &--title {
-        font-size: 0.875rem;
-        font-weight: 400;
-        line-height: 1rem;
-        text-align: left;
-      }
-      &--subtitle {
-        font-size: 0.9375rem;
-        font-weight: 700;
-        line-height: 1rem;
-        text-align: left;
-      }
-    }
-    &--PaymentMethod {
-      display: flex;
-      flex-direction: column;
-      align-items: flex-start;
-      &--title {
-        font-size: 0.875rem;
-        font-weight: 400;
-        line-height: 1rem;
-        text-align: left;
-      }
-      &--subtitle {
-        font-size: 0.9375rem;
-        font-weight: 700;
-        line-height: 1rem;
-        text-align: left;
-      }
-    }
-  }
 
-  &--infoProducts {
-    &--title {
-      font-size: 0.9375rem;
-      font-weight: 700;
-      line-height: 1rem;
-      text-align: left;
-    }
-    &--info {
-      display: flex;
-      flex-direction: column;
-      color: rgb(61, 61, 61);
-      font-size: 1rem;
-      font-weight: 500;
-      line-height: 1rem;
-      ul {
+    .user-order-list--main {
+      width: 36.125rem;
+      max-height: 53.125rem;
+      height: 100%;
+      border-bottom: 0.3125rem solid rgb(70, 163, 88);
+      margin: 0 auto;
+
+      .user--pd {
+        padding: 17px 40px 58px 40px;
+      }
+
+      &--title {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+        justify-items: center;
+        position: relative;
+        height: 9.75rem;
+        background: rgba(70, 163, 88, 0.06);
+        &--action--close {
+          position: absolute;
+          top: 1.0625rem;
+          right: 0.875rem;
+        }
+        &--img {
+          display: flex;
+          justify-content: center;
+        }
+        &-subtitle {
+          color: rgb(114, 114, 114);
+          font-size: 1rem;
+          font-weight: 400;
+          line-height: 1rem;
+          text-align: center;
+        }
+      }
+
+      &--infoOrder {
         display: flex;
         justify-content: space-between;
-        margin-bottom: 0.625rem;
-        padding-bottom: 0.625rem;
-        border-bottom: 0.3px solid rgba(70, 163, 88, 0.5);
-
-        li {
-          flex-basis: 4.0625rem;
-        }
-        li:first-child {
-          flex-basis: 20rem;
-        }
-      }
-      .user-order-list--main--infoProducts--item {
-        display: flex;
         align-items: center;
-
-        background: rgb(251, 251, 251);
-        margin-bottom: 0.625rem;
-        &--img {
-          img {
-            width: 4.375rem;
-            height: 4.375rem;
-          }
-        }
-        &--infoname {
+        margin-bottom: 2.125rem;
+        &--orderNumber {
           display: flex;
           flex-direction: column;
-          justify-content: space-between;
+          align-items: flex-start;
           &--title {
-            font-size: 1rem;
-            font-weight: 500;
-            line-height: 1rem;
-          }
-          &--subtitle {
             font-size: 0.875rem;
             font-weight: 400;
             line-height: 1rem;
+            text-align: left;
           }
-        }
-        &--qty {
-          flex-basis: 9.75rem;
-          font-size: 0.875rem;
-          font-weight: 400;
-          line-height: 1rem;
-          text-align: right;
-        }
-        &--totalPrice {
-          flex-basis: 7rem;
-          text-align: right;
-          font-size: 1.125rem;
-          font-weight: 700;
-          line-height: 1rem;
-        }
-      }
-      &-PriceOrder {
-        display: flex;
-        flex-direction: column;
-        align-items: flex-end;
-        justify-content: space-evenly;
-        height: 4.875rem;
-        border-bottom: 0.3px solid rgba(70, 163, 88, 0.5);
-        &--shiping {
-          display: flex;
-          justify-content: space-between;
-          width: 20.0625rem;
-          &--title {
+          &--subtitle {
             font-size: 0.9375rem;
-            font-weight: 400;
-            line-height: 1rem;
-          }
-          &--number {
-            font-size: 1.125rem;
-            font-weight: 500;
-            line-height: 1rem;
-          }
-        }
-        &--total {
-          display: flex;
-          justify-content: space-between;
-          width: 20.0625rem;
-          &--title {
-            color: rgb(61, 61, 61);
-            font-size: 1rem;
             font-weight: 700;
             line-height: 1rem;
             text-align: left;
           }
-          &--number {
-            color: rgb(70, 163, 88);
-            font-size: 1.125rem;
+        }
+        &--date {
+          display: flex;
+          flex-direction: column;
+          align-items: flex-start;
+          &--title {
+            font-size: 0.875rem;
+            font-weight: 400;
+            line-height: 1rem;
+            text-align: left;
+          }
+          &--subtitle {
+            font-size: 0.9375rem;
             font-weight: 700;
             line-height: 1rem;
-            text-align: right;
+            text-align: left;
+          }
+        }
+        &--Total {
+          display: flex;
+          flex-direction: column;
+          align-items: flex-start;
+          &--title {
+            font-size: 0.875rem;
+            font-weight: 400;
+            line-height: 1rem;
+            text-align: left;
+          }
+          &--subtitle {
+            font-size: 0.9375rem;
+            font-weight: 700;
+            line-height: 1rem;
+            text-align: left;
+          }
+        }
+        &--PaymentMethod {
+          display: flex;
+          flex-direction: column;
+          align-items: flex-start;
+          &--title {
+            font-size: 0.875rem;
+            font-weight: 400;
+            line-height: 1rem;
+            text-align: left;
+          }
+          &--subtitle {
+            font-size: 0.9375rem;
+            font-weight: 700;
+            line-height: 1rem;
+            text-align: left;
           }
         }
       }
-    }
-  }
 
-  &-processed-title {
-    color: rgb(114, 114, 114);
-    font-size: 0.875rem;
-    font-weight: 400;
-    line-height: 1.375rem;
-    text-align: center;
-  }
+      &--infoProducts {
+        &--title {
+          font-size: 0.9375rem;
+          font-weight: 700;
+          line-height: 1rem;
+          text-align: left;
+          margin-bottom: 0.75rem;
+        }
+        &--info {
+          display: flex;
+          flex-direction: column;
+          color: rgb(61, 61, 61);
+          font-size: 1rem;
+          font-weight: 500;
+          line-height: 1rem;
+          ul {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 0.625rem;
+            padding-bottom: 0.625rem;
+            border-bottom: 0.3px solid rgba(70, 163, 88, 0.5);
 
-  &--action {
-    display: flex;
-    justify-content: center;
-    button {
-      width: 10.125rem;
-      height: 2.8125rem;
-      border-radius: 5px;
-      background: rgb(70, 163, 88);
-      color: rgb(255, 255, 255);
-      font-size: 1rem;
-      font-weight: 700;
-      line-height: 1rem;
-      text-align: center;
-      border: none;
+            li {
+              flex-basis: 4.0625rem;
+            }
+            li:first-child {
+              flex-basis: 20rem;
+            }
+          }
+          .user-order-list--main--infoProducts--item--wrapper {
+            max-height: 240px;
+            overflow-y: auto;
+            .user-order-list--main--infoProducts--item {
+              display: flex;
+              align-items: center;
+
+              background: rgb(251, 251, 251);
+              margin-bottom: 0.625rem;
+              &--img {
+                img {
+                  width: 4.375rem;
+                  height: 4.375rem;
+                }
+              }
+              &--infoname {
+                display: flex;
+                flex-direction: column;
+                justify-content: space-between;
+                &--title {
+                  font-size: 1rem;
+                  font-weight: 500;
+                  line-height: 1rem;
+                }
+                &--subtitle {
+                  font-size: 0.875rem;
+                  font-weight: 400;
+                  line-height: 1rem;
+                }
+              }
+              &--qty {
+                flex-basis: 9.75rem;
+                font-size: 0.875rem;
+                font-weight: 400;
+                line-height: 1rem;
+                text-align: right;
+              }
+              &--totalPrice {
+                flex-basis: 7rem;
+                text-align: right;
+                font-size: 1.125rem;
+                font-weight: 700;
+                line-height: 1rem;
+              }
+            }
+          }
+
+          &-PriceOrder {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-end;
+            justify-content: space-evenly;
+            height: 4.875rem;
+            border-bottom: 0.3px solid rgba(70, 163, 88, 0.5);
+            &--shiping {
+              display: flex;
+              justify-content: space-between;
+              width: 20.0625rem;
+              &--title {
+                font-size: 0.9375rem;
+                font-weight: 400;
+                line-height: 1rem;
+              }
+              &--number {
+                font-size: 1.125rem;
+                font-weight: 500;
+                line-height: 1rem;
+              }
+            }
+            &--total {
+              display: flex;
+              justify-content: space-between;
+              width: 20.0625rem;
+              &--title {
+                color: rgb(61, 61, 61);
+                font-size: 1rem;
+                font-weight: 700;
+                line-height: 1rem;
+                text-align: left;
+              }
+              &--number {
+                color: rgb(70, 163, 88);
+                font-size: 1.125rem;
+                font-weight: 700;
+                line-height: 1rem;
+                text-align: right;
+              }
+            }
+          }
+        }
+      }
+
+      &-processed-title {
+        margin-top: 1.134375rem;
+        margin-bottom: 3.125rem;
+        color: rgb(114, 114, 114);
+        font-size: 0.875rem;
+        font-weight: 400;
+        line-height: 1.375rem;
+        text-align: center;
+      }
+
+      &--action {
+        display: flex;
+        justify-content: center;
+        button {
+          width: 10.125rem;
+          height: 2.8125rem;
+          border-radius: 5px;
+          background: rgb(70, 163, 88);
+          color: rgb(255, 255, 255);
+          font-size: 1rem;
+          font-weight: 700;
+          line-height: 1rem;
+          text-align: center;
+          border: none;
+        }
+      }
     }
   }
 }

@@ -14,6 +14,9 @@ export class ProductCheckoutComponent implements OnInit {
   checkoutForm: FormGroup;
   orderData: any[] = [];
 
+  showModal: boolean = false;
+
+
   constructor() {
     this.checkoutForm = new FormGroup({
       firstName: new FormControl('', Validators.required),
@@ -67,10 +70,32 @@ export class ProductCheckoutComponent implements OnInit {
   // }
 
   onSubmit() {
-    this.orderData = [
-      this.checkoutForm.value,
-      this.checkoutForm.value.paymentMethod ,
-      this.cartItems
-    ];
+    const formatTime = (date: Date): string => {
+      const pad = (n: number) => n.toString().padStart(2, '0');
+      return `${pad(date.getDate())}.${pad(date.getMonth() + 1)}.${date.getFullYear()}`;
+    };
+
+    const orderTime = formatTime(new Date());
+    if (this.checkoutForm.valid) {
+      this.orderData = [
+        {
+          ...this.checkoutForm.value,
+          orderTime: orderTime
+        },
+        this.checkoutForm.value.paymentMethod ,
+        this.cartItems,
+      ];
+
+      this.showModal = true;
+      document.body.style.overflow = 'hidden';
+    } else {
+      alert('Форма содержит ошибки!');
+    }
+
+  }
+
+  closeModal() {
+    this.showModal = false;
+    document.body.style.overflow = '';
   }
 }
