@@ -6,19 +6,20 @@ export interface Products {
 }
 
 export interface ProductsAll {
-  id: number,
-  categories: string,
+  img: string;
+  id: number;
+  name: string;
+  categories: string;
+  description: string;
+  productDescription: string;
+  quantity: number;
+  livingRoom: string;
+  diningRoom: string;
+  office: string;
+  price: number;
+  grade: number;
   size: {
     name: string;
     state: boolean;
   };
-  name:string,
-  price: number,
-  grade: number,
-  description: string,
-  productDescription: string,
-  livingRoom: string,
-  diningRoom: string,
-  office: string,
-  img : string
 }

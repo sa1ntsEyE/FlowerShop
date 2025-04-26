@@ -35,6 +35,8 @@ import { ReletedproductsComponent } from './components/reletedproducts/reletedpr
 import { ShoppingCartComponent } from './components/shopping-cart/shopping-cart.component';
 import { ProductCheckoutComponent } from './components/product-checkout/product-checkout.component';
 import { UserOrderListComponent } from './components/product-checkout/user-order-list/user-order-list.component';
+import { AccountComponent } from './Layouts/account/account.component';
+import { UserAccountInfoComponent } from './components/user-account-info/user-account-info.component';
 
 
 
@@ -56,6 +58,8 @@ import { UserOrderListComponent } from './components/product-checkout/user-order
     ShoppingCartComponent,
     ProductCheckoutComponent,
     UserOrderListComponent,
+    AccountComponent,
+    UserAccountInfoComponent,
 
   ],
   imports: [

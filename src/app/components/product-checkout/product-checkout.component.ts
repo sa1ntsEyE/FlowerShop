@@ -79,11 +79,11 @@ export class ProductCheckoutComponent implements OnInit {
     if (this.checkoutForm.valid) {
       this.orderData = [
         {
-          ...this.checkoutForm.value,
+          ...this.checkoutForm.value,               // Включаем все данные формы
+          paymentMethod: this.checkoutForm.value.paymentMethod, // Правильно добавляем paymentMethod
+          cartItems: this.cartItems,                 // Добавляем товары из корзины
           orderTime: orderTime
         },
-        this.checkoutForm.value.paymentMethod ,
-        this.cartItems,
       ];
 
       this.showModal = true;
@@ -91,8 +91,8 @@ export class ProductCheckoutComponent implements OnInit {
     } else {
       alert('Форма содержит ошибки!');
     }
-
   }
+
 
   closeModal() {
     this.showModal = false;

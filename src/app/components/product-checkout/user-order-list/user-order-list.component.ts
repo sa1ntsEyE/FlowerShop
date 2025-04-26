@@ -18,9 +18,16 @@ export class UserOrderListComponent implements OnInit, OnChanges {
 
   ngOnChanges(changes: SimpleChanges) {
     if (changes['orderData'] && changes['orderData'].currentValue) {
-      this.saveOrders(changes['orderData'].currentValue);
+      const orders = changes['orderData'].currentValue;
+      // Убедитесь, что в данных есть orderTime
+      if (orders.length > 0 && orders[0].orderTime) {
+        this.saveOrders(orders);
+      } else {
+        console.error('Order data is missing orderTime!');
+      }
     }
   }
+
 
   private async saveOrders(orders: any[]) {
     for (let order of orders) {
@@ -32,4 +39,6 @@ export class UserOrderListComponent implements OnInit, OnChanges {
       }
     }
   }
+
+  protected readonly order = order;
 }

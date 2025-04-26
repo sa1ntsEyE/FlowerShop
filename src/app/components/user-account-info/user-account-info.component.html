@@ -1,0 +1,64 @@
+<div class="container">
+    <div class="wrapper--account">
+        <div class="LeftSide">
+            <div class="account-menu">
+                <div class="account-menu-title">My Account</div>
+                <ul>
+                    <li (click)="selectSection('account')"><img src="assets/Icons/userprofile.png" alt="user profile"> Account Details</li>
+                    <li (click)="selectSection('orders')"><img src="assets/Icons/userorders.png" alt="user orders"> Orders</li>
+                    <li (click)="selectSection('wishlist')"><img src="assets/Icons/userwishlist.png" alt="user wishlist"> Wishlist</li>
+                </ul>
+                <hr style="margin: 10px 0;">
+                <div class="account-logout"><img src="assets/Icons/userlogout.png" alt="user logout"> Logout</div>
+            </div>
+        </div>
+        <div class="RightSide">
+            <ng-container [ngSwitch]="selectedSection">
+                <div *ngSwitchCase="'account'">
+                    <h2>Account Details</h2>
+                    <p>Here you can view and edit your personal information.</p>
+                </div>
+
+
+                <div *ngSwitchCase="'orders'">
+                    <h2>Orders</h2>
+                    <p *ngIf="orders.length === 0">You have no orders yet.</p>
+
+                    <div *ngFor="let order of orders; let i = index">
+                        <h3>Order #{{ i + 1 }}</h3>
+
+                        <p *ngIf="order['createdAt']">Date: {{ formatOrderDate(order['createdAt']) }}</p>
+                        <p *ngIf="order['orderTime']">Order Time: {{ order['orderTime'] }}</p>
+                        <p>Payment Method: {{ order['paymentMethod'] }}</p>
+
+                        <div *ngIf="getCartItems(order).length > 0">
+                            <div *ngFor="let item of getCartItems(order)">
+                                <img [src]="item.img" alt="{{ item.name }}" width="100" />
+                                <p>Name: {{ item.name }}</p>
+                                <p>Price: {{ item.price }}</p>
+                                <p>Quantity: {{ item.quantity }}</p>
+                                <p>Description: {{ item.description }}</p>
+                            </div>
+                        </div>
+
+
+                    </div>
+                </div>
+
+
+
+
+
+
+
+                <div *ngSwitchCase="'wishlist'">
+                    <h2>Wishlist</h2>
+                    <p>Your saved items will appear here.</p>
+                </div>
+                <div *ngSwitchDefault>
+                    <p>Please select a section from the menu.</p>
+                </div>
+            </ng-container>
+        </div>
+    </div>
+</div>

@@ -7,6 +7,7 @@ import {AppComponent} from "./app.component";
 import { ShopComponent } from "./Layouts/shop/shop.component";
 import { ShoppingCartComponent} from "./components/shopping-cart/shopping-cart.component";
 import {ProductCheckoutComponent} from "./components/product-checkout/product-checkout.component";
+import {AccountComponent} from './Layouts/account/account.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
@@ -18,7 +19,8 @@ const routes: Routes = [
       { path: 'product/:id', component: ProductDetailsComponent },
       { path: 'check-out' , component: ProductCheckoutComponent }
     ]
-  }
+  },
+  { path: 'account-info', component: AccountComponent },
 ];
 @NgModule({
   imports: [RouterModule.forRoot(routes)],

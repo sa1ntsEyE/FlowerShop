@@ -65,4 +65,15 @@ export class order {
     }, { merge: true });
   }
 
+  async getOrders(): Promise<any[]> {
+    const user = await this.auth.currentUser;
+    const path = user
+        ? `userOrders/${user.uid}`
+        : `sessionOrders/${this.getSessionId()}`;
+
+    const docSnap = await this.firestore.doc(path).get().toPromise();
+    const data: any = docSnap?.data();
+    return data?.orders || [];
+  }
+
 }

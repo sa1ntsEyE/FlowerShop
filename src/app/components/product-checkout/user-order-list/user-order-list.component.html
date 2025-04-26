@@ -32,7 +32,7 @@
                             Total
                         </div>
                         <div class="user-order-list--main--infoOrder--Total--subtitle">
-                            {{orderData[1].orderTime}}
+                            {{orderData[0].cartItems.price * orderData[0].cartItems.quantity }}
                         </div>
                     </div>
                     <div class="user-order-list--main--infoOrder--PaymentMethod">
@@ -40,7 +40,7 @@
                             Payment Method
                         </div>
                         <div class="user-order-list--main--infoOrder--PaymentMethod--subtitle">
-
+                            {{orderData[0].paymentMethod}}
                         </div>
                     </div>
                 </div>
@@ -48,14 +48,14 @@
                     <div class="user-order-list--main--infoProducts--title">
                         Order Details
                     </div>
-                    <div   class="user-order-list--main--infoProducts--info">
+                    <div class="user-order-list--main--infoProducts--info">
                         <ul>
                             <li>Products</li>
                             <li>Qty</li>
                             <li>Subtotal</li>
                         </ul>
                         <div class="user-order-list--main--infoProducts--item--wrapper">
-                            <div *ngFor="let carditems of orderData[2]"  class="user-order-list--main--infoProducts--item">
+                            <div *ngFor="let carditems of orderData[2]" class="user-order-list--main--infoProducts--item">
                                 <div class="user-order-list--main--infoProducts--item--img">
                                     <img [src]="carditems.img" alt="Product Image">
                                 </div>
