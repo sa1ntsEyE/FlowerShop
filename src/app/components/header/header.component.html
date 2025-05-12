@@ -21,8 +21,8 @@
 
     <div class="Header--navigation">
       <ul>
-        <li [routerLink]="''">Home</li>
-        <li [routerLink]="'/shop'">Shop</li>
+        <li [routerLink]="''">Головна</li>
+        <li [routerLink]="'/shop'">Магазин</li>
 
       </ul>
     </div>
@@ -42,12 +42,12 @@
                           <div class="Products--Price">${{ product.price }}</div>
                       </div>
                       <div class="Product--action">
-                          <button mat-flat-button [routerLink]="'/shop'" (click)="addtoCart(product)">Buy</button>
-                          <button mat-flat-button (click)="goToProductDetails(product.id)">Details</button>
+                          <button mat-flat-button [routerLink]="'/shop'" (click)="addtoCart(product)">Купити</button>
+                          <button mat-flat-button (click)="goToProductDetails(product.id)">Деталі</button>
                       </div>
                   </div>
               </div>
-              <button class="close-cart" (click)="toggleSearchCartModal()">Закрыть</button>
+              <button class="close-cart" (click)="toggleSearchCartModal()">Закрити</button>
           </div>
           <svg width="20.000000" height="20.000000" viewBox="0 0 21 20" fill="none" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
               <defs/>
@@ -64,12 +64,12 @@
         </div>
         <div class="Header--login">
             <ng-container class="LoggedIn" *ngIf="user$ | async as user; else notLoggedIn">
-                <p>Привет, {{ user.displayName || 'Пользователь' }}!</p>
-                <button  (click)="logOut()">Logout</button>
+<!--                <p>Привет, {{ user.displayName || 'Пользователь' }}!</p>-->
+                <button  (click)="logOut()">Вийти</button>
             </ng-container>
 
             <ng-template #notLoggedIn class="notLoggedIn">
-                <button (click)="toggleLoginComponent()">Login</button>
+                <button (click)="toggleLoginComponent()">Увійти</button>
             </ng-template>
         </div>
     </div>

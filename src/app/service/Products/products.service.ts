@@ -1,15 +1,10 @@
-import { Injectable , OnInit} from '@angular/core';
+import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { Observable, of, throwError } from 'rxjs';
+import { Observable } from 'rxjs';
 import { Products, ProductsAll } from "../../../models/products";
 
-
-import { Firestore, doc, getDoc, collection, getDocs } from '@angular/fire/firestore';
-
-interface ProductSize {
-  name: string;
-  state: boolean;
-}
+import { AngularFirestore } from '@angular/fire/compat/firestore';
+import { map } from 'rxjs/operators';
 
 @Injectable({
   providedIn: 'root'
@@ -19,66 +14,43 @@ export class ProductsService {
   sizes: Array<Products> = [];
   products: Array<ProductsAll> = [];
 
-  constructor(private http: HttpClient, private firestore: Firestore) {
+  constructor(private http: HttpClient, private firestore: AngularFirestore) {
     this.updateCategoryCounters();
     this.updateSizeCounters();
   }
 
-  // Обновление счетчиков категорий
   async updateCategoryCounters(): Promise<void> {
-    const categoriesCollection = collection(this.firestore, 'categories');
-    const snapshot = await getDocs(categoriesCollection);
-    this.categories = snapshot.docs.map(doc => doc.data() as Products);
+    const snapshot = await this.firestore.collection<Products>('categories').get().toPromise();
+    this.categories = snapshot?.docs.map(doc => doc.data()) || [];
   }
 
-  // Обновление счетчиков размеров
   async updateSizeCounters(): Promise<void> {
-    const sizesCollection = collection(this.firestore, 'sizes');
-    const snapshot = await getDocs(sizesCollection);
-    this.sizes = snapshot.docs.map(doc => doc.data() as Products);
+    const snapshot = await this.firestore.collection<Products>('sizes').get().toPromise();
+    this.sizes = snapshot?.docs.map(doc => doc.data()) || [];
   }
 
-  // Получение всех продуктов
   async getProducts(): Promise<void> {
-    const productsCollection = collection(this.firestore, 'products');
-    const snapshot = await getDocs(productsCollection);
-    this.products = snapshot.docs.map(doc => doc.data() as ProductsAll);
+    const snapshot = await this.firestore.collection<ProductsAll>('products').get().toPromise();
+    this.products = snapshot?.docs.map(doc => doc.data()) || [];
   }
 
-  // Получение продукта по ID
   getProductById(productId: number): Observable<ProductsAll | null> {
-    const productDoc = doc(this.firestore, 'products', productId.toString());
-    return new Observable(observer => {
-      getDoc(productDoc).then(docSnapshot => {
-        if (docSnapshot.exists()) {
-          observer.next(docSnapshot.data() as ProductsAll);
-        } else {
-          observer.next(null);
-        }
-        observer.complete();
-      }).catch(error => {
-        observer.error(error);
-      });
-    });
+    return this.firestore.doc<ProductsAll>(`products/${productId}`).get().pipe(
+        map(snapshot => snapshot.exists ? snapshot.data()! : null)
+    );
   }
 
-  // Фильтрация продуктов по категории
   findProductsByCategory(categories: string[]): ProductsAll[] {
     return this.products.filter(product => categories.includes(product.categories));
   }
 
-
-  // Фильтрация продуктов по размеру
   findProductsBySize(sizes: string[]): ProductsAll[] {
     return this.products.filter(product => sizes.includes(product.size.name));
   }
 
-
-  // Фильтрация продуктов по категории и размеру
   findProductsByCategoryAndSize(categories: string[], sizes: string[]): ProductsAll[] {
     return this.products.filter(product =>
         categories.includes(product.categories) && sizes.includes(product.size.name)
     );
   }
-
 }

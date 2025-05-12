@@ -131,7 +131,6 @@
         }
       }
       .productDetails--info--buyAndAdd--action {
-
         .tooltip-container {
           position: relative;
           display: inline-block;
@@ -150,7 +149,6 @@
             border: 1px solid rgb(70, 163, 88);
             border-radius: 6px;
             background: white;
-
 
             &:disabled {
               background-color: #ccc;
@@ -506,4 +504,9 @@
 
 ngb-rating  {
  color: rgb(255, 172, 12) !important;
+}
+
+
+.wishlist-added {
+  background: linear-gradient(180deg, rgb(70, 163, 88), rgba(70, 163, 88, 0.8) 100%) !important;
 }

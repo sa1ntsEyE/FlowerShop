@@ -4,9 +4,9 @@
             <div class="account-menu">
                 <div class="account-menu-title">My Account</div>
                 <ul>
-                    <li (click)="selectSection('account')"><img src="assets/Icons/userprofile.png" alt="user profile"> Account Details</li>
-                    <li (click)="selectSection('orders')"><img src="assets/Icons/userorders.png" alt="user orders"> Orders</li>
-                    <li (click)="selectSection('wishlist')"><img src="assets/Icons/userwishlist.png" alt="user wishlist"> Wishlist</li>
+                    <li [class.active]="selectedSection === 'account'" (click)="selectSection('account')"><img src="assets/Icons/userprofile.png" alt="user profile"> Account Details</li>
+                    <li [class.active]="selectedSection === 'orders'" (click)="selectSection('orders')"><img src="assets/Icons/userorders.png" alt="user orders"> Orders</li>
+                    <li [class.active]="selectedSection === 'wishlist'" (click)="selectSection('wishlist')"><img src="assets/Icons/userwishlist.png" alt="user wishlist"> Wishlist</li>
                 </ul>
                 <hr style="margin: 10px 0;">
                 <div class="account-logout"><img src="assets/Icons/userlogout.png" alt="user logout"> Logout</div>
@@ -14,34 +14,56 @@
         </div>
         <div class="RightSide">
             <ng-container [ngSwitch]="selectedSection">
-                <div *ngSwitchCase="'account'">
-                    <h2>Account Details</h2>
-                    <p>Here you can view and edit your personal information.</p>
+                <div *ngSwitchCase="'account'" class="password-change-form">
+                    <form (ngSubmit)="changePassword()">
+                        <div class="form-group">
+                            <label for="currentPassword">Current Password:</label>
+                            <input type="password" id="currentPassword" [(ngModel)]="currentPassword" name="currentPassword" required class="form-input" />
+                        </div>
+
+                        <div class="form-group">
+                            <label for="newPassword">New Password:</label>
+                            <input type="password" id="newPassword" [(ngModel)]="newPassword" name="newPassword" required class="form-input" />
+                        </div>
+
+                        <div class="form-group">
+                            <label for="confirmPassword">Confirm Password:</label>
+                            <input type="password" id="confirmPassword" [(ngModel)]="confirmPassword" name="confirmPassword" required class="form-input" />
+                        </div>
+
+                        <button type="submit" [disabled]="!isPasswordValid()" class="submit-button">Change Password</button>
+                    </form>
                 </div>
 
 
-                <div *ngSwitchCase="'orders'">
+
+                <div *ngSwitchCase="'orders'" class="orders-container">
                     <h2>Orders</h2>
                     <p *ngIf="orders.length === 0">You have no orders yet.</p>
 
-                    <div *ngFor="let order of orders; let i = index">
+                    <div *ngFor="let order of orders; let i = index" class="order-item">
                         <h3>Order #{{ i + 1 }}</h3>
 
-                        <p *ngIf="order['createdAt']">Date: {{ formatOrderDate(order['createdAt']) }}</p>
-                        <p *ngIf="order['orderTime']">Order Time: {{ order['orderTime'] }}</p>
-                        <p>Payment Method: {{ order['paymentMethod'] }}</p>
+                        <div class="order-details">
+                            <p *ngIf="order['createdAt']">Date: {{ formatOrderDate(order['createdAt']) }}</p>
+                            <p *ngIf="order['orderTime']">Order Time: {{ order['orderTime'] }}</p>
+                            <p>Payment Method: {{ order['paymentMethod'] }}</p>
+                        </div>
 
-                        <div *ngIf="getCartItems(order).length > 0">
-                            <div *ngFor="let item of getCartItems(order)">
-                                <img [src]="item.img" alt="{{ item.name }}" width="100" />
-                                <p>Name: {{ item.name }}</p>
-                                <p>Price: {{ item.price }}</p>
-                                <p>Quantity: {{ item.quantity }}</p>
-                                <p>Description: {{ item.description }}</p>
+                        <div *ngIf="getCartItems(order).length > 0" class="cart-items">
+                            <div *ngFor="let item of getCartItems(order)" class="cart-item">
+                                <img [src]="item.img" alt="{{ item.name }}" width="100" class="item-image" />
+                                <div class="item-details">
+                                    <p><strong>Name:</strong> {{ item.name }}</p>
+                                    <p><strong>Price:</strong> {{ item.price }}</p>
+                                    <p><strong>Quantity:</strong> {{ item.quantity }}</p>
+                                    <p><strong>Description:</strong> {{ item.description }}</p>
+                                </div>
                             </div>
                         </div>
 
-
+                        <!-- Кнопка отмены заказа, если прошло менее 24 часов -->
+                        <button *ngIf="canCancelOrder(order)" (click)="cancelOrder(order.id)">Відмінити замовлення</button>
                     </div>
                 </div>
 
@@ -51,9 +73,32 @@
 
 
 
-                <div *ngSwitchCase="'wishlist'">
+
+
+                <div *ngSwitchCase="'wishlist'" class="wishlist--products--item--main">
                     <h2>Wishlist</h2>
-                    <p>Your saved items will appear here.</p>
+                    <p *ngIf="wishlist.length === 0">You have no saved items yet.</p>
+                    <div *ngFor="let item of wishlist" class="wishlist--products--item">
+                        <div class="wishlist--products--item--imgAndTitle">
+                            <div class="wishlist--products--item--img">
+                                <img [src]="item.img" alt="{{ item.name }}" width="100" />
+                            </div>
+                            <div class="wishlist--products--item--title">
+                                <div class="wishlist--products--item--name">
+                                    {{ item.name }}
+                                </div>
+                                <div class="wishlist--products--item--sku">
+                                    SKU: 1995751877966
+                                </div>
+                            </div>
+                        </div>
+                        <div class="wishlist--products--item--price">
+                            {{ item.price | currency }}
+                        </div>
+                        <button (click)="removeFromWishlist(item.id)" class="wishlist--remove-btn">
+                            <img src="assets/Icons/Delete.png" alt="" />
+                        </button>
+                    </div>
                 </div>
                 <div *ngSwitchDefault>
                     <p>Please select a section from the menu.</p>

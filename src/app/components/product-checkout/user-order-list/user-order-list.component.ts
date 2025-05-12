@@ -1,14 +1,16 @@
-import { Component, Input, OnInit, OnChanges, SimpleChanges } from '@angular/core';
+import { Component, Input, OnInit, OnChanges, SimpleChanges, ChangeDetectionStrategy } from '@angular/core';
 import { order } from '../../../service/order/order.service';
 
 @Component({
   selector: 'app-user-order-list',
   templateUrl: './user-order-list.component.html',
-  styleUrls: ['./user-order-list.component.scss']
+  styleUrls: ['./user-order-list.component.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class UserOrderListComponent implements OnInit, OnChanges {
   @Input() orderData: any[] = [];
   shipping: number = 10;
+  orderItems: any[] = [];
 
   constructor(private orderService: order) {}
 
@@ -19,15 +21,15 @@ export class UserOrderListComponent implements OnInit, OnChanges {
   ngOnChanges(changes: SimpleChanges) {
     if (changes['orderData'] && changes['orderData'].currentValue) {
       const orders = changes['orderData'].currentValue;
-      // Убедитесь, что в данных есть orderTime
       if (orders.length > 0 && orders[0].orderTime) {
         this.saveOrders(orders);
+        // Предполагаем, что товары находятся в orders[0].cartItems
+        this.orderItems = [...orders[0].cartItems];
       } else {
         console.error('Order data is missing orderTime!');
       }
     }
   }
-
 
   private async saveOrders(orders: any[]) {
     for (let order of orders) {
@@ -40,5 +42,7 @@ export class UserOrderListComponent implements OnInit, OnChanges {
     }
   }
 
-  protected readonly order = order;
+  trackById(index: number, item: any): any {
+    return item.id;
+  }
 }

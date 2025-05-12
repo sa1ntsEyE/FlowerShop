@@ -23,7 +23,7 @@ export class HeaderComponent implements OnInit {
   searchText: string = '';
   filteredObjects: any[] = [];
   placeholderText = '';
-  fullText = "Search";
+  fullText = "Пошук";
   isMenuOpen = false;
   user$ = this.authService.user$;
   addtoCart = this.cartService.addToCart;

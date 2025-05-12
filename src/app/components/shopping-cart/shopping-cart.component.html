@@ -2,10 +2,10 @@
     <div class="shoppingCart--main--block">
         <div class="shoppingCart--products--main--block">
             <div class="shoppingCart--products--title">
-                <div>Products</div>
-                <div>Price</div>
-                <div>Quantity</div>
-                <div>Total</div>
+                <div>Продукти</div>
+                <div>Ціна</div>
+                <div>Кількість</div>
+                <div>Всього</div>
             </div>
             <div class="shoppingCart--products--item--main">
                 <div *ngFor="let item of cartItems" class="shoppingCart--products--item">
@@ -43,16 +43,16 @@
         </div>
         <div class="shoppingCart--cartTotals--main--block">
             <div class="shoppingCart--cartTotals--main--title">
-                Cart Totals
+                Підсумки кошика
             </div>
             <div class="shoppingCart--cartTotals--main--coupon">
                 <div class="shoppingCart--cartTotals--main--coupon--title">
-                    Coupon Apply
+                    Застосування купону
                 </div>
                 <div  class="shoppingCart--cartTotals--main--coupon--action">
                     <ng-container>
-                        <input type="text" [(ngModel)]="couponCode" placeholder="Enter coupon code here..." />
-                        <button *ngIf="user$ | async as user; else notLoggedIn" (click)="applyCoupon()">Apply</button>
+                        <input type="text" [(ngModel)]="couponCode" placeholder="Введіть код купону..." />
+                        <button *ngIf="user$ | async as user; else notLoggedIn" (click)="applyCoupon()">Застосувати</button>
                     </ng-container>
 
                     <ng-template #notLoggedIn>
@@ -61,51 +61,49 @@
                                     [disabled]="true"
                                     class="disabled"
                                     (click)="applyCoupon()">
-                                Apply
+                                Застосувати
                             </button>
-                            <span class="tooltip-text">Войдите, чтобы использовать купон</span>
+                            <span class="tooltip-text">Увійдіть, щоб використати купон</span>
                         </div>
                     </ng-template>
-
-
                 </div>
                 <div class="shoppingCart--cartTotals--main--info-priceshop">
                     <div class="shoppingCart--cartTotals--main--info-priceshop--item">
                         <div class="shoppingCart--cartTotals--main--info-priceshop--item-title">
-                            Subtotal
+                            Проміжний підсумок
                         </div>
                         <div class="shoppingCart--cartTotals--main--info-priceshop--item--title-price">
-                            ${{ cartTotal + discount  }}
+                            ₴{{ cartTotal + discount  }}
                         </div>
                     </div>
                     <div class="shoppingCart--cartTotals--main--info-priceshop--item">
                         <div class="shoppingCart--cartTotals--main--info-priceshop--item-title">
-                            Coupon Discount
+                            Знижка по купону
                         </div>
                         <div class="shoppingCart--cartTotals--main--info-priceshop--item--title-price">
-                            (-) ${{ discount }}
+                            (-) ₴{{ discount }}
                         </div>
                     </div>
                     <div class="shoppingCart--cartTotals--main--info-priceshop--item">
                         <div class="shoppingCart--cartTotals--main--info-priceshop--item-title">
-                            Shiping
+                            Доставка
                         </div>
                         <div class="shoppingCart--cartTotals--main--info-priceshop--item--title-price">
-                            ${{ shipping }}
+                            ₴{{ shipping }}
                         </div>
                     </div>
                     <div class="shoppingCart--cartTotals--main--info-priceshop--item">
                         <div class="shoppingCart--cartTotals--main--info-priceshop--item-title">
-                            Total
+                            Всього
                         </div>
                         <div class="shoppingCart--cartTotals--main--info-priceshop--item--title-price">
-                            ${{ cartTotal + shipping }}
+                            ₴{{ cartTotal + shipping }}
                         </div>
                     </div>
                 </div>
                 <div class="shoppingCart--cartTotals--main--checkout-action">
-                    <button (click)="proceedToCheckout()">Proceed To Checkout</button>
-                    <p [routerLink]="''">Continue Shopping</p>
+                    <button (click)="proceedToCheckout()">Перейти до оформлення</button>
+                    <p [routerLink]="''">Продовжити покупки</p>
                 </div>
             </div>
         </div>

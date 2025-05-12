@@ -1,7 +1,7 @@
 import {Component, inject, OnDestroy, OnInit} from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 
-import {Subscription} from "rxjs";
+import {AngularFirestore} from '@angular/fire/compat/firestore';
 
 import { ProductsService } from '../../service/Products/products.service';
 import { CommentsServiceService } from '../../service/CommentsService/comments-service.service';
@@ -18,6 +18,7 @@ import {NgbRatingConfig} from '@ng-bootstrap/ng-bootstrap';
 })
 
 export class ProductDetailsComponent implements OnInit, OnDestroy {
+    private firestore: AngularFirestore = inject(AngularFirestore);
     private route: ActivatedRoute = inject(ActivatedRoute);
     private productsService: ProductsService = inject(ProductsService);
     private commentsService: CommentsServiceService = inject(CommentsServiceService);
@@ -30,7 +31,7 @@ export class ProductDetailsComponent implements OnInit, OnDestroy {
   user$ = this.authService.user$;
   newRating: number = 0;
   selectedChoice: string = 'description';
-
+  wishlistProductIds: Set<string> = new Set();
   // private watcherLoadProductDetails!: Subscription;
   // private watcherLoadComments!: Subscription;
 
@@ -46,9 +47,26 @@ export class ProductDetailsComponent implements OnInit, OnDestroy {
         this.productId = +productIdFromUrl;
         this.loadProductDetails();
         this.loadComments();
+        this.loadWishlist();
       }
     });
   }
+
+    loadWishlist() {
+        this.user$.subscribe(user => {
+            if (user) {
+                // Правильное использование AngularFirestore
+                this.firestore.collection('users').doc(user.uid).collection('wishlist')
+                    .get()
+                    .subscribe(snapshot => {
+                        this.wishlistProductIds.clear();
+                        snapshot.forEach((doc: any) => {
+                            this.wishlistProductIds.add(doc.id);
+                        });
+                    });
+            }
+        });
+    }
 
   ngOnDestroy() {}
 
@@ -62,7 +80,6 @@ export class ProductDetailsComponent implements OnInit, OnDestroy {
             }
         );
     }
-
 
     loadComments() {
    this.commentsService.getComments(this.productId).subscribe(
@@ -115,5 +132,53 @@ export class ProductDetailsComponent implements OnInit, OnDestroy {
   addToCart(product: ProductsAll): void {
     this.cartService.addToCart(product);
   }
+
+  addToWishlist(product: ProductsAll, userId: string) {
+      const wishlistRef = this.firestore.collection('users').doc(userId).collection('wishlist');
+
+      wishlistRef.doc(product.id.toString()).set({
+          id: product.id,
+          name: product.name,
+          price: product.price,
+          img: product.img,
+          description: product.description,
+          createdAt: new Date()
+      }).then(() => {
+          console.log('Product added to wishlist!');
+      }).catch(error => {
+          console.error('Error adding to wishlist:', error);
+      });
+  }
+
+    toggleWishlist(product: ProductsAll) {
+        this.user$.subscribe(user => {
+            if (user) {
+                const wishlistRef = this.firestore
+                    .collection('users')
+                    .doc(user.uid)
+                    .collection('wishlist')
+                    .doc(product.id.toString());
+
+                if (this.wishlistProductIds.has(product.id.toString())) {
+                    wishlistRef.delete().then(() => {
+                        this.wishlistProductIds.delete(product.id.toString());
+                    });
+                } else {
+                    wishlistRef.set({
+                        productId: product.id,
+                        name: product.name,
+                        img: product.img,
+                        price: product.price
+                    }).then(() => {
+                        this.wishlistProductIds.add(product.id.toString());
+                    });
+                }
+            }
+        });
+    }
+
+    isInWishlist(productId: number): boolean {
+        return this.wishlistProductIds.has(productId.toString());
+    }
 
 }

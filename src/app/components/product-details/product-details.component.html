@@ -52,13 +52,17 @@
                 <div class="productDetails--info--action">
                     <div class="productDetails--info--buyAndAdd--action">
                         <button [routerLink]="'/shop'" (click)="addToCart(product)">BUY NOW</button>
-                        <ng-container>
-                            <button  *ngIf="user$ | async as user; else notLoggedOut"><3</button>
+                        <ng-container *ngIf="user$ | async as user; else notLoggedOut">
+                            <button
+                                    (click)="toggleWishlist(product)"
+                                    [ngClass]="{'wishlist-added': isInWishlist(product.id)}">
+                                <img src="/assets/Icons/favorite.svg" alt="favorite item">
+                            </button>
                         </ng-container>
                         <ng-template #notLoggedOut>
                            <div class="tooltip-container">
                                <button [disabled]="true" class="disabled"><3</button>
-                               <span class="tooltip-text">Войдите, чтобы добавить в желаемое</span>
+                               <span class="tooltip-text">Увійдіть, щоб додати до обраного</span>
                            </div>
                         </ng-template>
                     </div>

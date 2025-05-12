@@ -13,9 +13,7 @@ export class ProductCheckoutComponent implements OnInit {
   shipping: number = 10;
   checkoutForm: FormGroup;
   orderData: any[] = [];
-
   showModal: boolean = false;
-
 
   constructor() {
     this.checkoutForm = new FormGroup({
@@ -35,18 +33,23 @@ export class ProductCheckoutComponent implements OnInit {
   }
 
   ngOnInit() {
-    if (typeof window !== 'undefined' && window.history) {
+    if (typeof window !== 'undefined') {
       const navigation = window.history.state;
-      console.log('Navigation data:', navigation);
       if (navigation) {
         this.cartItems = navigation['cartItems'] || [];
         this.discount = navigation['discount'] || 0;
         this.couponCode = navigation['couponCode'] || '';
       }
+
+      const savedFormData = localStorage.getItem('checkoutFormData');
+      if (savedFormData) {
+        this.checkoutForm.setValue(JSON.parse(savedFormData));
+      }
     } else {
-      console.warn('History is not available!');
+      console.warn('window is undefined – localStorage недоступен');
     }
   }
+
 
   getSubtotal() {
     return this.cartItems.reduce((total, item) => total + item.price * item.quantity, 0);
@@ -56,19 +59,6 @@ export class ProductCheckoutComponent implements OnInit {
     return this.getSubtotal() - this.discount + this.shipping;
   }
 
-  // onSubmit() {
-  //   if (this.checkoutForm.valid) {
-  //     this.orderData = [
-  //       this.checkoutForm.value,
-  //       this.checkoutForm.value.paymentMethod ,
-  //       this.cartItems
-  //     ];
-  //     console.log(this.orderData);
-  //   } else {
-  //     console.log('Форма содержит ошибки! Выберите способ оплаты.');
-  //   }
-  // }
-
   onSubmit() {
     const formatTime = (date: Date): string => {
       const pad = (n: number) => n.toString().padStart(2, '0');
@@ -76,15 +66,21 @@ export class ProductCheckoutComponent implements OnInit {
     };
 
     const orderTime = formatTime(new Date());
+
     if (this.checkoutForm.valid) {
       this.orderData = [
         {
-          ...this.checkoutForm.value,               // Включаем все данные формы
-          paymentMethod: this.checkoutForm.value.paymentMethod, // Правильно добавляем paymentMethod
-          cartItems: this.cartItems,                 // Добавляем товары из корзины
+          ...this.checkoutForm.value,
+          paymentMethod: this.checkoutForm.value.paymentMethod,
+          cartItems: this.cartItems,
           orderTime: orderTime
         },
       ];
+
+      if (typeof window !== 'undefined') {
+        localStorage.setItem('checkoutFormData', JSON.stringify(this.checkoutForm.value));
+      }
+
 
       this.showModal = true;
       document.body.style.overflow = 'hidden';
@@ -92,7 +88,6 @@ export class ProductCheckoutComponent implements OnInit {
       alert('Форма содержит ошибки!');
     }
   }
-
 
   closeModal() {
     this.showModal = false;
