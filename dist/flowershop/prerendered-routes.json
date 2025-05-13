@@ -1,7 +1,0 @@
-{
-  "routes": [
-    "/",
-    "/shop",
-    "/shop/check-out"
-  ]
-}

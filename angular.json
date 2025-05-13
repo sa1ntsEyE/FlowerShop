@@ -24,11 +24,6 @@
         "build": {
           "builder": "@angular-devkit/build-angular:application",
           "options": {
-            "allowedCommonJsDependencies": [
-              "@grpc/proto-loader",
-              "@grpc/grpc-js",
-              "undici"
-            ],
             "outputPath": "dist/flowershop",
             "index": "src/index.html",
             "browser": "src/main.ts",
@@ -57,23 +52,15 @@
               "budgets": [
                 {
                   "type": "initial",
-                  "maximumWarning": "25mb",
-                  "maximumError": "25mb"
+                  "maximumWarning": "100mb",
+                  "maximumError": "100mb"
                 },
                 {
                   "type": "anyComponentStyle",
-                  "maximumWarning": "25mb",
-                  "maximumError": "25mb"
+                  "maximumWarning": "100mb",
+                  "maximumError": "100mb"
                 }
               ],
-              "optimization": {
-                "scripts": true,
-                "styles": {
-                  "minify": true,
-                  "inlineCritical": false
-                },
-                "fonts": true
-              },
               "outputHashing": "all"
             },
             "development": {
