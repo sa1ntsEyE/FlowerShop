@@ -9,6 +9,13 @@
     "test": "ng test",
     "serve:ssr:flowershop": "node dist/flowershop/server/server.mjs"
   },
+  "browserslist": [
+    "last 2 Chrome versions",
+    "last 2 Edge versions",
+    "last 2 Firefox versions",
+    "last 2 Safari versions",
+    "not IE 11"
+  ],
   "private": true,
   "dependencies": {
     "@angular/animations": "^17.3.0",
