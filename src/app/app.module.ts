@@ -32,11 +32,13 @@ import { CartfindmoreComponent } from './components/cartfindmore/cartfindmore.co
 import { OurBlogPostsComponent } from './components/our-blog-posts/our-blog-posts.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { ReletedproductsComponent } from './components/reletedproducts/reletedproducts.component';
-import { ShoppingCartComponent } from './components/shopping-cart/shopping-cart.component';
+import { ShoppingCartComponent } from './components/shopping-cart-a/shopping-cart.component';
 import { ProductCheckoutComponent } from './components/product-checkout/product-checkout.component';
 import { UserOrderListComponent } from './components/product-checkout/user-order-list/user-order-list.component';
 import { AccountComponent } from './Layouts/account/account.component';
 import { UserAccountInfoComponent } from './components/user-account-info/user-account-info.component';
+import { ShoppingCartBComponent } from './components/shopping-cart-b/shopping-cart-b.component';
+import { RandomCartComponent } from './components/random-cart/random-cart.component';
 
 
 
@@ -60,6 +62,8 @@ import { UserAccountInfoComponent } from './components/user-account-info/user-ac
     UserOrderListComponent,
     AccountComponent,
     UserAccountInfoComponent,
+    ShoppingCartBComponent,
+    RandomCartComponent,
 
   ],
   imports: [

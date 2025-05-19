@@ -2,7 +2,7 @@
   <div class="Sidebar--Main">
     <div class="Sidebar--Main--Categories">
       <div class="Categories--title">
-        Categories
+          Категорії
       </div>
       <div class="Categories-choice" *ngFor="let categorie of categories; let i = index">
         <div class="form-check">
@@ -18,7 +18,7 @@
 
     <div class="Sidebar--Main--Size">
       <div class="Size--title">
-        Size
+          Розмір
       </div>
       <div class="Size-choice" *ngFor="let size of sizes; let i = index">
         <div class="form-check">
@@ -33,7 +33,7 @@
 
     <div class="Sidebar--Main--Price-Range">
       <div class="Price-Range-title">
-        Price Range
+          Ціновий діапазон
       </div>
         <mat-slider min="0" max="1000" (input)="findCategory()">
             <input matSliderStartThumb [(ngModel)]="startVal">
@@ -42,7 +42,7 @@
 
         <div class="Price-Range--range">
         <div>
-          Price:
+            Ціна:
         </div>
         <div>
             ₴{{startVal}} - ₴{{endVal}}

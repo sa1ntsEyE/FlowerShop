@@ -22,7 +22,6 @@ export class SidebarComponent implements OnInit {
   constructor() {}
 
   async ngOnInit() {
-    // Ожидаем завершения загрузки данных с Firestore
     await this.ProductsService.updateCategoryCounters();
     await this.ProductsService.updateSizeCounters();
     await this.ProductsService.getProducts();

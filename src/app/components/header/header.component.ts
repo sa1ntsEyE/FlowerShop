@@ -1,32 +1,34 @@
-import {Component, OnInit, inject} from '@angular/core';
+import { Component, OnInit, inject } from '@angular/core';
 import { Router } from '@angular/router';
-
 import { LoginService } from '../../service/Login/login.service';
 import { CartService } from '../../service/cart/cart.service';
 import { ProductsService } from '../../service/Products/products.service';
 import { AuthService } from '../../service/auth.service';
+import { ModalService } from '../../service/modal-shop-b-cart/modal.service';
 
 @Component({
   selector: 'app-header',
   templateUrl: './header.component.html',
-  styleUrl: './header.component.scss'
+  styleUrls: ['./header.component.scss']
 })
-
 export class HeaderComponent implements OnInit {
-  private loginService : LoginService = inject(LoginService);
+  private loginService: LoginService = inject(LoginService);
   private cartService: CartService = inject(CartService);
   private productService: ProductsService = inject(ProductsService);
   private router: Router = inject(Router);
   private authService: AuthService = inject(AuthService);
+  modalService = inject(ModalService);
 
+  isCartVisible = false;
   showSearchModal: boolean = false;
   searchText: string = '';
   filteredObjects: any[] = [];
   placeholderText = '';
   fullText = "Пошук";
-  isMenuOpen = false;
   user$ = this.authService.user$;
   addtoCart = this.cartService.addToCart;
+
+
 
   constructor() {}
 
@@ -36,8 +38,27 @@ export class HeaderComponent implements OnInit {
       this.placeholderText = this.fullText.slice(0, i);
       i++;
       if (i > this.fullText.length) clearInterval(interval);
-    },300)
+    }, 300);
+
+    this.modalService.isVisible$.subscribe(visible => {
+      this.isCartVisible = visible;
+    });
   }
+
+  toggleCartModal() {
+    this.modalService.toggle();
+  }
+
+
+  onShopClick() {
+    const variant = localStorage.getItem('cartVariant');
+    if (variant === 'B') {
+      this.modalService.hide();
+    } else {
+      this.modalService.show();
+    }
+  }
+
 
   goToProductDetails(productId: number) {
     console.log('Attempting to navigate to product:', productId);
@@ -46,15 +67,13 @@ export class HeaderComponent implements OnInit {
         error => console.error('Navigation error:', error)
     );
     this.searchText = '';
-    this.toggleSearchCartModal()
+    this.toggleSearchCartModal();
   }
 
   infoProductServiceFindSearch(event: Event) {
     const products = this.productService.products;
     const target = event.target as HTMLInputElement;
     const searchTerm = target.value.toLowerCase();
-    console.log(products, "infoProductServiceFindSearch");
-    console.log(target.value);
     this.showSearchModal = searchTerm !== '';
     this.filteredObjects = products.filter((product: any) =>
         product.name.toLowerCase().includes(searchTerm)
@@ -62,7 +81,7 @@ export class HeaderComponent implements OnInit {
   }
 
   toggleLoginComponent() {
-    this.loginService.toggleLoginComponent()
+    this.loginService.toggleLoginComponent();
   }
 
   checkLoginStatus() {
@@ -81,11 +100,8 @@ export class HeaderComponent implements OnInit {
     this.showSearchModal = !this.showSearchModal;
   }
 
-  logOut () {
+  logOut() {
     this.authService.logout();
   }
 
-  toggleMenu() {
-    this.isMenuOpen = !this.isMenuOpen;
-  }
 }

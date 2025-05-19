@@ -4,7 +4,7 @@ import { Router } from '@angular/router';
 import {AuthService} from '../../service/auth.service';
 
 @Component({
-  selector: 'app-shopping-cart',
+  selector: 'app-shopping-cart-a',
   templateUrl: './shopping-cart.component.html',
   styleUrls: ['./shopping-cart.component.scss']
 })

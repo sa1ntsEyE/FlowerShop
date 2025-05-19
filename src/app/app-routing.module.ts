@@ -5,9 +5,10 @@ import { ProductsbodyComponent } from "./components/productsbody/productsbody.co
 import {HomeComponent} from "./Layouts/home/home.component";
 import {AppComponent} from "./app.component";
 import { ShopComponent } from "./Layouts/shop/shop.component";
-import { ShoppingCartComponent} from "./components/shopping-cart/shopping-cart.component";
+import { ShoppingCartComponent} from "./components/shopping-cart-a/shopping-cart.component";
 import {ProductCheckoutComponent} from "./components/product-checkout/product-checkout.component";
 import {AccountComponent} from './Layouts/account/account.component';
+import {RandomCartComponent} from './components/random-cart/random-cart.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
@@ -15,7 +16,7 @@ const routes: Routes = [
     path: 'shop',
     component: ShopComponent,
     children: [
-      { path: '', component: ShoppingCartComponent },
+      { path: '', component: RandomCartComponent },
       { path: 'product/:id', component: ProductDetailsComponent },
       { path: 'check-out' , component: ProductCheckoutComponent }
     ]

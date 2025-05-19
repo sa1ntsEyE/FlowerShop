@@ -6,100 +6,23 @@
                     <img src="./assets/Icons/thank-you.png" alt="">
                 </div>
                 <div class="user-order-list--main--title-subtitle">
-                    Your order has been received
+                    Ваше замовлення отримано
                 </div>
             </div>
             <div class="user--pd">
-                <div class="user-order-list--main--infoOrder">
-                    <div class="user-order-list--main--infoOrder--orderNumber">
-                        <div class="user-order-list--main--infoOrder--orderNumber--title">
-                            Order Number
-                        </div>
-                        <div class="user-order-list--main--infoOrder--orderNumber--subtitle">
+                <ngb-rating [(rate)]="rating" [readonly]="ratingSubmitted"></ngb-rating>
 
-                        </div>
-                    </div>
-                    <div class="user-order-list--main--infoOrder--date">
-                        <div class="user-order-list--main--infoOrder--date--title">
-                            Date
-                        </div>
-                        <div class="user-order-list--main--infoOrder--date--subtitle">
-                            {{orderData[0].orderTime}}
-                        </div>
-                    </div>
-                    <div class="user-order-list--main--infoOrder--Total">
-                        <div class="user-order-list--main--infoOrder--Total--title">
-                            Total
-                        </div>
-                        <div class="user-order-list--main--infoOrder--Total--subtitle">
-                            {{orderData[0].cartItems.price * orderData[0].cartItems.quantity }}
-                        </div>
-                    </div>
-                    <div class="user-order-list--main--infoOrder--PaymentMethod">
-                        <div class="user-order-list--main--infoOrder--PaymentMethod--title">
-                            Payment Method
-                        </div>
-                        <div class="user-order-list--main--infoOrder--PaymentMethod--subtitle">
-                            {{orderData[0].paymentMethod}}
-                        </div>
-                    </div>
-                </div>
-                <div   class="user-order-list--main--infoProducts">
-                    <div class="user-order-list--main--infoProducts--title">
-                        Order Details
-                    </div>
-                    <div class="user-order-list--main--infoProducts--info">
-                        <ul>
-                            <li>Products</li>
-                            <li>Qty</li>
-                            <li>Subtotal</li>
-                        </ul>
-                        <div class="user-order-list--main--infoProducts--item--wrapper">
-                            <div *ngFor="let carditems of orderData[2]" class="user-order-list--main--infoProducts--item">
-                                <div class="user-order-list--main--infoProducts--item--img">
-                                    <img [src]="carditems.img" alt="Product Image">
-                                </div>
-                                <div class="user-order-list--main--infoProducts--item--infoname">
-                                    <div class="user-order-list--main--infoProducts--item--infoname--title">
-                                        {{carditems.name}}
-                                    </div>
-                                    <div class="user-order-list--main--infoProducts--item--infoname--subtitle">
-                                        SKU: 1995751877966
-                                    </div>
-                                </div>
-                                <div class="user-order-list--main--infoProducts--item--qty">
-                                    {{carditems.quantity}}
-                                </div>
-                                <div class="user-order-list--main--infoProducts--item--totalPrice">
-                                    {{carditems.price}}
-                                </div>
-                            </div>
-                        </div>
-                        <div class="user-order-list--main--infoProducts--info-PriceOrder">
-                            <div class="user-order-list--main--infoProducts--info-PriceOrder--shiping">
-                                <div class="user-order-list--main--infoProducts--info-PriceOrder--shiping--title">
-                                    Shipping
-                                </div>
-                                <div class="user-order-list--main--infoProducts--info-PriceOrder--shiping--number">
-                                    {{shipping}}
-                                </div>
-                            </div>
-                            <div class="user-order-list--main--infoProducts--info-PriceOrder--total">
-                                <div class="user-order-list--main--infoProducts--info-PriceOrder--total--title">
-                                    Total
-                                </div>
-                                <div class="user-order-list--main--infoProducts--info-PriceOrder--total--number">
-
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
                 <div class="user-order-list--main-processed-title">
-                    Your order is currently being processed. You will receive an order confirmation email shortly with the expected delivery date for your items.
+                    Ваше замовлення зараз обробляється. Незабаром ви отримаєте електронний лист із підтвердженням замовлення з очікуваною датою доставки ваших товарів.
                 </div>
+
                 <div class="user-order-list--main--action">
-                    <button>Track your order</button>
+                    <button
+                            class="submit-rating-btn"
+                            (click)="submitRating()"
+                            [disabled]="rating < 1 || ratingSubmitted">
+                        Надіслати рейтинг
+                    </button>
                 </div>
             </div>
         </div>

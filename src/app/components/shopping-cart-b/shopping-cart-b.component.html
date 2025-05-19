@@ -1,0 +1,35 @@
+<div class="cart-overlay" *ngIf="isVisible$ | async" (click)="closeCart()">
+    <div class="cart-container" (click)="stopPropagation($event)">
+        <div class="cart-header">
+            <div class="cart-title">Кошик</div>
+            <button class="close-cart-btn" (click)="closeCart()">×</button>
+        </div>
+
+        <div class="cart-items">
+            <div class="cart-item" *ngFor="let item of cartItems">
+                <div class="cart-item-photo">
+                    <img [src]="item.img" alt="{{ item.name }}" />
+                </div>
+                <div class="cart-item-details">
+                    <div class="cart-item-name">{{ item.name }}</div>
+                    <div class="cart-item-sku">Висота: 50-60 см</div>
+                    <div class="cart-item-price">{{ item.price  }}₴</div>
+                    <div class="cart-item-quantity">
+                        <button class="qty-decrease" (click)="decrementQuantity(item.id)">-</button>
+                        <span>{{ item.quantity }}</span>
+                        <button class="qty-increase" (click)="incrementQuantity(item.id)">+</button>
+                    </div>
+                    <div class="cart-item-total">Всього: {{ getItemTotal(item.id)   }}₴</div>
+                    <button class="remove-item-btn" (click)="removeFromCart(item.id)">Видалити товар</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="cart-footer">
+            <div class="cart-total">
+                <span>Всього: </span><span class="total-price"> {{cartTotal}}₴</span>
+            </div>
+            <button class="checkout-btn" (click)="proceedToCheckout()">Перейти до оформлення</button>
+        </div>
+    </div>
+</div>

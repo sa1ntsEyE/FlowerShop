@@ -50,6 +50,9 @@ export class ProductCheckoutComponent implements OnInit {
     }
   }
 
+  handleRatingSent() {
+    this.closeModal();
+  }
 
   getSubtotal() {
     return this.cartItems.reduce((total, item) => total + item.price * item.quantity, 0);

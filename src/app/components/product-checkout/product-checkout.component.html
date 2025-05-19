@@ -1,90 +1,110 @@
-<!-- Модальное окно -->
+<!-- Модальне вікно -->
 <div class="modal-overlay" *ngIf="showModal" (click)="closeModal()">
     <div class="modal-content" (click)="$event.stopPropagation()">
         <button class="close-btn" (click)="closeModal()">×</button>
-        <app-user-order-list [orderData]="orderData"></app-user-order-list>
+        <app-user-order-list [orderData]="orderData"
+                             (ratingSent)="handleRatingSent()"></app-user-order-list>
     </div>
 </div>
 
-
 <div class="container">
-
-
     <div class="checkout-container">
         <form [formGroup]="checkoutForm" (ngSubmit)="onSubmit()">
             <div class="form--main">
-                <h2>Billing Address</h2>
+                <h2>Адреса для виставлення рахунку</h2>
+
                 <div>
-                    <label>First Name *</label>
+                    <label>Ім’я *</label>
                     <input type="text" formControlName="firstName">
                 </div>
 
                 <div>
-                    <label>Last Name *</label>
+                    <label>Прізвище *</label>
                     <input type="text" formControlName="lastName">
                 </div>
 
                 <div>
-                    <label>Country / Region *</label>
+                    <label>Країна *</label>
                     <select formControlName="country">
-                        <option value="">Select a country / region</option>
-                        <option value="USA">USA</option>
-                        <option value="UK">UK</option>
+                        <option value="">Оберіть країну</option>
+                        <option value="USA">Україна</option>
                     </select>
                 </div>
 
                 <div>
-                    <label>Town / City *</label>
+                    <label>Місто / Селище *</label>
                     <input type="text" formControlName="city">
                 </div>
 
                 <div class="streetAdrees">
                     <div class="streetAdressLabel">
-                        <label>Street Address *</label>
+                        <label>Адреса вулиці *</label>
                     </div>
                     <div class="streetAdressInput">
-                        <input type="text" formControlName="streetAddress" placeholder="House number and street name">
-                        <input type="text" formControlName="apartment" placeholder="Apartment, suite, unit, etc. (optional)">
-                    </div>
-                    <div class="streetAdressInput">
-
+                        <input type="text" formControlName="streetAddress" placeholder="Номер будинку та назва вулиці">
+                        <input type="text" formControlName="apartment" placeholder="Квартира, офіс, під’їзд тощо (необов’язково)">
                     </div>
                 </div>
 
                 <div>
-                    <label>State *</label>
+                    <label>Область *</label>
                     <select formControlName="state">
-                        <option value="">Select a state</option>
-                        <option value="CA">California</option>
-                        <option value="NY">New York</option>
+                        <option value="">Оберіть Область</option>
+                        <option value="05">Вінницька</option>
+                        <option value="07">Волинська</option>
+                        <option value="12">Дніпропетровська</option>
+                        <option value="14">Донецька</option>
+                        <option value="18">Житомирська</option>
+                        <option value="21">Закарпатська</option>
+                        <option value="23">Запорізька</option>
+                        <option value="26">Івано-Франківська</option>
+                        <option value="32">Київська</option>
+                        <option value="35">Кіровоградська</option>
+                        <option value="44">Луганська</option>
+                        <option value="46">Львівська</option>
+                        <option value="48">Миколаївська</option>
+                        <option value="51">Одеська</option>
+                        <option value="53">Полтавська</option>
+                        <option value="56">Рівненська</option>
+                        <option value="59">Сумська</option>
+                        <option value="61">Тернопільська</option>
+                        <option value="63">Харківська</option>
+                        <option value="65">Херсонська</option>
+                        <option value="68">Хмельницька</option>
+                        <option value="71">Черкаська</option>
+                        <option value="73">Чернівецька</option>
+                        <option value="74">Чернігівська</option>
+                        <option value="80">Київ (місто)</option>
+                        <option value="85">Севастополь (місто)</option>
                     </select>
                 </div>
 
                 <div>
-                    <label>Email Address *</label>
+                    <label>Електронна пошта *</label>
                     <input type="email" formControlName="email">
                 </div>
 
                 <div>
-                    <label>Phone Number *</label>
+                    <label>Номер телефону *</label>
                     <input type="text" formControlName="phoneNumber">
                 </div>
 
                 <div>
-                    <label>Order notes (optional)</label>
+                    <label>Примітки до замовлення (необов’язково)</label>
                     <textarea formControlName="orderNotes"></textarea>
                 </div>
             </div>
+
             <div class="shoppingCart--cartTotals--main--block">
-                <div class="shoppingCart--cartTotals--main--title">Your Order</div>
+                <div class="shoppingCart--cartTotals--main--title">Ваше замовлення</div>
                 <div class="shoppingCart--cartTotals--main--subtitles">
-                    <div class="shoppingCart--cartTotals--main--subtitle">Products</div>
-                    <div class="shoppingCart--cartTotals--main--subtitle">Subtotal</div>
+                    <div class="shoppingCart--cartTotals--main--subtitle">Товари</div>
+                    <div class="shoppingCart--cartTotals--main--subtitle">Підсумок</div>
                 </div>
 
                 <div class="shoppingCart--cartTotals--main--coupon">
                     <div class="shoppingCart--cartTotals--main--info-priceshop">
-                        <!-- Проверка данных корзины -->
+                        <!-- Перевірка даних кошика -->
                         <div *ngIf="cartItems.length > 0; else noItems">
                             <div *ngFor="let item of cartItems; let last = last" class="shoppingCart--products--item" [ngClass]="{'last-item': last}">
                                 <div class="shoppingCart--products--item--imgAndTitle">
@@ -93,7 +113,7 @@
                                     </div>
                                     <div class="shoppingCart--products--item--title">
                                         <div class="shoppingCart--products--item--name">{{ item.name }}</div>
-                                        <div class="shoppingCart--products--item--sku">SKU: 1995751877966</div>
+                                        <div class="shoppingCart--products--item--sku">Артикул: 1995751877966</div>
                                     </div>
                                 </div>
                                 <div class="shoppingCart--products--item--quantity">(x {{ item.quantity }})</div>
@@ -101,57 +121,53 @@
                             </div>
                         </div>
                         <ng-template #noItems>
-                            <div>No items in the cart</div>
+                            <div>Кошик порожній</div>
                         </ng-template>
 
                         <div class="shoppingCart--cartTotals--main--info-priceshop--item">
-                            <div class="shoppingCart--cartTotals--main--info-priceshop--item-title">Subtotal</div>
+                            <div class="shoppingCart--cartTotals--main--info-priceshop--item-title">Підсумок</div>
                             <div class="shoppingCart--cartTotals--main--info-priceshop--item--title-price">{{ getSubtotal() | currency }}</div>
                         </div>
 
                         <div class="shoppingCart--cartTotals--main--info-priceshop--item">
-                            <div class="shoppingCart--cartTotals--main--info-priceshop--item-title">Coupon Discount</div>
+                            <div class="shoppingCart--cartTotals--main--info-priceshop--item-title">Знижка за купоном</div>
                             <div class="shoppingCart--cartTotals--main--info-priceshop--item--title-price">
-                                <span>Coupon ({{ couponCode }}):</span>
+                                <span>Купон ({{ couponCode }}):</span>
                             </div>
                         </div>
 
                         <div class="shoppingCart--cartTotals--main--info-priceshop--item">
-                            <div class="shoppingCart--cartTotals--main--info-priceshop--item-title">Shipping:</div>
+                            <div class="shoppingCart--cartTotals--main--info-priceshop--item-title">Доставка:</div>
                             <div class="shoppingCart--cartTotals--main--info-priceshop--item--title-price">{{ shipping | currency }}</div>
                         </div>
 
                         <div class="shoppingCart--cartTotals--main--info-priceshop--item">
-                            <div class="shoppingCart--cartTotals--main--info-priceshop--item-title">Total</div>
+                            <div class="shoppingCart--cartTotals--main--info-priceshop--item-title">Усього</div>
                             <div class="shoppingCart--cartTotals--main--info-priceshop--item--title-price">{{ getTotal() | currency }}</div>
                         </div>
 
                         <div class="shoppingCart--cartTotals--main--info-payment--item">
-                            <div class="shoppingCart--cartTotals--main--info-payment--item-title">Payment Method</div>
+                            <div class="shoppingCart--cartTotals--main--info-payment--item-title">Спосіб оплати</div>
                             <div class="shoppingCart--cartTotals--main--info-payment--item--title-price">
                                 <div class="shoppingCart--cartTotals--main--info-payment--item--title-price--item">
                                     <input type="radio" formControlName="paymentMethod" value="card" name="paymentMethod">
-                                    <label><img src="assets/Icons/payment.png" alt="Card Payment"></label>
+                                    <label><img src="assets/Icons/payment.png" alt="Оплата карткою"></label>
                                 </div>
                                 <div class="shoppingCart--cartTotals--main--info-payment--item--title-price--item">
                                     <input type="radio" formControlName="paymentMethod" value="bank" name="paymentMethod">
-                                    <label>Direct bank transfer</label>
+                                    <label>Банківський переказ</label>
                                 </div>
                                 <div class="shoppingCart--cartTotals--main--info-payment--item--title-price--item">
                                     <input type="radio" formControlName="paymentMethod" value="cod" name="paymentMethod">
-                                    <label>Cash on delivery</label>
+                                    <label>Оплата при отриманні</label>
                                 </div>
                             </div>
                         </div>
-
                     </div>
 
                     <div class="shoppingCart--cartTotals--main--checkout-action">
-                        <button
-                                (click)="onSubmit()"
-
-                        >
-                            Place Order
+                        <button (click)="onSubmit()">
+                            Оформити замовлення
                         </button>
                     </div>
                 </div>

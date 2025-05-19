@@ -11,6 +11,10 @@
       margin: 0 auto;
 
       .user--pd {
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+        align-items: center;
         padding: 17px 40px 58px 40px;
       }
 
@@ -264,4 +268,8 @@
       }
     }
   }
+}
+
+::ng-deep ngb-rating span {
+  font-size: 2.5rem;
 }
