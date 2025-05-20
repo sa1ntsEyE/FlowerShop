@@ -12,6 +12,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ReactiveFormsModule } from "@angular/forms";
 import { DatePipe } from '@angular/common';
+import { NgChartsModule } from 'ng2-charts';
 
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import {environment} from "../../environment/environment";
@@ -39,6 +40,8 @@ import { AccountComponent } from './Layouts/account/account.component';
 import { UserAccountInfoComponent } from './components/user-account-info/user-account-info.component';
 import { ShoppingCartBComponent } from './components/shopping-cart-b/shopping-cart-b.component';
 import { RandomCartComponent } from './components/random-cart/random-cart.component';
+import { CartAbTestComponent } from './components-A_B-test/cart-ab-test/cart-ab-test.component';
+
 
 
 
@@ -64,6 +67,7 @@ import { RandomCartComponent } from './components/random-cart/random-cart.compon
     UserAccountInfoComponent,
     ShoppingCartBComponent,
     RandomCartComponent,
+    CartAbTestComponent,
 
   ],
   imports: [
@@ -86,7 +90,7 @@ import { RandomCartComponent } from './components/random-cart/random-cart.compon
     BrowserAnimationsModule,
     HttpClientModule,
     ReactiveFormsModule,
-
+    NgChartsModule
   ],
   providers: [
     provideClientHydration(),

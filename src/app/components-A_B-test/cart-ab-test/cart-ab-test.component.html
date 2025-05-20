@@ -1,0 +1,19 @@
+<div class="container">
+    <h2>Варіант кошика: {{ selectedVariant }}</h2>
+
+    <p><strong>Кількість оцінок A:</strong> {{ ratingsA.length }}</p>
+    <p><strong>Кількість оцінок B:</strong> {{ ratingsB.length }}</p>
+
+    <p><strong>Середній рейтинг A:</strong> {{ avgA.toFixed(2) }}</p>
+    <p><strong>Середній рейтинг B:</strong> {{ avgB.toFixed(2) }}</p>
+
+    <p><strong>Різниця середніх (A - B):</strong> {{ difference.toFixed(2) }}</p>
+
+    <p><strong>Висновок:</strong> {{ conclusion }}</p>
+
+    <canvas baseChart
+            [data]="chartData"
+            [options]="chartOptions"
+            chartType="bar">
+    </canvas>
+</div>

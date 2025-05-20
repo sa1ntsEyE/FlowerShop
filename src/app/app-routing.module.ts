@@ -9,6 +9,8 @@ import { ShoppingCartComponent} from "./components/shopping-cart-a/shopping-cart
 import {ProductCheckoutComponent} from "./components/product-checkout/product-checkout.component";
 import {AccountComponent} from './Layouts/account/account.component';
 import {RandomCartComponent} from './components/random-cart/random-cart.component';
+import {CartAbTestComponent} from './components-A_B-test/cart-ab-test/cart-ab-test.component';
+import {authEmailGuard} from './guards/auth-email.guard';
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
@@ -22,6 +24,13 @@ const routes: Routes = [
     ]
   },
   { path: 'account-info', component: AccountComponent },
+
+  // A/B тест только для нужного email
+  {
+    path: 'ab-test',
+    component: CartAbTestComponent,
+    canActivate: [authEmailGuard]
+  }
 ];
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
